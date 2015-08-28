@@ -144,11 +144,7 @@
          </LinearLayout>
      </HorizontalScrollView>
 
-     <HorizontalScrollView
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:scrollbars="none"
-         tools:ignore="UselessParent" >
+
 
          <LinearLayout
              android:id="@+id/chooseshape"
@@ -160,71 +156,78 @@
 
              <Button
                  android:id="@+id/path"
-                 android:layout_width="50dp"
+                 android:layout_width="0dp"
                  android:layout_height="50dp"
                  android:onClick="shapechoose"
                  android:background="@color/green_500"
                  android:drawableTop="@mipmap/ic_edit_white_24dp"
                  android:paddingBottom="10dp"
+                 android:layout_weight="1"
                  android:paddingTop="13dp" />
              <Button
                  android:id="@+id/point"
-                 android:layout_width="50dp"
+                 android:layout_width="0dp"
                  android:layout_height="50dp"
                  android:onClick="shapechoose"
                  android:background="@color/green_500"
                  android:drawableTop="@mipmap/ic_small_circlefall_white_24dp"
                  android:paddingBottom="10dp"
+                 android:layout_weight="1"
                  android:paddingTop="13dp" />
              <Button
                  android:id="@+id/line"
-                 android:layout_width="50dp"
+                 android:layout_width="0dp"
                  android:layout_height="50dp"
                  android:onClick="shapechoose"
                  android:background="@color/green_500"
                  android:drawableTop="@mipmap/ic_line_white_24dp"
                  android:paddingBottom="10dp"
+                 android:layout_weight="1"
                  android:paddingTop="13dp" />
              <Button
                  android:id="@+id/rectangle"
-                 android:layout_width="50dp"
+                 android:layout_width="0dp"
                  android:layout_height="50dp"
                  android:onClick="shapechoose"
                  android:background="@color/green_500"
                  android:drawableTop="@mipmap/ic_rectangle_white_24dp"
                  android:paddingBottom="10dp"
+                 android:layout_weight="1"
                  android:paddingTop="13dp" />
              <Button
                  android:id="@+id/circle"
-                 android:layout_width="50dp"
+                 android:layout_width="0dp"
                  android:layout_height="50dp"
                  android:onClick="shapechoose"
                  android:background="@color/green_500"
                  android:drawableTop="@mipmap/ic_circle_white_24dp"
                  android:paddingBottom="10dp"
+                 android:layout_weight="1"
                  android:paddingTop="13dp" />
              <Button
                  android:id="@+id/rectanglefall"
-                 android:layout_width="50dp"
+                 android:layout_width="0dp"
                  android:layout_height="50dp"
                  android:onClick="shapechoose"
                  android:background="@color/green_500"
                  android:drawableTop="@mipmap/ic_rectanglefall_white_24dp"
                  android:paddingBottom="10dp"
+                 android:layout_weight="1"
                  android:paddingTop="13dp" />
              <Button
                  android:id="@+id/circlefall"
-                 android:layout_width="50dp"
+                 android:layout_width="0dp"
                  android:layout_height="50dp"
                  android:onClick="shapechoose"
                  android:background="@color/green_500"
                  android:drawableTop="@mipmap/ic_circlefall_white_24dp"
                  android:paddingBottom="10dp"
+                 android:layout_weight="1"
                  android:paddingTop="13dp" />
 
 
          </LinearLayout>
-     </HorizontalScrollView>
+
 	<LinearLayout
 	    		 android:id="@+id/paintSizelinr"
 	    		 android:layout_width="match_parent"
@@ -249,7 +252,7 @@
 	     	    android:layout_width="70dp"
 	     	    android:layout_height="70dp"
 	     	    android:layout_gravity="end"
-	     	    android:background="@color/md_white_1000" />
+	     	    android:background="@color/md_green_500" />
 
 	</LinearLayout>
 
@@ -277,17 +280,12 @@
 	     	    android:layout_width="70dp"
 	     	    android:layout_height="70dp"
 	     	    android:layout_gravity="end"
-	     	    android:background="@color/black" />
+	     	    android:background="@color/md_green_500" />
 
 
 	</LinearLayout>
 
 
-     <HorizontalScrollView
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:scrollbars="none"
-         tools:ignore="UselessParent" >
 
          <LinearLayout
              android:id="@+id/drawtool"
@@ -299,29 +297,32 @@
 
              <Button
                  android:id="@+id/draw"
-                 android:layout_width="50dp"
+                 android:layout_width="0dp"
                  android:layout_height="50dp"
                  android:background="@color/green_500"
                  android:drawableTop="@mipmap/ic_brush_white_24dp"
                  android:paddingBottom="10dp"
+                 android:layout_weight="1"
                  android:paddingTop="13dp" />
 
              <Button
                  android:id="@+id/color"
-                 android:layout_width="50dp"
+                 android:layout_width="0dp"
                  android:layout_height="50dp"
                  android:background="@color/green_500"
                  android:drawableTop="@mipmap/ic_color_lens_white_24dp"
                  android:paddingBottom="10dp"
+                 android:layout_weight="1"
                  android:paddingTop="13dp" />
 
              <Button
                  android:id="@+id/shape"
-                 android:layout_width="50dp"
+                 android:layout_width="0dp"
                  android:layout_height="50dp"
                  android:background="@color/green_500"
                  android:drawableTop="@mipmap/ic_dashboard_white_24dp"
                  android:paddingBottom="10dp"
+                 android:layout_weight="1"
                  android:paddingTop="13dp" />
 
              <Button
@@ -335,32 +336,34 @@
 
              <Button
                  android:id="@+id/eraser"
-                 android:layout_width="50dp"
+                 android:layout_width="0dp"
                  android:layout_height="50dp"
                  android:background="@color/green_500"
                  android:drawableTop="@mipmap/ic_eraser_white_24dp"
                  android:paddingBottom="10dp"
+                 android:layout_weight="1"
                  android:paddingTop="13dp" />
              <Button
                  android:id="@+id/cleanAll"
-                 android:layout_width="50dp"
+                 android:layout_width="0dp"
                  android:layout_height="50dp"
                  android:background="@color/green_500"
                  android:drawableTop="@mipmap/ic_delete_white_24dp"
                  android:paddingBottom="10dp"
+                 android:layout_weight="1"
                  android:paddingTop="13dp" />
 
              <Button
                  android:id="@+id/drawover"
-                 android:layout_width="50dp"
+                 android:layout_width="0dp"
                  android:layout_height="50dp"
                  android:background="@color/green_500"
                  android:drawableTop="@mipmap/ic_done_white_24dp"
                  android:paddingBottom="10dp"
+                 android:layout_weight="1"
                  android:paddingTop="13dp" />
 
          </LinearLayout>
-     </HorizontalScrollView>
 
      <HorizontalScrollView
          android:layout_width="wrap_content"

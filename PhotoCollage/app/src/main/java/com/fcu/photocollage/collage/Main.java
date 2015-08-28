@@ -13,6 +13,7 @@ import java.util.Random;
 
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -199,6 +200,7 @@ public class Main extends Activity{
 
 				//設定畫筆初始模式是為自由曲線
 				setType(ActionType.Path);
+				setSize(currentSize);
 				//新增紀錄陣列
 				mActions = new ArrayList<Action>();
 				//如果在埃史話不前有選擇圖片，把圖片還原
@@ -263,6 +265,16 @@ public class Main extends Activity{
 				seekBarShowPaintSize.setStrokeWidth(progress);
 				//用畫筆畫圓(Ｘ軸中心，Ｙ軸中心，畫筆資訊)
 				paintSizeCanvas.drawCircle(paintImgSize.getWidth() / 2, paintImgSize.getHeight() / 2, progress / 2, seekBarShowPaintSize);
+
+
+//				Paint seekBarShowPaintSizeCircile = new Paint();
+//				seekBarShowPaintSizeCircile.setAntiAlias(true);
+//				seekBarShowPaintSizeCircile.setColor(getResources().getColor(R.color.black));
+//				seekBarShowPaintSizeCircile.setStyle(Paint.Style.STROKE);
+//				seekBarShowPaintSizeCircile.setStrokeWidth(1);
+//				paintSizeCanvas.drawCircle(paintImgSize.getWidth() / 2,  paintImgSize.getHeight() / 2, progress / 2+1,
+//						seekBarShowPaintSizeCircile);
+
 				//顯示
 				paintImgSize.setImageBitmap(paintSizeBitmap);
 
@@ -387,6 +399,7 @@ public class Main extends Activity{
 			@Override
 			public void onClick(View v) {
 				paint.setAntiAlias(true);
+				setColor(currentColor);
 				if(choosecolorlinr.getVisibility()==View.VISIBLE)
 					choosecolorlinr.setVisibility(View.VISIBLE);
 				else
@@ -401,6 +414,28 @@ public class Main extends Activity{
 					paintSizelinr.setVisibility(View.VISIBLE);
 				
 					eraserSizelinr.setVisibility(View.GONE);
+				
+				if(paintSizelinr.getVisibility()==View.VISIBLE)
+				{
+					//選完顏色同時也要把畫筆大小的顏色換成所選的
+					Bitmap paintSizeBitmap = Bitmap.createBitmap(paintImgSize.getWidth(),paintImgSize.getHeight(),Bitmap.Config.ARGB_8888);
+					Canvas paintSizeCanvas = new Canvas(paintSizeBitmap);
+
+					Paint cleancanvas = new Paint();
+					cleancanvas.setXfermode(new PorterDuffXfermode(Mode.CLEAR));
+					paintSizeCanvas.drawPaint(cleancanvas);
+					cleancanvas.setXfermode(new PorterDuffXfermode(Mode.SRC));
+
+					setSize(choosePaintSize);
+					Paint seekBarShowPaintSize = new Paint();
+					seekBarShowPaintSize.setAntiAlias(true);
+					seekBarShowPaintSize.setColor(currentColor);
+					seekBarShowPaintSize.setStyle(Paint.Style.FILL);
+					seekBarShowPaintSize.setStrokeWidth(choosePaintSize);
+
+					paintSizeCanvas.drawCircle(paintImgSize.getWidth()/2, paintImgSize.getHeight()/2,choosePaintSize/2, seekBarShowPaintSize);
+					paintImgSize.setImageBitmap(paintSizeBitmap);
+				}
 
 			}    		
     	});
@@ -423,11 +458,46 @@ public class Main extends Activity{
 					chooseshape.setVisibility(View.VISIBLE);
 				else
 					chooseshape.setVisibility(View.GONE);
-				if(choosecolorlinr.getVisibility()==View.VISIBLE)
-					choosecolorlinr.setVisibility(View.GONE);
-				else
-					choosecolorlinr.setVisibility(View.VISIBLE);
+//				if(choosecolorlinr.getVisibility()==View.VISIBLE)
+//					choosecolorlinr.setVisibility(View.GONE);
+//				else
+//					choosecolorlinr.setVisibility(View.VISIBLE);
 				eraserSizelinr.setVisibility(View.GONE);
+
+
+				/*AlertDialog.Builder editDialog = new AlertDialog.Builder(Main.this);
+				editDialog.setTitle("Choose Color");*/
+
+
+				ColorPickerDialog dialog = new ColorPickerDialog(Context, currentColor, "Choose Color",
+						new ColorPickerDialog.OnColorChangedListener() {
+							public void colorChanged(int color2) {
+								//set your color variable
+								setColor(color2);
+								if(paintSizelinr.getVisibility()==View.VISIBLE)
+								{
+									//選完顏色同時也要把畫筆大小的顏色換成所選的
+									Bitmap paintSizeBitmap = Bitmap.createBitmap(paintImgSize.getWidth(),paintImgSize.getHeight(),Bitmap.Config.ARGB_8888);
+									Canvas paintSizeCanvas = new Canvas(paintSizeBitmap);
+
+									Paint cleancanvas = new Paint();
+									cleancanvas.setXfermode(new PorterDuffXfermode(Mode.CLEAR));
+									paintSizeCanvas.drawPaint(cleancanvas);
+									cleancanvas.setXfermode(new PorterDuffXfermode(Mode.SRC));
+
+									setSize(choosePaintSize);
+									Paint seekBarShowPaintSize = new Paint();
+									seekBarShowPaintSize.setAntiAlias(true);
+									seekBarShowPaintSize.setColor(currentColor);
+									seekBarShowPaintSize.setStyle(Paint.Style.FILL);
+									seekBarShowPaintSize.setStrokeWidth(choosePaintSize);
+
+									paintSizeCanvas.drawCircle(paintImgSize.getWidth()/2, paintImgSize.getHeight()/2,choosePaintSize/2, seekBarShowPaintSize);
+									paintImgSize.setImageBitmap(paintSizeBitmap);
+								}
+							}
+						});
+				dialog.show();
 	
 			}
 		});
@@ -1225,10 +1295,11 @@ public class Main extends Activity{
 		Point, Path, Line, Rect, Circle, FillecRect, FilledCircle, Eraser,Love
 	}
 	/**
-	 * 設置話畀的颜色
+	 * 設置畫筆的颜色
 	 */
-	public void setColor(String color) {
-		currentColor = Color.parseColor(color);
+	public void setColor(int color) {
+//		currentColor = Color.parseColor(color);
+		currentColor = color;
 	}
 
 	/**
@@ -1250,31 +1321,32 @@ public class Main extends Activity{
 		// TODO 自動產生的方法 Stub
 		switch (view.getId()) {
 		case R.id.colorRed:
-			setColor("#ff0000");
+			setColor(getResources().getColor(R.color.md_red_500));
+			Log.d("red",Integer.toString(getResources().getColor(R.color.md_red_500)));
 			break;
 		case R.id.colorGreen:
-			setColor("#00ff00");
+			setColor(getResources().getColor(R.color.md_green_500));
 			break;
 		case R.id.colorBlue:
-			setColor("#0000ff");
+			setColor(getResources().getColor(R.color.md_blue_500));
 			break;
 		case R.id.colorPurple:
-			setColor("#673AB7");
+			setColor(getResources().getColor(R.color.md_purple_500));
 			break;
 		case R.id.colorYellow:
-			setColor("#FFEB3B");
+			setColor(getResources().getColor(R.color.md_yellow_500));
 			break;
 		case R.id.colorOrange:
-			setColor("#FF9800");
+			setColor(getResources().getColor(R.color.md_orange_500));
 			break;
 		case R.id.colorBrown:
-			setColor("#795548");
+			setColor(getResources().getColor(R.color.md_brown_500));
 			break;
 		case R.id.colorGray:
-			setColor("#9E9E9E");
+			setColor(getResources().getColor(R.color.md_grey_500));
 			break;
 		case R.id.colorBlack:
-			setColor("#000000");
+			setColor(getResources().getColor(R.color.md_black_1000));
 			break;
 		default:
 			break;
