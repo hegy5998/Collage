@@ -54,6 +54,8 @@ import com.fcu.photocollage.multitouch.MultiTouchListener;
  * 主頁面，可跳轉至相冊選擇照片，並在此頁面顯示所選擇的照片。
  */
 public class Main extends Activity{
+
+	//region 定義
 	private final Context Context = Main.this;
 	private static 	Toast toast; 					//氣泡訊息				
     private Bitmap tempBitmap;						//中間暫存的畫布
@@ -100,13 +102,15 @@ public class Main extends Activity{
 	private List<Action> mActions;					//儲存畫布模式動作
 	private float[][] undoCutXY;
 	private int undoCutXYIndex1=0,undoCutXYIndex2=0;
+	//endregion
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //刪除按鈕
+		//region 佈局設定
+		//刪除按鈕
         DeleteButton = (Button)findViewById(R.id.delete);
         //刪除全部
         DeleteAllButton = (Button)findViewById(R.id.deleteAll);
@@ -150,7 +154,7 @@ public class Main extends Activity{
         //畫筆粗細seekBar
         paintSize = (SeekBar)findViewById(R.id.paintSize);
         //橡皮擦粗細seekBar
-        eraserSize = (SeekBar)findViewById(R.id.eraserSize);        
+        eraserSize = (SeekBar)findViewById(R.id.eraserSize);
         //開始畫布按鈕
         drawstart = (Button)findViewById(R.id.drawstart);
         drawBtn = (Button)findViewById(R.id.draw);
@@ -173,11 +177,11 @@ public class Main extends Activity{
         shapeBtn.setEnabled(false);
         //新增畫筆
         paint = new Paint();
-     
-        
-        //開始畫布模式
-        drawstart.setOnClickListener(new View.OnClickListener()
-    	{
+		//endregion
+
+
+		//region 開始畫布模式
+        drawstart.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				//設定按鈕可否使用
@@ -192,19 +196,18 @@ public class Main extends Activity{
 				drawtool.setVisibility(View.VISIBLE);
 				//把選擇背景工具列隱藏
 				choosebackground.setVisibility(View.GONE);
-				
+
 				//設定畫筆初始模式是為自由曲線
 				setType(ActionType.Path);
 				//新增紀錄陣列
 				mActions = new ArrayList<Action>();
 				//如果在埃史話不前有選擇圖片，把圖片還原
-				if (lastView != null) 
+				if (lastView != null)
 					lastView.setBackgroundColor(getResources().getColor(R.color.alpha));
 				//如果一開始畫布為空的，創建新畫布
-				if(drawBitmap==null)
-				{
-					drawBitmap = Bitmap.createBitmap(backimage.getWidth(), backimage.getHeight(),Bitmap.Config.ARGB_8888);
-					saveBitmap = Bitmap.createBitmap(backimage.getWidth(), backimage.getHeight(),Bitmap.Config.ARGB_8888);				
+				if (drawBitmap == null) {
+					drawBitmap = Bitmap.createBitmap(backimage.getWidth(), backimage.getHeight(), Bitmap.Config.ARGB_8888);
+					saveBitmap = Bitmap.createBitmap(backimage.getWidth(), backimage.getHeight(), Bitmap.Config.ARGB_8888);
 					canvasDraw = new Canvas(drawBitmap);
 					canvasSave = new Canvas(saveBitmap);
 					canvasDraw.drawColor(Color.TRANSPARENT);
@@ -213,39 +216,41 @@ public class Main extends Activity{
 					img.setId(countpicture);
 					img.setZ(countpicture);
 					img.setImageBitmap(saveBitmap);
-					Relativelay.addView(img);  
-			        countpicture++;
-			        img.setOnTouchListener(DrawOnTouchListener);
+					Relativelay.addView(img);
+					countpicture++;
+					img.setOnTouchListener(DrawOnTouchListener);
 				}
-				
+
 				undoCutXY = new float[1000][4];
-				
-				makeTextAndShow(Context,"畫布模式",android.widget.Toast.LENGTH_SHORT);
 
-			}    		
-    	});
-      //畫筆seekbar
-        paintSize.setOnSeekBarChangeListener(new OnSeekBarChangeListener(){
+				makeTextAndShow(Context, "畫布模式", android.widget.Toast.LENGTH_SHORT);
 
-        	//當seekBar在拉動時
+			}
+		});
+		//endregion
+
+		//region 畫筆seekbar
+        paintSize.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+
+			//當seekBar在拉動時
 			@Override
 			public void onProgressChanged(SeekBar seekBar, int progress,
-					boolean fromUser) {
+										  boolean fromUser) {
 				// TODO 自動產生的方法 Stub
 				//畫筆大小設置，progress為當下seekbar數值
 				choosePaintSize = progress;
 				//創建一個Bitmap與顯示畫筆粗細ImageView一樣大小
-				Bitmap paintSizeBitmap = Bitmap.createBitmap(paintImgSize.getWidth(),paintImgSize.getHeight(),Bitmap.Config.ARGB_8888);
+				Bitmap paintSizeBitmap = Bitmap.createBitmap(paintImgSize.getWidth(), paintImgSize.getHeight(), Bitmap.Config.ARGB_8888);
 				//把Bitmap加入Canvas中
 				Canvas paintSizeCanvas = new Canvas(paintSizeBitmap);
 				//新增畫筆
-				Paint cleancanvas = new Paint(); 
+				Paint cleancanvas = new Paint();
 				//設定每當seekBar有變動時清除原有畫布上的東西，避免縮小會沒有感覺
-				cleancanvas.setXfermode(new PorterDuffXfermode(Mode.CLEAR));  
-				paintSizeCanvas.drawPaint(cleancanvas); 
+				cleancanvas.setXfermode(new PorterDuffXfermode(Mode.CLEAR));
+				paintSizeCanvas.drawPaint(cleancanvas);
 				cleancanvas.setXfermode(new PorterDuffXfermode(Mode.SRC));
 				//設定畫筆粗細
-				setSize(progress);	
+				setSize(progress);
 				//新增畫筆
 				Paint seekBarShowPaintSize = new Paint();
 				//畫筆抗齒
@@ -257,27 +262,31 @@ public class Main extends Activity{
 				//設定畫筆寬度
 				seekBarShowPaintSize.setStrokeWidth(progress);
 				//用畫筆畫圓(Ｘ軸中心，Ｙ軸中心，畫筆資訊)
-				paintSizeCanvas.drawCircle(paintImgSize.getWidth()/2, paintImgSize.getHeight()/2,progress/2, seekBarShowPaintSize);
+				paintSizeCanvas.drawCircle(paintImgSize.getWidth() / 2, paintImgSize.getHeight() / 2, progress / 2, seekBarShowPaintSize);
 				//顯示
 				paintImgSize.setImageBitmap(paintSizeBitmap);
-				
+
 			}
+
 			//當seeBar開始拉動時
 			@Override
 			public void onStartTrackingTouch(SeekBar seekBar) {
 				// TODO 自動產生的方法 Stub
-				
+
 			}
+
 			//當seekBar停止拉動時
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {
 				// TODO 自動產生的方法 Stub
-				
+
 			}
-        	
-        });
-        //複製
-        copy.setOnClickListener(new View.OnClickListener()
+
+		});
+		//endregion
+
+		//region 複製
+		copy.setOnClickListener(new View.OnClickListener()
         {		
 			@Override
 			public void onClick(View v) {
@@ -352,11 +361,13 @@ public class Main extends Activity{
 			    	makeTextAndShow(Context,"複製",android.widget.Toast.LENGTH_SHORT);
 				}
 				else
-					makeTextAndShow(Context,"沒有選擇圖片",android.widget.Toast.LENGTH_SHORT);
+					makeTextAndShow(Context, "沒有選擇圖片", android.widget.Toast.LENGTH_SHORT);
 	
 			}
 		});
-        //更換背景按鈕
+		//endregion
+
+		//region 更換背景按鈕
         backgroundBtn.setOnClickListener(new View.OnClickListener()
         {		
 			@Override
@@ -368,8 +379,9 @@ public class Main extends Activity{
 					choosebackground.setVisibility(View.VISIBLE);
 			}
 		});
-        
-        //畫筆粗細
+		//endregion
+
+		//region 畫筆粗細
     	drawBtn.setOnClickListener(new View.OnClickListener()
     	{
 			@Override
@@ -392,8 +404,9 @@ public class Main extends Activity{
 
 			}    		
     	});
+		//endregion
 
-        //選擇畫筆顏色
+		//region 選擇畫筆顏色
         colorBtn.setOnClickListener(new View.OnClickListener()
         {		
 			@Override
@@ -418,8 +431,9 @@ public class Main extends Activity{
 	
 			}
 		});
-        
-        //選擇圖形按鈕
+		//endregion
+
+		//region 選擇圖形按鈕
         shapeBtn.setOnClickListener(new View.OnClickListener()
         {		
 			@Override
@@ -442,7 +456,9 @@ public class Main extends Activity{
 				eraserSizelinr.setVisibility(View.GONE);
 			}
 		});
-    	//上一步
+		//endregion
+
+		//region 上一步
     	undoBtn.setOnClickListener(new View.OnClickListener()
     	{
 
@@ -470,7 +486,9 @@ public class Main extends Activity{
 			
     		
     	});
-    	//清空整個畫布
+		//endregion
+
+		//region 清空整個畫布
     	cleanAll.setOnClickListener(new View.OnClickListener()
     	{
 			@Override
@@ -490,69 +508,74 @@ public class Main extends Activity{
 				
 				}
     	});
-    	//開啟橡皮擦
-    	eraser.setOnClickListener(new View.OnClickListener()
-    	{
+		//endregion
+
+		//region 開啟橡皮擦
+    	eraser.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				// TODO 自動產生的方法 Stub
 				//eraserChoose();
 				setType(ActionType.Eraser);
-					choosecolorlinr.setVisibility(View.GONE);
-					paintSizelinr.setVisibility(View.GONE);
-					chooseshape.setVisibility(View.GONE);
-				if(eraserSizelinr.getVisibility()==View.VISIBLE)
+				choosecolorlinr.setVisibility(View.GONE);
+				paintSizelinr.setVisibility(View.GONE);
+				chooseshape.setVisibility(View.GONE);
+				if (eraserSizelinr.getVisibility() == View.VISIBLE)
 					eraserSizelinr.setVisibility(View.GONE);
 				else
 					eraserSizelinr.setVisibility(View.VISIBLE);
-				}
-    	});
-    	//橡皮擦seekBar
-    	eraserSize.setOnSeekBarChangeListener(new OnSeekBarChangeListener(){
+			}
+		});
+		//endregion
+
+		//region 橡皮擦seekBar
+    	eraserSize.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
 
 			@Override
 			public void onProgressChanged(SeekBar seekBar, int progress,
-					boolean fromUser) {
+										  boolean fromUser) {
 				// TODO 自動產生的方法 Stub
 				//setType(ActionType.Eraser);
-				setSize(progress);	
-				
-				Bitmap paintSizeBitmap = Bitmap.createBitmap(erasersize.getWidth(),erasersize.getHeight(),Bitmap.Config.ARGB_8888);
+				setSize(progress);
+
+				Bitmap paintSizeBitmap = Bitmap.createBitmap(erasersize.getWidth(), erasersize.getHeight(), Bitmap.Config.ARGB_8888);
 				Canvas paintSizeCanvas = new Canvas(paintSizeBitmap);
-				
+
 				//不斷的清除bitmap才不會造成縮小時圖情看不出變化
-				Paint cleancanvas = new Paint(); 
-				cleancanvas.setXfermode(new PorterDuffXfermode(Mode.CLEAR));  
-				paintSizeCanvas.drawPaint(cleancanvas); 
+				Paint cleancanvas = new Paint();
+				cleancanvas.setXfermode(new PorterDuffXfermode(Mode.CLEAR));
+				paintSizeCanvas.drawPaint(cleancanvas);
 				cleancanvas.setXfermode(new PorterDuffXfermode(Mode.SRC));
-				
+
 				//設定畫筆
 				Paint seekBarShowPaintSize = new Paint();
 				seekBarShowPaintSize.setAntiAlias(true);
 				seekBarShowPaintSize.setColor(Color.parseColor("#FFFFFF"));
 				seekBarShowPaintSize.setStyle(Paint.Style.FILL);
 				seekBarShowPaintSize.setStrokeWidth(progress);
-				
-				paintSizeCanvas.drawCircle(erasersize.getWidth()/2, erasersize.getHeight()/2,progress/2, seekBarShowPaintSize);
+
+				paintSizeCanvas.drawCircle(erasersize.getWidth() / 2, erasersize.getHeight() / 2, progress / 2, seekBarShowPaintSize);
 				erasersize.setImageBitmap(paintSizeBitmap);
-				
+
 			}
 
 			@Override
 			public void onStartTrackingTouch(SeekBar seekBar) {
 				// TODO 自動產生的方法 Stub
-				
+
 			}
 
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {
 				// TODO 自動產生的方法 Stub
-				
+
 			}
-        	
-        });
-    	//結束畫布
+
+		});
+		//endregion
+
+		//region 結束畫布
         drawover.setOnClickListener(new View.OnClickListener()
         {		
 			@Override
@@ -579,9 +602,6 @@ public class Main extends Activity{
 				{
 					ViewGroup viewGroup = Relativelay;
 					View currentView = viewGroup.getChildAt(countpicture-1);
-					for (int i = choosepicture + 1; i < viewGroup.getChildCount(); i++) {
-	    				viewGroup.getChildAt(i).setId(i - 1);
-	    			}
 					viewGroup.removeView(currentView);
 					countpicture--;
 					makeTextAndShow(Context,"結束畫布模式沒有畫畫",android.widget.Toast.LENGTH_SHORT);
@@ -655,8 +675,9 @@ public class Main extends Activity{
 			
 			}
 		});
-        
-        //儲存圖片至SD卡
+		//endregion
+
+		//region 儲存圖片至SD卡
         SaveButton.setOnClickListener(new View.OnClickListener(){
         	 
         	   @Override
@@ -697,7 +718,9 @@ public class Main extends Activity{
        				makeTextAndShow(Context,"目前沒有圖片",android.widget.Toast.LENGTH_SHORT);
 				}
         	   }});
-        //選擇照片
+		//endregion
+
+		//region 選擇照片
         selectImgBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -709,7 +732,9 @@ public class Main extends Activity{
                 startActivity(intent);
             }
         });
-        //刪除事件
+		//endregion
+
+		//region 刪除事件
         DeleteButton.setOnClickListener (new View.OnClickListener() {
 
     		@Override
@@ -741,7 +766,9 @@ public class Main extends Activity{
 	        			makeTextAndShow(Context,"沒有選擇圖片",android.widget.Toast.LENGTH_SHORT);
     		}
       	});
-        //全部清空
+		//endregion
+
+		//region 全部清空
         DeleteAllButton.setOnClickListener (new View.OnClickListener() {
 
     		@Override
@@ -764,9 +791,11 @@ public class Main extends Activity{
 	    				makeTextAndShow(Context,"沒有圖片",android.widget.Toast.LENGTH_SHORT);
     		}
         });
+		//endregion
     }
 
-    @Override
+	//region 加入照片
+	@Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
 
@@ -845,7 +874,9 @@ public class Main extends Activity{
             	}     	
             }
         }
-    //自訂氣泡訊息，不會與上一個訊息衝突
+	//endregion
+
+	//region 自訂氣泡訊息，不會與上一個訊息衝突
     private static void makeTextAndShow(final Context context, final String text, final int duration) {
     	if (toast == null) {
     		//如果還沒有用過makeText方法，才使用
@@ -856,8 +887,9 @@ public class Main extends Activity{
     	}
     	toast.show();
     }
-    
-    //取得目前時間
+	//endregion
+
+	//region 取得目前時間
     public String getCurrentTime(String format) {
 		// 先行定義時間格式("yyyy/MM/dd HH:mm:ss")
 		SimpleDateFormat sdf = new SimpleDateFormat(format);
@@ -865,13 +897,9 @@ public class Main extends Activity{
 		Date dt = new Date(System.currentTimeMillis());
 		return sdf.format(dt);
 	}
-    public int Count()
-    {
-    	return countpicture;
-    }
-    /**
-	 * ImageView 點擊事件
-	 */
+	//endregion
+
+	//region ImageView 點擊事件
 	private View.OnClickListener imgOnClickListener = new View.OnClickListener() {
 		public void onClick(View v) {
 			//取得所選照片的ID
@@ -907,8 +935,10 @@ public class Main extends Activity{
 			String tag = "choosepicture";
 			Log.d( tag,  Integer.toString(choosepicture));
 		}
-	}; 	
-	//多執行緒儲存
+	};
+	//endregion
+
+	//region 多執行緒儲存
 	private Runnable saveRun = new Runnable() {
 		
 		@Override
@@ -979,9 +1009,9 @@ public class Main extends Activity{
         msg.setData(data);
         handler.sendMessage(msg);
 	}
-	/**
-	 * 接收上傳檔案進度
-	 */
+	//endregion
+
+	//region 接收上傳檔案進度
 	private Handler handler = new Handler() {
 		@Override
 		public void handleMessage(Message msg) {
@@ -998,7 +1028,9 @@ public class Main extends Activity{
 			}
 		}
 	};
-	//圖片轉換大小
+	//endregion
+
+	//region 圖片轉換大小
 	public Bitmap ScalePicEx(String path, int height, int width) {
 
 		BitmapFactory.Options opts = null;
@@ -1054,7 +1086,9 @@ public class Main extends Activity{
 			return upperBound;
 		}
 	}
-	//畫筆觸摸事件
+	//endregion
+
+	//region 畫筆觸摸事件
 	private OnTouchListener DrawOnTouchListener = new OnTouchListener()
 	{
 		@Override
@@ -1146,228 +1180,237 @@ public class Main extends Activity{
 			return true;
 		}
 		
-	};	
-		//設定畫筆資訊
-		public void setCurAction(float x, float y) {
-			switch (type) {
-			case Point:
-				curAction = new MyPoint(x, y, currentSize, currentColor);
-				break;
-			case Path:
-				curAction = new MyPath(x, y, currentSize, currentColor);
-				break;
-			case Line:
-				curAction = new MyLine(x, y, currentSize, currentColor);
-				break;
-			case Rect:
-				curAction = new MyRect(x, y, currentSize, currentColor);
-				break;
-			case Circle:
-				curAction = new MyCircle(x, y, currentSize, currentColor);
-				break;
-			case FillecRect:
-				curAction = new MyFillRect(x, y, currentSize, currentColor);
-				break;
-			case FilledCircle:
-				curAction = new MyFillCircle(x, y, currentSize, currentColor);
-				break;
-			case Eraser:
-				curAction = new Myeraser(x, y, currentSize, currentColor);
-				break;
-			/*case Love:
-				curAction = new MyLove(x,y,currentSize, currentColor);*/
-			default:
-				break;
-			}
+	};
+	//endregion
+
+	//region 設定畫筆資訊
+	public void setCurAction(float x, float y) {
+		switch (type) {
+		case Point:
+			curAction = new MyPoint(x, y, currentSize, currentColor);
+			break;
+		case Path:
+			curAction = new MyPath(x, y, currentSize, currentColor);
+			break;
+		case Line:
+			curAction = new MyLine(x, y, currentSize, currentColor);
+			break;
+		case Rect:
+			curAction = new MyRect(x, y, currentSize, currentColor);
+			break;
+		case Circle:
+			curAction = new MyCircle(x, y, currentSize, currentColor);
+			break;
+		case FillecRect:
+			curAction = new MyFillRect(x, y, currentSize, currentColor);
+			break;
+		case FilledCircle:
+			curAction = new MyFillCircle(x, y, currentSize, currentColor);
+			break;
+		case Eraser:
+			curAction = new Myeraser(x, y, currentSize, currentColor);
+			break;
+		/*case Love:
+			curAction = new MyLove(x,y,currentSize, currentColor);*/
+		default:
+			break;
 		}
-		
-		//畫筆形狀
-		public enum ActionType {
-			Point, Path, Line, Rect, Circle, FillecRect, FilledCircle, Eraser,Love
-		}
-		/**
-		 * 设置画笔的颜色
-		 * @param color
-		 */
-		public void setColor(String color) {
-			currentColor = Color.parseColor(color);
+	}
+	//endregion
+
+	/**
+	 * 畫筆形狀定義
+	 */
+	public enum ActionType {
+		Point, Path, Line, Rect, Circle, FillecRect, FilledCircle, Eraser,Love
+	}
+	/**
+	 * 設置話畀的颜色
+	 */
+	public void setColor(String color) {
+		currentColor = Color.parseColor(color);
+	}
+
+	/**
+	 * 設置畫筆的粗细
+	 */
+	public void setSize(int size) {
+		currentSize = size;
+	}
+
+	/**
+	 * 设置当前画笔的形状
+	 */
+	public void setType(ActionType type) {
+		this.type = type;
+	}
+
+	//region 從linearlayout中偵測我按的是哪一個顏色
+	public void colorchoose(View view) {
+		// TODO 自動產生的方法 Stub
+		switch (view.getId()) {
+		case R.id.colorRed:
+			setColor("#ff0000");
+			break;
+		case R.id.colorGreen:
+			setColor("#00ff00");
+			break;
+		case R.id.colorBlue:
+			setColor("#0000ff");
+			break;
+		case R.id.colorPurple:
+			setColor("#673AB7");
+			break;
+		case R.id.colorYellow:
+			setColor("#FFEB3B");
+			break;
+		case R.id.colorOrange:
+			setColor("#FF9800");
+			break;
+		case R.id.colorBrown:
+			setColor("#795548");
+			break;
+		case R.id.colorGray:
+			setColor("#9E9E9E");
+			break;
+		case R.id.colorBlack:
+			setColor("#000000");
+			break;
+		default:
+			break;
 		}
 
-		/**
-		 * 设置画笔的粗细
-		 * @param size
-		 */
-		public void setSize(int size) {
-			currentSize = size;
-		}
-		
-		/**
-		 * 设置当前画笔的形状
-		 * @param type
-		 */
-		public void setType(ActionType type) {
-			this.type = type;
-		}
+		if(paintSizelinr.getVisibility()==View.VISIBLE)
+		{
+		//選完顏色同時也要把畫筆大小的顏色換成所選的
+		Bitmap paintSizeBitmap = Bitmap.createBitmap(paintImgSize.getWidth(),paintImgSize.getHeight(),Bitmap.Config.ARGB_8888);
+		Canvas paintSizeCanvas = new Canvas(paintSizeBitmap);
 
-		//從linearlayout中偵測我按的是哪一個顏色
-		public void colorchoose(View view) {
-			// TODO 自動產生的方法 Stub			
-			switch (view.getId()) {
-			case R.id.colorRed:
-				setColor("#ff0000");
-				break;
-			case R.id.colorGreen:
-				setColor("#00ff00");
-				break;
-			case R.id.colorBlue:
-				setColor("#0000ff");
-				break;
-			case R.id.colorPurple:
-				setColor("#673AB7");
-				break;
-			case R.id.colorYellow:
-				setColor("#FFEB3B");
-				break;
-			case R.id.colorOrange:
-				setColor("#FF9800");
-				break;
-			case R.id.colorBrown:
-				setColor("#795548");
-				break;
-			case R.id.colorGray:
-				setColor("#9E9E9E");
-				break;
-			case R.id.colorBlack:
-				setColor("#000000");
-				break;
-			default:
-				break;
-			}
-			
-			if(paintSizelinr.getVisibility()==View.VISIBLE)
-			{
-			//選完顏色同時也要把畫筆大小的顏色換成所選的
-			Bitmap paintSizeBitmap = Bitmap.createBitmap(paintImgSize.getWidth(),paintImgSize.getHeight(),Bitmap.Config.ARGB_8888);
-			Canvas paintSizeCanvas = new Canvas(paintSizeBitmap);
-			
-			Paint cleancanvas = new Paint(); 
-			cleancanvas.setXfermode(new PorterDuffXfermode(Mode.CLEAR));  
-			paintSizeCanvas.drawPaint(cleancanvas); 
-			cleancanvas.setXfermode(new PorterDuffXfermode(Mode.SRC));
-			
-			setSize(choosePaintSize);	
-			Paint seekBarShowPaintSize = new Paint();
-			seekBarShowPaintSize.setAntiAlias(true);
-			seekBarShowPaintSize.setColor(currentColor);
-			seekBarShowPaintSize.setStyle(Paint.Style.FILL);
-			seekBarShowPaintSize.setStrokeWidth(choosePaintSize);
-			
-			paintSizeCanvas.drawCircle(paintImgSize.getWidth()/2, paintImgSize.getHeight()/2,choosePaintSize/2, seekBarShowPaintSize);
-			paintImgSize.setImageBitmap(paintSizeBitmap);
+		Paint cleancanvas = new Paint();
+		cleancanvas.setXfermode(new PorterDuffXfermode(Mode.CLEAR));
+		paintSizeCanvas.drawPaint(cleancanvas);
+		cleancanvas.setXfermode(new PorterDuffXfermode(Mode.SRC));
+
+		setSize(choosePaintSize);
+		Paint seekBarShowPaintSize = new Paint();
+		seekBarShowPaintSize.setAntiAlias(true);
+		seekBarShowPaintSize.setColor(currentColor);
+		seekBarShowPaintSize.setStyle(Paint.Style.FILL);
+		seekBarShowPaintSize.setStrokeWidth(choosePaintSize);
+
+		paintSizeCanvas.drawCircle(paintImgSize.getWidth()/2, paintImgSize.getHeight()/2,choosePaintSize/2, seekBarShowPaintSize);
+		paintImgSize.setImageBitmap(paintSizeBitmap);
+		}
+	}
+	//endregion
+
+	//region 從linearlayout中偵測我按的是哪一個圖形
+	public void shapechoose(View view) {
+		switch (view.getId()) {
+		case R.id.point:
+			setType(ActionType.Point);
+			break;
+		case R.id.path:
+			setType(ActionType.Path);
+			break;
+		case R.id.line:
+			setType(ActionType.Line);
+			break;
+		case R.id.rectangle:
+			setType(ActionType.Rect);
+			break;
+		case R.id.circle:
+			setType(ActionType.Circle);
+			break;
+		case R.id.rectanglefall:
+			setType(ActionType.FillecRect);
+			break;
+		case R.id.circlefall:
+			setType(ActionType.FilledCircle);
+			break;
+		/*case R.id.love:
+			setType(ActionType.Love);*/
+		default:
+			break;
+		}
+	}
+	//endregion
+
+	//region 偵測要設定那個背景
+	public void backGroundChange(View view) {
+		switch (view.getId()) {
+		case R.id.background:
+			backimage.setBackground(getResources().getDrawable(R.drawable.background));
+			break;
+		case R.id.background1:
+			backimage.setBackground(getResources().getDrawable(R.drawable.background1));
+			break;
+		case R.id.background2:
+			backimage.setBackground(getResources().getDrawable(R.drawable.background2));
+			break;
+		case R.id.background3:
+			backimage.setBackground(getResources().getDrawable(R.drawable.background3));
+			break;
+		case R.id.background4:
+			backimage.setBackground(getResources().getDrawable(R.drawable.background4));
+			break;
+		case R.id.background5:
+			backimage.setBackground(getResources().getDrawable(R.drawable.background5));
+			break;
+		case R.id.background6:
+			backimage.setBackground(getResources().getDrawable(R.drawable.background6));
+			break;
+		case R.id.background7:
+			backimage.setBackground(getResources().getDrawable(R.drawable.background7));
+			break;
+		case R.id.background8:
+			backimage.setBackground(getResources().getDrawable(R.drawable.background8));
+			break;
+		case R.id.background9:
+			backimage.setBackground(getResources().getDrawable(R.drawable.background9));
+			break;
+		case R.id.background10:
+			backimage.setBackground(getResources().getDrawable(R.drawable.background10));
+			break;
+		case R.id.background11:
+			backimage.setBackground(getResources().getDrawable(R.drawable.background11));
+			break;
+		case R.id.background12:
+			backimage.setBackground(getResources().getDrawable(R.drawable.background12));
+			break;
+		case R.id.background13:
+			backimage.setBackground(getResources().getDrawable(R.drawable.background13));
+			break;
+		case R.id.background14:
+			backimage.setBackground(getResources().getDrawable(R.drawable.background14));
+			break;
+		case R.id.background15:
+			backimage.setBackground(getResources().getDrawable(R.drawable.background15));
+			break;
+		case R.id.background16:
+			backimage.setBackground(getResources().getDrawable(R.drawable.background16));
+			break;
+		default:
+			break;
+		}
+	}
+	//endregion
+
+	//region 清空View暫存
+	/*
+	public static void recycleImageView(View view){
+		if(view==null) return;
+		if(view instanceof ImageView){
+			Drawable drawable=((ImageView) view).getDrawable();
+			if(drawable instanceof BitmapDrawable){
+				Bitmap bmp = ((BitmapDrawable)drawable).getBitmap();
+				if (bmp != null && !bmp.isRecycled()){
+					((ImageView) view).setImageBitmap(null);
+					bmp.recycle();
+					bmp=null;
+				}
 			}
 		}
-		//從linearlayout中偵測我按的是哪一個圖形
-		public void shapechoose(View view) {
-			switch (view.getId()) {
-			case R.id.point:
-				setType(ActionType.Point);
-				break;
-			case R.id.path:
-				setType(ActionType.Path);
-				break;
-			case R.id.line:
-				setType(ActionType.Line);
-				break;
-			case R.id.rectangle:
-				setType(ActionType.Rect);
-				break;
-			case R.id.circle:
-				setType(ActionType.Circle);
-				break;
-			case R.id.rectanglefall:
-				setType(ActionType.FillecRect);
-				break;
-			case R.id.circlefall:
-				setType(ActionType.FilledCircle);
-				break;
-			/*case R.id.love:
-				setType(ActionType.Love);*/
-			default:
-				break;
-			}
-		}
-		//偵測要設定那個背景
-		public void backGroundChange(View view) {
-			switch (view.getId()) {
-			case R.id.background:
-				backimage.setBackground(getResources().getDrawable(R.drawable.background));
-				break;
-			case R.id.background1:
-				backimage.setBackground(getResources().getDrawable(R.drawable.background1));
-				break;
-			case R.id.background2:
-				backimage.setBackground(getResources().getDrawable(R.drawable.background2));
-				break;
-			case R.id.background3:
-				backimage.setBackground(getResources().getDrawable(R.drawable.background3));
-				break;
-			case R.id.background4:
-				backimage.setBackground(getResources().getDrawable(R.drawable.background4));
-				break;
-			case R.id.background5:
-				backimage.setBackground(getResources().getDrawable(R.drawable.background5));
-				break;
-			case R.id.background6:
-				backimage.setBackground(getResources().getDrawable(R.drawable.background6));
-				break;
-			case R.id.background7:
-				backimage.setBackground(getResources().getDrawable(R.drawable.background7));
-				break;
-			case R.id.background8:
-				backimage.setBackground(getResources().getDrawable(R.drawable.background8));
-				break;
-			case R.id.background9:
-				backimage.setBackground(getResources().getDrawable(R.drawable.background9));
-				break;
-			case R.id.background10:
-				backimage.setBackground(getResources().getDrawable(R.drawable.background10));
-				break;
-			case R.id.background11:
-				backimage.setBackground(getResources().getDrawable(R.drawable.background11));
-				break;
-			case R.id.background12:
-				backimage.setBackground(getResources().getDrawable(R.drawable.background12));
-				break;
-			case R.id.background13:
-				backimage.setBackground(getResources().getDrawable(R.drawable.background13));
-				break;
-			case R.id.background14:
-				backimage.setBackground(getResources().getDrawable(R.drawable.background14));
-				break;
-			case R.id.background15:
-				backimage.setBackground(getResources().getDrawable(R.drawable.background15));
-				break;
-			case R.id.background16:
-				backimage.setBackground(getResources().getDrawable(R.drawable.background16));
-				break;
-			default:
-				break;
-			}
-		}
-		//清空View暫存
-		/*
-		public static void recycleImageView(View view){  
-	        if(view==null) return;  
-	        if(view instanceof ImageView){  
-	            Drawable drawable=((ImageView) view).getDrawable();  
-	            if(drawable instanceof BitmapDrawable){  
-	                Bitmap bmp = ((BitmapDrawable)drawable).getBitmap();  
-	                if (bmp != null && !bmp.isRecycled()){  
-	                    ((ImageView) view).setImageBitmap(null);  
-	                    bmp.recycle();  
-	                    bmp=null;  
-	                }  
-	            }  
-	        }  
-	    }  */
+	}  */
+	//endregion
 }
