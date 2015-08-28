@@ -215,12 +215,22 @@
                  android:layout_weight="1"
                  android:paddingTop="13dp" />
              <Button
-                 android:id="@+id/circlefall"
+             android:id="@+id/circlefall"
+             android:layout_width="0dp"
+             android:layout_height="50dp"
+             android:onClick="shapechoose"
+             android:background="@color/green_500"
+             android:drawableTop="@mipmap/ic_circlefall_white_24dp"
+             android:paddingBottom="10dp"
+             android:layout_weight="1"
+             android:paddingTop="13dp" />
+             <Button
+                 android:id="@+id/love"
                  android:layout_width="0dp"
                  android:layout_height="50dp"
                  android:onClick="shapechoose"
                  android:background="@color/green_500"
-                 android:drawableTop="@mipmap/ic_circlefall_white_24dp"
+                 android:drawableTop="@mipmap/ic_favorite_border_white_24dp"
                  android:paddingBottom="10dp"
                  android:layout_weight="1"
                  android:paddingTop="13dp" />

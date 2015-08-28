@@ -16,6 +16,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -86,6 +87,7 @@ public class Main extends Activity{
     private Button drawstart;						//開始畫布按鈕	
     private Button copy;							//複製按鈕
     private Button backgroundBtn;					//設置背景按鈕
+	private Button ImageColorBtn;
     private View lastView;							//上一個選擇的imageview
     private Bitmap drawBitmap,saveBitmap=null;		//畫布，暫存畫布，最終儲存畫布
     private ProgressDialog progressDialog;			//儲存彈出等待視窗 
@@ -414,28 +416,6 @@ public class Main extends Activity{
 					paintSizelinr.setVisibility(View.VISIBLE);
 				
 					eraserSizelinr.setVisibility(View.GONE);
-				
-				if(paintSizelinr.getVisibility()==View.VISIBLE)
-				{
-					//選完顏色同時也要把畫筆大小的顏色換成所選的
-					Bitmap paintSizeBitmap = Bitmap.createBitmap(paintImgSize.getWidth(),paintImgSize.getHeight(),Bitmap.Config.ARGB_8888);
-					Canvas paintSizeCanvas = new Canvas(paintSizeBitmap);
-
-					Paint cleancanvas = new Paint();
-					cleancanvas.setXfermode(new PorterDuffXfermode(Mode.CLEAR));
-					paintSizeCanvas.drawPaint(cleancanvas);
-					cleancanvas.setXfermode(new PorterDuffXfermode(Mode.SRC));
-
-					setSize(choosePaintSize);
-					Paint seekBarShowPaintSize = new Paint();
-					seekBarShowPaintSize.setAntiAlias(true);
-					seekBarShowPaintSize.setColor(currentColor);
-					seekBarShowPaintSize.setStyle(Paint.Style.FILL);
-					seekBarShowPaintSize.setStrokeWidth(choosePaintSize);
-
-					paintSizeCanvas.drawCircle(paintImgSize.getWidth()/2, paintImgSize.getHeight()/2,choosePaintSize/2, seekBarShowPaintSize);
-					paintImgSize.setImageBitmap(paintSizeBitmap);
-				}
 
 			}    		
     	});
@@ -464,11 +444,7 @@ public class Main extends Activity{
 //					choosecolorlinr.setVisibility(View.VISIBLE);
 				eraserSizelinr.setVisibility(View.GONE);
 
-
-				/*AlertDialog.Builder editDialog = new AlertDialog.Builder(Main.this);
-				editDialog.setTitle("Choose Color");*/
-
-
+				//調色盤
 				ColorPickerDialog dialog = new ColorPickerDialog(Context, currentColor, "Choose Color",
 						new ColorPickerDialog.OnColorChangedListener() {
 							public void colorChanged(int color2) {
@@ -564,18 +540,34 @@ public class Main extends Activity{
 			@Override
 			public void onClick(View v) {
 				// TODO 自動產生的方法 Stub
-				Paint cleancanvas = new Paint(); 
-				cleancanvas.setXfermode(new PorterDuffXfermode(Mode.CLEAR));  
-				canvasSave.drawPaint(cleancanvas); 
-				cleancanvas.setXfermode(new PorterDuffXfermode(Mode.SRC));
-				img.setImageBitmap(saveBitmap);
-				mActions.clear();
-				
-				cutBigX=0;
-				cutBigY=0;
-				cutSmallX=10000;
-				cutSmallY=10000;
-				
+
+				AlertDialog.Builder builder = new AlertDialog.Builder(Context);
+				builder.setTitle("清空畫布");
+				builder.setMessage("確定要清除!!");
+				// Add the buttons
+				builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						// User clicked OK button
+						Paint cleancanvas = new Paint();
+						cleancanvas.setXfermode(new PorterDuffXfermode(Mode.CLEAR));
+						canvasSave.drawPaint(cleancanvas);
+						cleancanvas.setXfermode(new PorterDuffXfermode(Mode.SRC));
+						img.setImageBitmap(saveBitmap);
+						mActions.clear();
+
+						cutBigX=0;
+						cutBigY=0;
+						cutSmallX=10000;
+						cutSmallY=10000;
+					}
+				});
+				builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						// User cancelled the dialog
+					}
+				});
+				builder.create().show();
+
 				}
     	});
 		//endregion
@@ -696,23 +688,28 @@ public class Main extends Activity{
 					else 
 						bottomY = (int)(cutBigY-cutSmallY+2*currentSize);*/
 					
-					//回復上一個切割值
-					if(undoCutXY[undoCutXYIndex1-1][0]-currentSize < 0)
+					//切割值
+					if(undoCutXY[undoCutXYIndex1-1][0]-currentSize-100 < 0)
 						leftX = 0;
 					else 
-						leftX = (int)undoCutXY[undoCutXYIndex1-1][0] - currentSize;
-					if(undoCutXY[undoCutXYIndex1-1][2]-currentSize < 0)
+						leftX = (int)undoCutXY[undoCutXYIndex1-1][0] - currentSize -100;
+					if(undoCutXY[undoCutXYIndex1-1][2]-currentSize-100 < 0)
 						topY = 0;
 					else
-						topY = (int)undoCutXY[undoCutXYIndex1-1][2] - currentSize;
-					if(undoCutXY[undoCutXYIndex1-1][1] + currentSize > saveBitmap.getWidth())
+						topY = (int)undoCutXY[undoCutXYIndex1-1][2] - currentSize -100;
+					if(undoCutXY[undoCutXYIndex1-1][1] + currentSize +100 > saveBitmap.getWidth())
 						rightX = saveBitmap.getWidth()-leftX;
-					else
-						rightX = (int)(undoCutXY[undoCutXYIndex1-1][1]-undoCutXY[undoCutXYIndex1-1][0]+2*currentSize);
-					if(undoCutXY[undoCutXYIndex1-1][3] + currentSize > saveBitmap.getHeight())
+					else {
+						rightX = (int) (undoCutXY[undoCutXYIndex1 - 1][1] - undoCutXY[undoCutXYIndex1 - 1][0] + 2 * currentSize) + 100;
+						rightX += 100;
+					}
+					if(undoCutXY[undoCutXYIndex1-1][3] + currentSize +100 > saveBitmap.getHeight())
 						bottomY = saveBitmap.getHeight()-topY;
-					else 
-						bottomY = (int)(undoCutXY[undoCutXYIndex1-1][3]-undoCutXY[undoCutXYIndex1-1][2]+2*currentSize);
+					else {
+						bottomY = (int) (undoCutXY[undoCutXYIndex1 - 1][3] - undoCutXY[undoCutXYIndex1 - 1][2] + 2 * currentSize) + 100;
+						bottomY += 100;
+					}
+
 					
 					/*Log.d("imgW",String.valueOf(saveBitmap.getWidth()));
 					Log.d("imgH",String.valueOf(saveBitmap.getHeight()));
@@ -843,22 +840,39 @@ public class Main extends Activity{
 
     		@Override
     		public void onClick(View v) {
-    			choosebackground.setVisibility(View.GONE);   			
-	    		ViewGroup viewGroup = Relativelay;
-	    			if(viewGroup.getChildCount()>1)
-	    			{
-		    			for(int i = 1 ,count = viewGroup.getChildCount(); i < count;i++)
-		    			{
-		    				viewGroup.removeView(viewGroup.getChildAt(1));
-		    			}
-		    			//設定照片的ID要減1
-		    			countpicture = 1;
-		    			//設定旗標如果為false不能刪除照片
-		    			choosepicture=0;
-		    			makeTextAndShow(Context,"清空",android.widget.Toast.LENGTH_SHORT);
-	    			}
-	    			else
-	    				makeTextAndShow(Context,"沒有圖片",android.widget.Toast.LENGTH_SHORT);
+    			choosebackground.setVisibility(View.GONE);
+				AlertDialog.Builder builder = new AlertDialog.Builder(Context);
+				builder.setTitle("清空拼貼");
+				builder.setMessage("確定要清除!!");
+				// Add the buttons
+				builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						// User clicked OK button
+						ViewGroup viewGroup = Relativelay;
+						if(viewGroup.getChildCount()>1)
+						{
+							for(int i = 1 ,count = viewGroup.getChildCount(); i < count;i++)
+							{
+								viewGroup.removeView(viewGroup.getChildAt(1));
+							}
+							//設定照片的ID要減1
+							countpicture = 1;
+							//設定旗標如果為false不能刪除照片
+							choosepicture=0;
+							makeTextAndShow(Context,"清空",android.widget.Toast.LENGTH_SHORT);
+						}
+						else
+							makeTextAndShow(Context,"沒有圖片",android.widget.Toast.LENGTH_SHORT);
+					}
+				});
+				builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						// User cancelled the dialog
+					}
+				});
+				builder.create().show();
+
+
     		}
         });
 		//endregion
@@ -1280,8 +1294,8 @@ public class Main extends Activity{
 		case Eraser:
 			curAction = new Myeraser(x, y, currentSize, currentColor);
 			break;
-		/*case Love:
-			curAction = new MyLove(x,y,currentSize, currentColor);*/
+		case Love:
+			curAction = new MyLove(x,y,currentSize, currentColor);
 		default:
 			break;
 		}
@@ -1400,8 +1414,8 @@ public class Main extends Activity{
 		case R.id.circlefall:
 			setType(ActionType.FilledCircle);
 			break;
-		/*case R.id.love:
-			setType(ActionType.Love);*/
+		case R.id.love:
+			setType(ActionType.Love);
 		default:
 			break;
 		}
