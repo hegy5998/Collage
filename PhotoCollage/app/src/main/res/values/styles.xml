@@ -2,8 +2,13 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Material">
-        <!-- Customize your theme here. -->
+        <!-- Status Bar -->
+        <item name="android:windowTranslucentStatus">true</item>
+        <!-- Navigation Bar -->
+        <item name="android:windowTranslucentNavigation">true</item>
+
     </style>
+
 
     <!-- 頂部標題欄標題文本樣式 -->
     <style name="topbarTittleTheme">
@@ -26,6 +31,8 @@
         <item name="android:activityCloseEnterAnimation">@anim/in_from_right</item>
         <item name="android:activityCloseExitAnimation">@anim/out_from_left</item>
     </style>
+
+
 
 
 </resources>

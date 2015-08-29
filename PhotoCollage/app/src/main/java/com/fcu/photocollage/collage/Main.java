@@ -106,6 +106,7 @@ public class Main extends Activity{
 	private List<Action> mActions;					//儲存畫布模式動作
 	private float[][] undoCutXY;
 	private int undoCutXYIndex1=0,undoCutXYIndex2=0;
+	private Boolean photo=false,draw=false;
 	//endregion
 
     @Override
@@ -184,6 +185,7 @@ public class Main extends Activity{
 		//endregion
 
 
+		//region 顯示畫筆粗細imageview點擊也能開啟調色盤
 		paintImgSize.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v) {
@@ -219,6 +221,7 @@ public class Main extends Activity{
 				dialog.show();
 			}
 		});
+		//endregion
 
 		//region 開始畫布模式
         drawstart.setOnClickListener(new OnClickListener() {
@@ -242,26 +245,106 @@ public class Main extends Activity{
 				setSize(currentSize);
 				//新增紀錄陣列
 				mActions = new ArrayList<Action>();
-				//如果在埃史話不前有選擇圖片，把圖片還原
+				//如果在之前有選擇圖片，把圖片還原
 				if (lastView != null)
 					lastView.setBackgroundColor(getResources().getColor(R.color.alpha));
-				//如果一開始畫布為空的，創建新畫布
-				if (drawBitmap == null) {
-					drawBitmap = Bitmap.createBitmap(backimage.getWidth(), backimage.getHeight(), Bitmap.Config.ARGB_8888);
-					saveBitmap = Bitmap.createBitmap(backimage.getWidth(), backimage.getHeight(), Bitmap.Config.ARGB_8888);
-					canvasDraw = new Canvas(drawBitmap);
-					canvasSave = new Canvas(saveBitmap);
-					canvasDraw.drawColor(Color.TRANSPARENT);
-					canvasSave.drawColor(Color.TRANSPARENT);
-					img = new ImageView(Context);
-					img.setId(countpicture);
-					img.setZ(countpicture);
-					img.setImageBitmap(saveBitmap);
-					Relativelay.addView(img);
-					countpicture++;
-					img.setOnTouchListener(DrawOnTouchListener);
-				}
 
+
+				AlertDialog.Builder builder = new AlertDialog.Builder(Context);
+				builder.setTitle("開啟畫布");
+				builder.setMessage("要開新畫布還是編輯圖片");
+				// Add the buttons
+				builder.setPositiveButton("編輯照片", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						// User clicked OK button
+						if(choosepicture != 0) {
+
+
+							drawBitmap = Bitmap.createBitmap(backimage.getWidth(), backimage.getHeight(), Bitmap.Config.ARGB_8888);
+							saveBitmap = Bitmap.createBitmap(backimage.getWidth(), backimage.getHeight(), Bitmap.Config.ARGB_8888);
+							canvasDraw = new Canvas(drawBitmap);
+							canvasSave = new Canvas(saveBitmap);
+							canvasDraw.drawColor(Color.TRANSPARENT);
+							ViewGroup viewGroup = Relativelay;
+							View currentView = viewGroup.getChildAt(choosepicture);
+							img = (ImageView) currentView;
+							//img.setX(backimage.getWidth()/2);
+							//img.setY(backimage.getHeight()/2);
+							img.setDrawingCacheEnabled(true);
+							img.buildDrawingCache();
+							Bitmap tempImage = img.getDrawingCache();
+
+							for (int i = choosepicture + 1; i < viewGroup.getChildCount(); i++) {
+								viewGroup.getChildAt(i).setId(i - 1);
+							}
+
+							countpicture--;
+							img = new ImageView(Context);
+							img.setId(countpicture);
+							img.setZ(countpicture + 11);
+							backimage.setZ(countpicture + 10);
+							Relativelay.addView(img);
+
+							float ScaleX=0,ScaleY=0;
+							for(float sX = 1 ; tempImage.getWidth()*sX < backimage.getWidth(); sX+=0.1)
+								ScaleX = sX;
+							for(float sY = 1 ; tempImage.getHeight()*sY < backimage.getHeight(); sY+=0.1)
+								ScaleY = sY;
+							if(ScaleX > ScaleY)
+								ScaleX = ScaleY;
+							else if(ScaleX < ScaleY)
+								ScaleY = ScaleX;
+							else;
+
+							Matrix Matrix = new Matrix();
+							Matrix.postTranslate(backimage.getWidth() / 2 - tempImage.getWidth() / 2, backimage.getHeight()/2-tempImage.getHeight()/2);
+							Matrix.postScale(ScaleX, ScaleY,backimage.getWidth() / 2, backimage.getHeight()/2);
+
+
+							canvasSave.drawBitmap(tempImage,Matrix, null);
+							Relativelay.removeView(currentView);
+							img.setImageBitmap(saveBitmap);
+							img.setOnTouchListener(null);
+							img.setOnTouchListener(DrawOnTouchListener);
+
+
+							countpicture++;
+							photo = true;
+
+							makeTextAndShow(Context, "編輯模式", android.widget.Toast.LENGTH_SHORT);
+						}
+						else
+							makeTextAndShow(Context, "沒有選擇相片", android.widget.Toast.LENGTH_SHORT);
+					}
+				});
+				builder.setNegativeButton("開新畫布", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						// User cancelled the dialog
+						//如果一開始畫布為空的，創建新畫布
+						if (drawBitmap == null) {
+							drawBitmap = Bitmap.createBitmap(backimage.getWidth(), backimage.getHeight(), Bitmap.Config.ARGB_8888);
+							saveBitmap = Bitmap.createBitmap(backimage.getWidth(), backimage.getHeight(), Bitmap.Config.ARGB_8888);
+							canvasDraw = new Canvas(drawBitmap);
+							canvasSave = new Canvas(saveBitmap);
+							canvasDraw.drawColor(Color.TRANSPARENT);
+							canvasSave.drawColor(Color.TRANSPARENT);
+							img = new ImageView(Context);
+							img.setId(countpicture);
+							img.setZ(countpicture);
+							img.setImageBitmap(saveBitmap);
+							Relativelay.addView(img);
+							countpicture++;
+							img.setOnTouchListener(DrawOnTouchListener);
+							draw = true;
+							makeTextAndShow(Context, "畫布模式", android.widget.Toast.LENGTH_SHORT);
+						}
+					}
+				});
+				builder.create().show();
+
+
+
+				//紀錄步驟順序
 				undoCutXY = new float[1000][4];
 
 				makeTextAndShow(Context, "畫布模式", android.widget.Toast.LENGTH_SHORT);
@@ -452,7 +535,11 @@ public class Main extends Activity{
 				else 
 					paintSizelinr.setVisibility(View.VISIBLE);
 				
+				if(eraserSizelinr.getVisibility()==View.VISIBLE)
+				{
+					setType(ActionType.Path);
 					eraserSizelinr.setVisibility(View.GONE);
+				}
 
 			}    		
     	});
@@ -479,7 +566,11 @@ public class Main extends Activity{
 					choosecolorlinr.setVisibility(View.GONE);
 				else
 					choosecolorlinr.setVisibility(View.VISIBLE);
-				eraserSizelinr.setVisibility(View.GONE);
+				if(eraserSizelinr.getVisibility()==View.VISIBLE)
+				{
+					setType(ActionType.Path);
+					eraserSizelinr.setVisibility(View.GONE);
+				}
 
 
 	
@@ -534,7 +625,15 @@ public class Main extends Activity{
 						img.setImageBitmap(saveBitmap);
 						for(int i=0 ; i<4 ; i++)
 							undoCutXY[undoCutXYIndex1-1][i]=0;
-						undoCutXYIndex1--;
+						if(undoCutXYIndex1!=0)
+							undoCutXYIndex1--;
+						if(undoCutXYIndex1==0)
+						{
+							cutBigX=0;
+							cutBigY=0;
+							cutSmallX=10000;
+							cutSmallY=10000;
+						}
 					}
 				}
 			
@@ -667,88 +766,106 @@ public class Main extends Activity{
 				Log.d("smallX",String.valueOf(smallX));
 				Log.d("smallY",String.valueOf(smallY));
 				Log.d("BigX",String.valueOf(BigX));
-				Log.d("BigY",String.valueOf(BigY));		
-				if(cutBigX==0 && cutBigY ==0 && cutSmallX==10000 && cutSmallY==10000)
-				{
-					ViewGroup viewGroup = Relativelay;
-					View currentView = viewGroup.getChildAt(countpicture-1);
-					viewGroup.removeView(currentView);
-					countpicture--;
-					makeTextAndShow(Context,"結束畫布模式沒有畫畫",android.widget.Toast.LENGTH_SHORT);
-				}
-				else
-				{
-					int leftX = 0,rightX=0,topY=0,bottomY=0;
-					/*if(cutSmallX-currentSize < 0)
-						leftX = 0;
-					else 
-						leftX = (int)cutSmallX - currentSize;
-					if(cutSmallY-currentSize < 0)
-						topY = 0;
-					else
-						topY = (int)cutSmallY - currentSize;
-					if(cutBigX + currentSize > saveBitmap.getWidth())
-						rightX = saveBitmap.getWidth()-leftX;
-					else
-						rightX = (int)(cutBigX-cutSmallX+2*currentSize);
-					if(cutBigY + currentSize > saveBitmap.getHeight())
-						bottomY = saveBitmap.getHeight()-topY;
-					else 
-						bottomY = (int)(cutBigY-cutSmallY+2*currentSize);*/
-					
-					//切割值
-					if(undoCutXY[undoCutXYIndex1-1][0]-currentSize-100 < 0)
-						leftX = 0;
-					else 
-						leftX = (int)undoCutXY[undoCutXYIndex1-1][0] - currentSize -100;
-					if(undoCutXY[undoCutXYIndex1-1][2]-currentSize-100 < 0)
-						topY = 0;
-					else
-						topY = (int)undoCutXY[undoCutXYIndex1-1][2] - currentSize -100;
-					if(undoCutXY[undoCutXYIndex1-1][1] + currentSize +100 > saveBitmap.getWidth())
-						rightX = saveBitmap.getWidth()-leftX;
-					else {
-						rightX = (int) (undoCutXY[undoCutXYIndex1 - 1][1] - undoCutXY[undoCutXYIndex1 - 1][0] + 2 * currentSize);
-						rightX += 100;
-					}
-					if(undoCutXY[undoCutXYIndex1-1][3] + currentSize +100 > saveBitmap.getHeight())
-						bottomY = saveBitmap.getHeight()-topY;
-					else {
-						bottomY = (int) (undoCutXY[undoCutXYIndex1 - 1][3] - undoCutXY[undoCutXYIndex1 - 1][2] + 2 * currentSize);
-						bottomY += 100;
-					}
+				Log.d("BigY",String.valueOf(BigY));
 
-					
-					/*Log.d("imgW",String.valueOf(saveBitmap.getWidth()));
-					Log.d("imgH",String.valueOf(saveBitmap.getHeight()));
-					Log.d("bottomy",String.valueOf(bottomY));
-					Log.d("rightX",String.valueOf(rightX));*/
-					
-					Bitmap drawOverBitmap = Bitmap.createBitmap(saveBitmap
-							,leftX
-							,topY
-							,rightX
-							,bottomY
-							,null,false);
-					img.setX(leftX);
-					img.setY(topY);
-					img.setImageBitmap(drawOverBitmap);
+				if(draw==true) {
+					if (cutBigX == 0 && cutBigY == 0 && cutSmallX == 10000 && cutSmallY == 10000) {
+						ViewGroup viewGroup = Relativelay;
+						View currentView = viewGroup.getChildAt(countpicture - 1);
+						viewGroup.removeView(currentView);
+						countpicture--;
+						choosepicture = 0;
+						backimage.setZ(0);
+						makeTextAndShow(Context, "結束畫布模式沒有畫畫", android.widget.Toast.LENGTH_SHORT);
+					} else {
+						int leftX = 0, rightX = 0, topY = 0, bottomY = 0;
+						/*if(cutSmallX-currentSize < 0)
+							leftX = 0;
+						else
+							leftX = (int)cutSmallX - currentSize;
+						if(cutSmallY-currentSize < 0)
+							topY = 0;
+						else
+							topY = (int)cutSmallY - currentSize;
+						if(cutBigX + currentSize > saveBitmap.getWidth())
+							rightX = saveBitmap.getWidth()-leftX;
+						else
+							rightX = (int)(cutBigX-cutSmallX+2*currentSize);
+						if(cutBigY + currentSize > saveBitmap.getHeight())
+							bottomY = saveBitmap.getHeight()-topY;
+						else
+							bottomY = (int)(cutBigY-cutSmallY+2*currentSize);*/
+
+						//切割值
+						if (undoCutXY[undoCutXYIndex1 - 1][0] - currentSize - 100 < 0)
+							leftX = 0;
+						else
+							leftX = (int) undoCutXY[undoCutXYIndex1 - 1][0] - currentSize - 100;
+						if (undoCutXY[undoCutXYIndex1 - 1][2] - currentSize - 100 < 0)
+							topY = 0;
+						else
+							topY = (int) undoCutXY[undoCutXYIndex1 - 1][2] - currentSize - 100;
+						if (undoCutXY[undoCutXYIndex1 - 1][1] + currentSize + 100 > saveBitmap.getWidth())
+							rightX = saveBitmap.getWidth() - leftX;
+						else {
+							rightX = (int) (undoCutXY[undoCutXYIndex1 - 1][1] - undoCutXY[undoCutXYIndex1 - 1][0] + 2 * currentSize);
+							rightX += 100;
+						}
+						if (undoCutXY[undoCutXYIndex1 - 1][3] + currentSize + 100 > saveBitmap.getHeight())
+							bottomY = saveBitmap.getHeight() - topY;
+						else {
+							bottomY = (int) (undoCutXY[undoCutXYIndex1 - 1][3] - undoCutXY[undoCutXYIndex1 - 1][2] + 2 * currentSize);
+							bottomY += 100;
+						}
+
+
+						/*Log.d("imgW",String.valueOf(saveBitmap.getWidth()));
+						Log.d("imgH",String.valueOf(saveBitmap.getHeight()));
+						Log.d("bottomy",String.valueOf(bottomY));
+						Log.d("rightX",String.valueOf(rightX));*/
+
+						Bitmap drawOverBitmap = Bitmap.createBitmap(saveBitmap
+								, leftX
+								, topY
+								, rightX
+								, bottomY
+								, null, false);
+
+
+						img.setX(leftX);
+						img.setY(topY);
+						img.setImageBitmap(drawOverBitmap);
+					}
+				}
+				else if(photo==true)
+				{
+//					Matrix matrix = new Matrix();
+//					matrix.setScale(1/2,1/2);
+//					canvasSave.drawBitmap(saveBitmap,matrix,null);
+					img.setImageBitmap(saveBitmap);
+				}
+
+					img.setZ(countpicture-1);
+					backimage.setZ(0);
 					
 					img.setOnTouchListener(null);
 					img.setOnTouchListener(new MultiTouchListener());
 					img.setOnClickListener(imgOnClickListener);
 					
 					makeTextAndShow(Context,"結束畫布模式",android.widget.Toast.LENGTH_SHORT);
+					drawBitmap=null;
+					saveBitmap=null;
+					photo=false;
+					draw=false;
+
+					cutBigX=0;
+					cutBigY=0;
+					cutSmallX=10000;
+					cutSmallY=10000;
 				}
-				drawBitmap=null;
-				saveBitmap=null;
-				
-				cutBigX=0;
-				cutBigY=0;
-				cutSmallX=10000;
-				cutSmallY=10000;
+
 			
-			}
+
 		});
 		//endregion
 
@@ -1203,7 +1320,6 @@ public class Main extends Activity{
 				if(type == ActionType.Point)
 				{
 					curAction.draw(canvasDraw);
-					Log.d("aa","aa");
 				}
 				break;
 			// 用戶手指在螢幕上移動
@@ -1241,7 +1357,7 @@ public class Main extends Activity{
 				for (Action a : mActions) {
 					a.draw(canvasSave);
 				}
-				//把會好的圖存到canvasSave跟canvasDraw分開
+				//把畫好的圖存到canvasSave跟canvasDraw分開
 				curAction.draw(canvasSave);
 				//顯示saveBitmap
 				((ImageView) v).setImageBitmap(saveBitmap);
