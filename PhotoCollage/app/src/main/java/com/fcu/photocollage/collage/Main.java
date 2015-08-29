@@ -34,6 +34,7 @@ import android.os.Message;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -183,8 +184,44 @@ public class Main extends Activity{
 		//endregion
 
 
+		paintImgSize.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				//調色盤
+				ColorPickerDialog dialog = new ColorPickerDialog(Context, currentColor, "Choose Color",
+						new ColorPickerDialog.OnColorChangedListener() {
+							public void colorChanged(int color2) {
+								//set your color variable
+								setColor(color2);
+								if(paintSizelinr.getVisibility()==View.VISIBLE)
+								{
+									//選完顏色同時也要把畫筆大小的顏色換成所選的
+									Bitmap paintSizeBitmap = Bitmap.createBitmap(paintImgSize.getWidth(),paintImgSize.getHeight(),Bitmap.Config.ARGB_8888);
+									Canvas paintSizeCanvas = new Canvas(paintSizeBitmap);
+
+									Paint cleancanvas = new Paint();
+									cleancanvas.setXfermode(new PorterDuffXfermode(Mode.CLEAR));
+									paintSizeCanvas.drawPaint(cleancanvas);
+									cleancanvas.setXfermode(new PorterDuffXfermode(Mode.SRC));
+
+									setSize(choosePaintSize);
+									Paint seekBarShowPaintSize = new Paint();
+									seekBarShowPaintSize.setAntiAlias(true);
+									seekBarShowPaintSize.setColor(currentColor);
+									seekBarShowPaintSize.setStyle(Paint.Style.FILL);
+									seekBarShowPaintSize.setStrokeWidth(choosePaintSize);
+
+									paintSizeCanvas.drawCircle(paintImgSize.getWidth()/2, paintImgSize.getHeight()/2,choosePaintSize/2, seekBarShowPaintSize);
+									paintImgSize.setImageBitmap(paintSizeBitmap);
+								}
+							}
+						});
+				dialog.show();
+			}
+		});
+
 		//region 開始畫布模式
-        drawstart.setOnClickListener(new View.OnClickListener() {
+        drawstart.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				//設定按鈕可否使用
@@ -300,7 +337,7 @@ public class Main extends Activity{
 		//endregion
 
 		//region 複製
-		copy.setOnClickListener(new View.OnClickListener()
+		copy.setOnClickListener(new OnClickListener()
         {		
 			@Override
 			public void onClick(View v) {
@@ -382,7 +419,7 @@ public class Main extends Activity{
 		//endregion
 
 		//region 更換背景按鈕
-        backgroundBtn.setOnClickListener(new View.OnClickListener()
+        backgroundBtn.setOnClickListener(new OnClickListener()
         {		
 			@Override
 			public void onClick(View v) {
@@ -396,7 +433,7 @@ public class Main extends Activity{
 		//endregion
 
 		//region 畫筆粗細
-    	drawBtn.setOnClickListener(new View.OnClickListener()
+    	drawBtn.setOnClickListener(new OnClickListener()
     	{
 			@Override
 			public void onClick(View v) {
@@ -422,7 +459,7 @@ public class Main extends Activity{
 		//endregion
 
 		//region 選擇畫筆顏色
-        colorBtn.setOnClickListener(new View.OnClickListener()
+        colorBtn.setOnClickListener(new OnClickListener()
         {		
 			@Override
 			public void onClick(View v) {
@@ -438,49 +475,20 @@ public class Main extends Activity{
 					chooseshape.setVisibility(View.VISIBLE);
 				else
 					chooseshape.setVisibility(View.GONE);
-//				if(choosecolorlinr.getVisibility()==View.VISIBLE)
-//					choosecolorlinr.setVisibility(View.GONE);
-//				else
-//					choosecolorlinr.setVisibility(View.VISIBLE);
+				if(choosecolorlinr.getVisibility()==View.VISIBLE)
+					choosecolorlinr.setVisibility(View.GONE);
+				else
+					choosecolorlinr.setVisibility(View.VISIBLE);
 				eraserSizelinr.setVisibility(View.GONE);
 
-				//調色盤
-				ColorPickerDialog dialog = new ColorPickerDialog(Context, currentColor, "Choose Color",
-						new ColorPickerDialog.OnColorChangedListener() {
-							public void colorChanged(int color2) {
-								//set your color variable
-								setColor(color2);
-								if(paintSizelinr.getVisibility()==View.VISIBLE)
-								{
-									//選完顏色同時也要把畫筆大小的顏色換成所選的
-									Bitmap paintSizeBitmap = Bitmap.createBitmap(paintImgSize.getWidth(),paintImgSize.getHeight(),Bitmap.Config.ARGB_8888);
-									Canvas paintSizeCanvas = new Canvas(paintSizeBitmap);
 
-									Paint cleancanvas = new Paint();
-									cleancanvas.setXfermode(new PorterDuffXfermode(Mode.CLEAR));
-									paintSizeCanvas.drawPaint(cleancanvas);
-									cleancanvas.setXfermode(new PorterDuffXfermode(Mode.SRC));
-
-									setSize(choosePaintSize);
-									Paint seekBarShowPaintSize = new Paint();
-									seekBarShowPaintSize.setAntiAlias(true);
-									seekBarShowPaintSize.setColor(currentColor);
-									seekBarShowPaintSize.setStyle(Paint.Style.FILL);
-									seekBarShowPaintSize.setStrokeWidth(choosePaintSize);
-
-									paintSizeCanvas.drawCircle(paintImgSize.getWidth()/2, paintImgSize.getHeight()/2,choosePaintSize/2, seekBarShowPaintSize);
-									paintImgSize.setImageBitmap(paintSizeBitmap);
-								}
-							}
-						});
-				dialog.show();
 	
 			}
 		});
 		//endregion
 
 		//region 選擇圖形按鈕
-        shapeBtn.setOnClickListener(new View.OnClickListener()
+        shapeBtn.setOnClickListener(new OnClickListener()
         {		
 			@Override
 			public void onClick(View v) {
@@ -505,7 +513,7 @@ public class Main extends Activity{
 		//endregion
 
 		//region 上一步
-    	undoBtn.setOnClickListener(new View.OnClickListener()
+    	undoBtn.setOnClickListener(new OnClickListener()
     	{
 
 			@Override
@@ -535,7 +543,7 @@ public class Main extends Activity{
 		//endregion
 
 		//region 清空整個畫布
-    	cleanAll.setOnClickListener(new View.OnClickListener()
+    	cleanAll.setOnClickListener(new OnClickListener()
     	{
 			@Override
 			public void onClick(View v) {
@@ -573,7 +581,7 @@ public class Main extends Activity{
 		//endregion
 
 		//region 開啟橡皮擦
-    	eraser.setOnClickListener(new View.OnClickListener() {
+    	eraser.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -638,7 +646,7 @@ public class Main extends Activity{
 		//endregion
 
 		//region 結束畫布
-        drawover.setOnClickListener(new View.OnClickListener()
+        drawover.setOnClickListener(new OnClickListener()
         {		
 			@Override
 			public void onClick(View v) {
@@ -700,13 +708,13 @@ public class Main extends Activity{
 					if(undoCutXY[undoCutXYIndex1-1][1] + currentSize +100 > saveBitmap.getWidth())
 						rightX = saveBitmap.getWidth()-leftX;
 					else {
-						rightX = (int) (undoCutXY[undoCutXYIndex1 - 1][1] - undoCutXY[undoCutXYIndex1 - 1][0] + 2 * currentSize) + 100;
+						rightX = (int) (undoCutXY[undoCutXYIndex1 - 1][1] - undoCutXY[undoCutXYIndex1 - 1][0] + 2 * currentSize);
 						rightX += 100;
 					}
 					if(undoCutXY[undoCutXYIndex1-1][3] + currentSize +100 > saveBitmap.getHeight())
 						bottomY = saveBitmap.getHeight()-topY;
 					else {
-						bottomY = (int) (undoCutXY[undoCutXYIndex1 - 1][3] - undoCutXY[undoCutXYIndex1 - 1][2] + 2 * currentSize) + 100;
+						bottomY = (int) (undoCutXY[undoCutXYIndex1 - 1][3] - undoCutXY[undoCutXYIndex1 - 1][2] + 2 * currentSize);
 						bottomY += 100;
 					}
 
@@ -745,7 +753,7 @@ public class Main extends Activity{
 		//endregion
 
 		//region 儲存圖片至SD卡
-        SaveButton.setOnClickListener(new View.OnClickListener(){
+        SaveButton.setOnClickListener(new OnClickListener(){
         	 
         	   @Override
         	   public void onClick(View v) {
@@ -788,7 +796,7 @@ public class Main extends Activity{
 		//endregion
 
 		//region 選擇照片
-        selectImgBtn.setOnClickListener(new View.OnClickListener() {
+        selectImgBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 //跳轉至最終的選擇圖片頁面
@@ -802,7 +810,7 @@ public class Main extends Activity{
 		//endregion
 
 		//region 刪除事件
-        DeleteButton.setOnClickListener (new View.OnClickListener() {
+        DeleteButton.setOnClickListener (new OnClickListener() {
 
     		@Override
     		public void onClick(View v) {
@@ -836,7 +844,7 @@ public class Main extends Activity{
 		//endregion
 
 		//region 全部清空
-        DeleteAllButton.setOnClickListener (new View.OnClickListener() {
+        DeleteAllButton.setOnClickListener (new OnClickListener() {
 
     		@Override
     		public void onClick(View v) {
@@ -984,7 +992,7 @@ public class Main extends Activity{
 	//endregion
 
 	//region ImageView 點擊事件
-	private View.OnClickListener imgOnClickListener = new View.OnClickListener() {
+	private OnClickListener imgOnClickListener = new OnClickListener() {
 		public void onClick(View v) {
 			//取得所選照片的ID
 			choosepicture = v.getId();
@@ -1336,7 +1344,6 @@ public class Main extends Activity{
 		switch (view.getId()) {
 		case R.id.colorRed:
 			setColor(getResources().getColor(R.color.md_red_500));
-			Log.d("red",Integer.toString(getResources().getColor(R.color.md_red_500)));
 			break;
 		case R.id.colorGreen:
 			setColor(getResources().getColor(R.color.md_green_500));
@@ -1361,6 +1368,38 @@ public class Main extends Activity{
 			break;
 		case R.id.colorBlack:
 			setColor(getResources().getColor(R.color.md_black_1000));
+			break;
+		case R.id.palette:
+			//調色盤
+			ColorPickerDialog dialog = new ColorPickerDialog(Context, currentColor, "Choose Color",
+					new ColorPickerDialog.OnColorChangedListener() {
+						public void colorChanged(int color2) {
+							//set your color variable
+							setColor(color2);
+							if(paintSizelinr.getVisibility()==View.VISIBLE)
+							{
+								//選完顏色同時也要把畫筆大小的顏色換成所選的
+								Bitmap paintSizeBitmap = Bitmap.createBitmap(paintImgSize.getWidth(),paintImgSize.getHeight(),Bitmap.Config.ARGB_8888);
+								Canvas paintSizeCanvas = new Canvas(paintSizeBitmap);
+
+								Paint cleancanvas = new Paint();
+								cleancanvas.setXfermode(new PorterDuffXfermode(Mode.CLEAR));
+								paintSizeCanvas.drawPaint(cleancanvas);
+								cleancanvas.setXfermode(new PorterDuffXfermode(Mode.SRC));
+
+								setSize(choosePaintSize);
+								Paint seekBarShowPaintSize = new Paint();
+								seekBarShowPaintSize.setAntiAlias(true);
+								seekBarShowPaintSize.setColor(currentColor);
+								seekBarShowPaintSize.setStyle(Paint.Style.FILL);
+								seekBarShowPaintSize.setStrokeWidth(choosePaintSize);
+
+								paintSizeCanvas.drawCircle(paintImgSize.getWidth()/2, paintImgSize.getHeight()/2,choosePaintSize/2, seekBarShowPaintSize);
+								paintImgSize.setImageBitmap(paintSizeBitmap);
+							}
+						}
+					});
+			dialog.show();
 			break;
 		default:
 			break;
