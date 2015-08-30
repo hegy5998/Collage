@@ -265,7 +265,7 @@
 		    android:progressDrawable="@drawable/sb_bar"
 		    android:thumb="@drawable/sb_thumb"
 		    android:max="200"
-		    android:progress="0" />
+		    android:progress="15" />
 
 	     	<ImageView
 	     	    android:id="@+id/paintsize"
