@@ -45,12 +45,10 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.fcu.photocollage.R;
 import com.fcu.photocollage.imagepicker.PhotoWallActivity;
-import com.fcu.photocollage.img;
 import com.fcu.photocollage.multitouch.MultiTouchListener;
 
 
@@ -66,6 +64,7 @@ public class Main extends Activity{
     private Canvas tempCanvas;						//畫布
     private int countpicture = 1;					//計算照片張數
     private int choosepicture = 0;					//選擇照片ID
+	private int choosepictureZ = 0;
     private int choosePaintSize = 15;				//畫筆粗細
     private int addViewLeft = 50,addViewTop = 50;	//加入照片上下初始設定
     private File dirFile = null;					//照片要存的路徑
@@ -89,7 +88,8 @@ public class Main extends Activity{
     private Button drawstart;						//開始畫布按鈕	
     private Button copy;							//複製按鈕
     private Button backgroundBtn;					//設置背景按鈕
-	private Button ImageColorBtn;
+	private Button upBtn;
+	private Button downBtn;
     private View lastView;							//上一個選擇的imageview
     private Bitmap drawBitmap,saveBitmap=null,tempImage,bitmapcopy;		//畫布，暫存畫布，最終儲存畫布
     private ProgressDialog progressDialog;			//儲存彈出等待視窗 
@@ -131,6 +131,10 @@ public class Main extends Activity{
         selectImgBtn = (Button) findViewById(R.id.main_select_image);
         //複製按鈕
         copy = (Button)findViewById(R.id.copy);
+		//上推按鈕
+		upBtn = (Button)findViewById(R.id.up);
+		//下推按鈕
+		downBtn = (Button)findViewById(R.id.down);
         //換背景按鈕
         backgroundBtn = (Button)findViewById(R.id.backgroundBtn);
         //初始背景
@@ -244,6 +248,8 @@ public class Main extends Activity{
 						// User clicked OK button
 						if(choosepicture != 0) {
 
+
+
 							//設定按鈕可否使用
 							drawover.setEnabled(true);
 							eraser.setEnabled(true);
@@ -266,6 +272,7 @@ public class Main extends Activity{
 							if (lastView != null)
 								lastView.setBackgroundColor(getResources().getColor(R.color.alpha));
 
+							//創建準備要畫畫的Bitmap
 							drawBitmap = Bitmap.createBitmap(backimage.getWidth(), backimage.getHeight(), Bitmap.Config.ARGB_8888);
 							saveBitmap = Bitmap.createBitmap(backimage.getWidth(), backimage.getHeight(), Bitmap.Config.ARGB_8888);
 							canvasDraw = new Canvas(drawBitmap);
@@ -273,10 +280,12 @@ public class Main extends Activity{
 							canvasDraw.drawColor(Color.TRANSPARENT);
 							ViewGroup viewGroup = Relativelay;
 							View currentView = viewGroup.getChildAt(choosepicture);
-
+							//取得照片資訊
 							currentView.setDrawingCacheEnabled(true);
 							currentView.buildDrawingCache();
 							tempImage = currentView.getDrawingCache();
+
+
 
 
 							img = new ImageView(Context);
@@ -286,6 +295,7 @@ public class Main extends Activity{
 							backimage.setZ(countpicture + 10);
 							Relativelay.addView(img);
 
+							//將照片等比放大到跟螢幕大小一樣
 							float ScaleX=0,ScaleY=0;
 							for(float sX = 1 ; tempImage.getWidth()*sX <= backimage.getWidth(); sX+=0.1)
 								ScaleX = sX;
@@ -297,6 +307,7 @@ public class Main extends Activity{
 								ScaleY = ScaleX;
 							else;
 
+							//將照片移到正中間
 							drawMatrix = new Matrix();
 							drawMatrix.postTranslate(backimage.getWidth() / 2 - tempImage.getWidth() / 2, backimage.getHeight() / 2 - tempImage.getHeight() / 2);
 							drawMatrix.postScale(ScaleX, ScaleY, backimage.getWidth() / 2, backimage.getHeight() / 2);
@@ -393,8 +404,8 @@ public class Main extends Activity{
 										  boolean fromUser) {
 				// TODO 自動產生的方法 Stub
 				//畫筆大小設置，progress為當下seekbar數值
-				if(progress<15)
-					progress=15;
+				if (progress < 15)
+					progress = 15;
 				choosePaintSize = progress;
 				//創建一個Bitmap與顯示畫筆粗細ImageView一樣大小
 				Bitmap paintSizeBitmap = Bitmap.createBitmap(paintImgSize.getWidth(), paintImgSize.getHeight(), Bitmap.Config.ARGB_8888);
@@ -453,88 +464,138 @@ public class Main extends Activity{
 		//endregion
 
 		//region 複製
-		copy.setOnClickListener(new OnClickListener()
-        {		
+		copy.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				//初始設定為path
-				
+
 				choosebackground.setVisibility(View.GONE);
-				
-				if(choosepicture!=0)
-				{
+
+				if (choosepicture != 0) {
 					ViewGroup viewGroup = Relativelay;
 					View currentView = viewGroup.getChildAt(choosepicture);
 					currentView.setDrawingCacheEnabled(true);
 					currentView.buildDrawingCache();
 					bitmapcopy = currentView.getDrawingCache();
-									
+
 					//img = new ImageView(Context);
 
-	
-	    			
-	    			currentView.setBackgroundColor(getResources().getColor(R.color.alpha));
+
+					currentView.setBackgroundColor(getResources().getColor(R.color.alpha));
 					currentView.setAlpha(1f);
-					
+
 					Matrix Matrix = new Matrix();
-					Matrix.postScale(currentView.getScaleX(),currentView.getScaleY(),currentView.getWidth()/2,currentView.getHeight()/2);  
-					Matrix.postRotate(currentView.getRotation(),(currentView.getWidth()*currentView.getScaleX())/2,(currentView.getHeight()*currentView.getScaleY())/2);
-	    			
-	    			//currentView.setDrawingCacheEnabled(true); 
-	    	 		currentView.buildDrawingCache();
-	    	 		//currentView.buildDrawingCache(isChangingConfigurations());
-	    	 		Bitmap copy = currentView.getDrawingCache();
-	    	 		Bitmap copysave = Bitmap.createBitmap(copy,0,0,copy.getWidth(),copy.getHeight(),Matrix,false);
-	    	 		
-	    	 		int copyX,copyY;
-	    	 		Random ran = new Random(); 
-	    	        copyX = (int)(Math.random()*400-200);
-	    	        copyY = (int)(Math.random()*400-200);
-	    	 		
-	    	        float setX,setY;
-	    	        setX = currentView.getX()+copyX;
-	    	        setY = currentView.getY()+copyY;
-	    	        if(currentView.getX()+copyX > backimage.getWidth())
-	    	        {
-	    	        	setX = setX - currentView.getWidth()-100;
-	    	        }
-	    	        if(currentView.getX()+copyX < 0)
-	    	        {
-	    	        	setX = -(currentView.getX()+copyX); 
-	    	        }
-	    	        if(currentView.getY()+copyY > backimage.getHeight())
-	    	        {
-	    	        	setY = setY - currentView.getHeight()-100;
-	    	        }
-	    	        if(currentView.getY()+copyY < 0)
-	    	        {
-	    	        	setY = -(currentView.getY()+copyY);
-	    	        }
+					Matrix.postScale(currentView.getScaleX(), currentView.getScaleY(), currentView.getWidth() / 2, currentView.getHeight() / 2);
+					Matrix.postRotate(currentView.getRotation(), (currentView.getWidth() * currentView.getScaleX()) / 2, (currentView.getHeight() * currentView.getScaleY()) / 2);
+
+					//currentView.setDrawingCacheEnabled(true);
+					currentView.buildDrawingCache();
+					//currentView.buildDrawingCache(isChangingConfigurations());
+					Bitmap copy = currentView.getDrawingCache();
+					Bitmap copysave = Bitmap.createBitmap(copy, 0, 0, copy.getWidth(), copy.getHeight(), Matrix, false);
+
+					//取得亂數介於-200~200之間
+					int copyX, copyY;
+					Random ran = new Random();
+					copyX = (int) (Math.random() * 400 - 200);
+					copyY = (int) (Math.random() * 400 - 200);
+
+					//設定照片要隨機放的位置，不能超過螢幕四周
+					float setX, setY;
+					setX = currentView.getX() + copyX;
+					setY = currentView.getY() + copyY;
+					if (currentView.getX() + copyX > backimage.getWidth()) {
+						setX = setX - currentView.getWidth() - 100;
+					}
+					if (currentView.getX() + copyX < 0) {
+						setX = -(currentView.getX() + copyX);
+					}
+					if (currentView.getY() + copyY > backimage.getHeight()) {
+						setY = setY - currentView.getHeight() - 100;
+					}
+					if (currentView.getY() + copyY < 0) {
+						setY = -(currentView.getY() + copyY);
+					}
 					//Relativelay.removeView(currentView);
 
-					img = new img(Context,copysave);
+					img = new img(Context, copysave);
 					//為這個imageview設定ID
 					img.setId(countpicture);
 					img.setZ(countpicture);
-	    	 		img.setX(setX);
-	    	 		img.setY(setY);
-	    	 		
-	    	 		img.setImageBitmap(copysave);
-	    	 		//img.setBitmap(copysave);
-	    	 		
-	    			img.setOnTouchListener(new MultiTouchListener());
-	    			//imageview點擊事件
-	    			img.setOnClickListener(imgOnClickListener);
-	    			//把照片加入RelativeLayout中，座標位置為0,0
-	    			Relativelay.addView(img);  
-			    	//照片ID數加1
-			    	countpicture++;
-			    	//choosepicture=0;
-			    	makeTextAndShow(Context,"複製",android.widget.Toast.LENGTH_SHORT);
-				}
-				else
+					img.setX(setX);
+					img.setY(setY);
+
+					img.setImageBitmap(copysave);
+					//img.setBitmap(copysave);
+
+					img.setOnTouchListener(new MultiTouchListener());
+					//imageview點擊事件
+					img.setOnClickListener(imgOnClickListener);
+					//把照片加入RelativeLayout中，座標位置為0,0
+					Relativelay.addView(img);
+					//照片ID數加1
+					countpicture++;
+					//choosepicture=0;
+					makeTextAndShow(Context, "複製", android.widget.Toast.LENGTH_SHORT);
+				} else
 					makeTextAndShow(Context, "沒有選擇圖片", android.widget.Toast.LENGTH_SHORT);
-	
+
+			}
+		});
+		//endregion
+
+		//region 上推按鈕
+		upBtn.setOnClickListener(new OnClickListener()
+		{
+			@Override
+			public void onClick(View v) {
+
+
+				ViewGroup viewGroup = Relativelay;
+				View currentView = viewGroup.getChildAt(choosepicture);
+				View changetView = null;
+				//要上推的照片一定要比照片張數小
+				if(currentView.getZ()<countpicture-1) {
+					//找到要上推照片的上面那一張照片
+					for(int i = 1 ; i<viewGroup.getChildCount();i++)
+					{
+						if(currentView.getZ()+1 != viewGroup.getChildAt(i).getZ())
+						{
+
+						}else
+							changetView = viewGroup.getChildAt(i);
+					}
+					currentView.setZ((int)currentView.getZ()+1);
+					changetView.setZ((int)changetView.getZ()-1);
+				}
+
+
+			}
+		});
+		//endregion
+
+		//region 下推按鈕
+		downBtn.setOnClickListener(new OnClickListener()
+		{
+			@Override
+			public void onClick(View v) {
+				ViewGroup viewGroup = Relativelay;
+				View currentView = viewGroup.getChildAt(choosepicture);
+				View changetView = null;
+				//要下推的Z一定要比1大
+				if(currentView.getZ()>1) {
+					//找出要下推的照片原本的下面那張照片
+					for(int i = 1 ; i<viewGroup.getChildCount();i++)
+					{
+						if(currentView.getZ()-1 != viewGroup.getChildAt(i).getZ())
+						{
+
+						}else
+							changetView = viewGroup.getChildAt(i);
+					}
+					currentView.setZ((int)currentView.getZ()-1);
+					changetView.setZ((int)changetView.getZ()+1);
+				}
 			}
 		});
 		//endregion
@@ -703,6 +764,7 @@ public class Main extends Activity{
 						canvasSave.drawPaint(cleancanvas);
 						cleancanvas.setXfermode(new PorterDuffXfermode(Mode.SRC));
 						canvasSave.drawBitmap(tempImage, drawMatrix, null);
+						//再次畫上編輯前的照片樣子
 						img.setImageBitmap(saveBitmap);
 						mActions.clear();
 
@@ -812,50 +874,39 @@ public class Main extends Activity{
 				Log.d("BigX", String.valueOf(BigX));
 				Log.d("BigY", String.valueOf(BigY));
 
-				Boolean clean = true;
-				for(int x = 0 ; x<saveBitmap.getWidth();x++)
-				{
-					for(int y = 0 ; y<saveBitmap.getHeight();y++)
+					//判斷圖片片是否為空
+					Boolean clean = true;
+					for(int x = 0 ; x<saveBitmap.getWidth();x++)
 					{
-						if(saveBitmap.getPixel(x,y)!=0)
+						for(int y = 0 ; y<saveBitmap.getHeight();y++)
 						{
-							clean=false;
-						}
+							if(saveBitmap.getPixel(x,y)!=0)
+							{
+								clean=false;
+							}
 
+						}
 					}
-				}
+					//如果為空圖片
 					if(clean==true)
 //					if (cutBigX == 0 && cutBigY == 0 && cutSmallX == 10000 && cutSmallY == 10000)
 					{
 						ViewGroup viewGroup = Relativelay;
 						View currentView = viewGroup.getChildAt(countpicture - 1);
 						viewGroup.removeView(currentView);
+						img.setOnTouchListener(null);
 						countpicture--;
 						choosepicture = 0;
 						backimage.setZ(0);
-						makeTextAndShow(Context, "結束畫布模式沒有畫畫", android.widget.Toast.LENGTH_SHORT);
+						makeTextAndShow(Context, "結束畫布模式畫布為空", android.widget.Toast.LENGTH_SHORT);
 					}
 					else
 					{
+						//如果為畫畫模式
 						if(draw==true)
 						{
-							int leftX = 0, rightX = 0, topY = 0, bottomY = 0;
-							/*if(cutSmallX-currentSize < 0)
-								leftX = 0;
-							else
-								leftX = (int)cutSmallX - currentSize;
-							if(cutSmallY-currentSize < 0)
-								topY = 0;
-							else
-								topY = (int)cutSmallY - currentSize;
-							if(cutBigX + currentSize > saveBitmap.getWidth())
-								rightX = saveBitmap.getWidth()-leftX;
-							else
-								rightX = (int)(cutBigX-cutSmallX+2*currentSize);
-							if(cutBigY + currentSize > saveBitmap.getHeight())
-								bottomY = saveBitmap.getHeight()-topY;
-							else
-								bottomY = (int)(cutBigY-cutSmallY+2*currentSize);*/
+							int leftX , rightX , topY , bottomY ;
+
 
 							//切割值
 							if (undoCutXY[undoCutXYIndex1 - 1][0] - currentSize - 100 < 0)
@@ -885,71 +936,83 @@ public class Main extends Activity{
 							Log.d("bottomy",String.valueOf(bottomY));
 							Log.d("rightX",String.valueOf(rightX));*/
 
+							//將saveBitmap裡面的內容存到另一個bitmap以免saveBitmap被覆蓋時出錯
 							Bitmap drawOverBitmap = Bitmap.createBitmap(saveBitmap
-									, leftX
-									, topY
-									, rightX
-									, bottomY
+									, 0
+									, 0
+									, saveBitmap.getWidth()
+									, saveBitmap.getHeight()
 									, null, false);
 
 							ViewGroup viewGroup = Relativelay;
 							View currentView = viewGroup.getChildAt(countpicture-1);
 							Relativelay.removeView(currentView);
+							//創建一個可以分發事件的imageview用來判斷是否有摸到透明的地方
 							img = new img(Context,drawOverBitmap);
 							img.setId(countpicture - 1);
-							img.setX(leftX);
-							img.setY(topY);
+//							img.setX(leftX);
+//							img.setY(topY);
 							img.setZ(countpicture - 1);
 							img.setImageBitmap(drawOverBitmap);
 							Relativelay.addView(img);
+							img.setOnTouchListener(null);
+							img.setOnTouchListener(new MultiTouchListener());
+							img.setOnClickListener(imgOnClickListener);
 							//countpicture++;
 							makeTextAndShow(Context, "結束畫布模式", android.widget.Toast.LENGTH_SHORT);
 						}
+						//如果為編輯照片模式
 						else if(photo==true)
 						{
-	//					Matrix matrix = new Matrix();
-	//					matrix.setScale(1/2,1/2);
-	//					canvasSave.drawBitmap(saveBitmap,matrix,null);
+
 
 							ViewGroup viewGroup = Relativelay;
 							View currentView = viewGroup.getChildAt(choosepicture);
 
+							//原本照片後的ID都往前移1
 							for (int i = choosepicture + 1; i < viewGroup.getChildCount(); i++) {
 								viewGroup.getChildAt(i).setId(i - 1);
 							}
 							//currentView.setDrawingCacheEnabled(false);
-							Relativelay.removeView(currentView);
-							currentView = viewGroup.getChildAt(choosepicture);
+							//須將原本的照片刪掉
 							Relativelay.removeView(currentView);
 
-							img = new img(Context,saveBitmap);
-							img.setId(countpicture - 2);
-							img.setZ(countpicture - 2);
-							img.setImageBitmap(saveBitmap);
-							//drawBitmap.recycle();
+							//將saveBitmap裡面的內容存到另一個bitmap以免saveBitmap被覆蓋時出錯
+							Bitmap overBitmap = Bitmap.createBitmap(saveBitmap.getWidth(),saveBitmap.getHeight(), Bitmap.Config.ARGB_8888);
+							Canvas overCanvas = new Canvas(overBitmap);
+							overCanvas.drawBitmap(saveBitmap, 0, 0, null);
+
+							//再把畫好的照片的imageview刪掉因為還要再創一個能分發事件的imageview
+							currentView = viewGroup.getChildAt(countpicture-2);
+							Relativelay.removeView(currentView);
+
+
+							img = new img(Context, overBitmap);
+							img.setId(countpicture-2);
+							img.setZ(choosepictureZ);
+							img.setImageBitmap(overBitmap);
+
 							Relativelay.addView(img);
+							img.setOnTouchListener(null);
+							img.setOnTouchListener(new MultiTouchListener());
+							img.setOnClickListener(imgOnClickListener);
 							countpicture--;
 							makeTextAndShow(Context, "結束畫布模式", android.widget.Toast.LENGTH_SHORT);
 						}
 				}
 
-
-				backimage.setZ(0);
-
-					img.setOnTouchListener(null);
-					img.setOnTouchListener(new MultiTouchListener());
-					img.setOnClickListener(imgOnClickListener);
+					backimage.setZ(0);
 
 					drawBitmap=null;
 					saveBitmap=null;
+
 					photo=false;
 					draw=false;
 
-
-					cutBigX=0;
-					cutBigY=0;
-					cutSmallX=10000;
-					cutSmallY=10000;
+//					cutBigX=0;
+//					cutBigY=0;
+//					cutSmallX=10000;
+//					cutSmallY=10000;
 				}
 
 			
@@ -1030,6 +1093,14 @@ public class Main extends Activity{
 	    			for (int i = choosepicture + 1; i < viewGroup.getChildCount(); i++) {
 	    				viewGroup.getChildAt(i).setId(i - 1);
 	    			}
+					//將目前選擇要刪除的照片比他大的Z都要減1
+					for(int z = 1 ; z < viewGroup.getChildCount();z++)
+					{
+						if((int)currentView.getZ() < (int)viewGroup.getChildAt(z).getZ())
+						{
+							viewGroup.getChildAt(z).setZ((int)viewGroup.getChildAt(z).getZ()-1);
+						}
+					}
 	    			//Debug
 	    			int picturenum = currentView.getId();
 	    			String tag = "Deletechoosepicture";
@@ -1205,42 +1276,41 @@ public class Main extends Activity{
 	}
 	//endregion
 
-
-
-
-
 	//region ImageView 點擊事件
 	private OnClickListener imgOnClickListener = new OnClickListener() {
 		public void onClick(View v) {
 			//取得所選照片的ID
 
-
+			//取得照片ID
 			choosepicture = v.getId();
+			//取得照片Z方便之後設定用
+			choosepictureZ = (int) v.getZ();
+			Log.d("Z", String.valueOf(v.getZ()));
 			ViewGroup viewGroup = Relativelay;
 			if (lastView != null) {
 				lastView.setBackgroundColor(getResources().getColor(R.color.alpha));
 				lastView.setAlpha(1f);
 				//ViewGroup viewGroup = Relativelay;
-				if(lastView!=v)
-				{
-					for(int i = 1; i < viewGroup.getChildCount(); i++)
-	    	 		   {
-	    	 			   //靠標籤取得要儲存的imageview
-	    	 			   img = (ImageView) viewGroup.getChildAt(i);
-	    	 			   if(img.getZ()>=v.getZ())
-	    	 			   {
-		    	 			   if(img.getZ()==1)
-		    	 				   img.setZ(1);
-		    	 			   else
-		    	 				   img.setZ(img.getZ()-1);
-	    	 			   }
-	    	 		   }
-				}
+//				if(lastView!=v)
+//				{
+//					for(int i = 1; i < viewGroup.getChildCount(); i++)
+//	    	 		   {
+//	    	 			   //靠標籤取得要儲存的imageview
+//	    	 			   img = (ImageView) viewGroup.getChildAt(i);
+//	    	 			   if(img.getZ()>=v.getZ())
+//	    	 			   {
+//		    	 			   if(img.getZ()==1)
+//		    	 				   img.setZ(1);
+//		    	 			   else
+//		    	 				   img.setZ(img.getZ()-1);
+//	    	 			   }
+//	    	 		   }
+//				}
 			}
 			//v.setBackgroundResource(R.drawable.shape_image_border);
 			//設定透明度
 			v.setAlpha(0.9f);
-			v.setZ(countpicture-1);
+			//v.setZ(countpicture-1);
 			//設定此imageview為選擇新imageview時變成上一個imageview
 			lastView = v;
 			//Debug
@@ -1758,10 +1828,6 @@ public class Main extends Activity{
 		}
 	}  */
 	//endregion
-
-
-
-
 
 
 }

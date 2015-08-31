@@ -32,8 +32,7 @@ public class MultiTouchListener extends Activity implements OnTouchListener {
 
 
     public MultiTouchListener() {
-        mScaleGestureDetector = new ScaleGestureDetector(new ScaleGestureListener());
-
+        mScaleGestureDetector = new ScaleGestureDetector(new ScaleGestureListener());;
     }
 
     private static float adjustAngle(float degrees) {
@@ -137,7 +136,6 @@ public class MultiTouchListener extends Activity implements OnTouchListener {
                     // Log.d("event",String.valueOf(event.getEventTime()));
                    // Log.d("time", String.valueOf((event.getEventTime()-Down)));
                     isLongPressed(mPrevX, mPrevY, event.getX(), event.getY(), Down, event.getEventTime(), touchTime);
-
                     break;
 
 

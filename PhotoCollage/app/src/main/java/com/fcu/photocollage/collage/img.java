@@ -1,4 +1,4 @@
-package com.fcu.photocollage;
+package com.fcu.photocollage.collage;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -13,7 +13,8 @@ import android.widget.Switch;
  */
 public class img extends ImageView {
 
-    private  Bitmap bitmap;
+    private Bitmap bitmap;
+    private int countpicture;
 
     public img(Context context,Bitmap bitmap) {
         super(context);
@@ -45,7 +46,6 @@ public class img extends ImageView {
                 break;
 
         }
-      //  Log.d("是否透明", "是kkkkkkkkk");
 
             return super.dispatchTouchEvent(event);
 

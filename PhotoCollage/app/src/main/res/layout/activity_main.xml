@@ -579,6 +579,24 @@
                  android:paddingBottom="10dp"
                  android:layout_weight="1"
                  android:paddingTop="13dp" />
+             <Button
+                 android:id="@+id/up"
+                 android:layout_width="0dp"
+                 android:layout_height="50dp"
+                 android:background="@color/md_green_600"
+                 android:drawableTop="@mipmap/ic_flip_to_front_white_24dp"
+                 android:paddingBottom="10dp"
+                 android:layout_weight="1"
+                 android:paddingTop="13dp" />
+             <Button
+                 android:id="@+id/down"
+                 android:layout_width="0dp"
+                 android:layout_height="50dp"
+                 android:background="@color/md_green_600"
+                 android:drawableTop="@mipmap/ic_flip_to_back_white_24dp"
+                 android:paddingBottom="10dp"
+                 android:layout_weight="1"
+                 android:paddingTop="13dp" />
 
              <Button
                  android:id="@+id/backgroundBtn"
