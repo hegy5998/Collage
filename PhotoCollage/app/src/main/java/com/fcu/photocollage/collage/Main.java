@@ -26,6 +26,8 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.PorterDuffXfermode;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -109,7 +111,7 @@ public class Main extends Activity{
 	private int undoCutXYIndex1=1,undoCutXYIndex2=0;
 	private Boolean photo=false,draw=false;
 	private  Matrix drawMatrix;
-
+	private MediaPlayer mPlayer;
 
 
 
@@ -117,8 +119,36 @@ public class Main extends Activity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+
+//		sound sound = new sound(this);
+//		com.fcu.photocollage.collage.sound.playSound(R.raw.backgroundmusic);
+//		com.fcu.photocollage.collage.sound.setMusicSt(true);
+		// sound.recyle();
+
+		//region 播放音樂(可以重覆播放)
+		try {
+			mPlayer = MediaPlayer.create(this, R.raw.backgroundmusic);
+			mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+
+			mPlayer.setLooping(true);
+			//重複播放
+
+			//mPlayer.prepare();
+			//特別使用註解的方式, 是為了提醒大家, 由於我們先前使用create method建立MediaPlayer
+			//create method會自動的call prepare(), 所以我們再call prepare() method會發生 prepareAsync called in state 8的錯誤
+
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//endregion
+
+
+
+
 
 		//region 佈局設定
 		//刪除按鈕
@@ -1828,6 +1858,36 @@ public class Main extends Activity{
 		}
 	}  */
 	//endregion
+
+	//region 音樂控制區
+	@Override
+	protected void onResume()
+	{
+		// TODO Auto-generated method stub
+
+		super.onResume();
+		mPlayer.start();
+	}
+
+	@Override
+	protected void onPause()
+	{
+		// TODO Auto-generated method stub
+
+		super.onPause();
+		mPlayer.pause();
+	}
+
+	@Override
+	protected void onDestroy()
+	{
+		// TODO Auto-generated method stub
+		super.onDestroy();
+		mPlayer.release();
+	}
+	//endregion
+
+
 
 
 }
