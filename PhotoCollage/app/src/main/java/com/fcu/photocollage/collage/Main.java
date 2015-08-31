@@ -26,6 +26,7 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.PorterDuffXfermode;
+import android.graphics.Typeface;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -40,6 +41,7 @@ import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -47,11 +49,14 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.Toast;
+import android.content.ContextWrapper;
 
 import com.bumptech.glide.Glide;
 import com.fcu.photocollage.R;
 import com.fcu.photocollage.imagepicker.PhotoWallActivity;
 import com.fcu.photocollage.multitouch.MultiTouchListener;
+
+
 
 
 /**
@@ -76,6 +81,7 @@ public class Main extends Activity{
     private ImageView img=null;						//imageview
     private ImageView backimage;					//初始背景
     private ImageView paintImgSize,erasersize;		//調整畫筆同時顯示粗，橡皮擦大小
+
     private Button DeleteButton;					//刪除按鈕
     private Button DeleteAllButton;					//清空按鈕
     private Button SaveButton;						//儲存按鈕
@@ -92,6 +98,7 @@ public class Main extends Activity{
     private Button backgroundBtn;					//設置背景按鈕
 	private Button upBtn;
 	private Button downBtn;
+	private Button textBtn;
     private View lastView;							//上一個選擇的imageview
     private Bitmap drawBitmap,saveBitmap=null,tempImage,bitmapcopy;		//畫布，暫存畫布，最終儲存畫布
     private ProgressDialog progressDialog;			//儲存彈出等待視窗 
@@ -128,6 +135,9 @@ public class Main extends Activity{
 //		com.fcu.photocollage.collage.sound.setMusicSt(true);
 		// sound.recyle();
 
+
+		//全螢幕模式
+		getWindow().setFlags(WindowManager.LayoutParams. FLAG_FULLSCREEN , WindowManager.LayoutParams. FLAG_FULLSCREEN);
 		//region 播放音樂(可以重覆播放)
 		try {
 			mPlayer = MediaPlayer.create(this, R.raw.backgroundmusic);
@@ -151,6 +161,9 @@ public class Main extends Activity{
 
 
 		//region 佈局設定
+
+		textBtn = (Button)findViewById(R.id.text);
+
 		//刪除按鈕
         DeleteButton = (Button)findViewById(R.id.delete);
         //刪除全部
@@ -174,6 +187,8 @@ public class Main extends Activity{
         paintImgSize = (ImageView)findViewById(R.id.paintsize);
         //橡皮擦大小顯示
         erasersize = (ImageView)findViewById(R.id.erasersize);
+		//
+
         //相對佈局
         Relativelay = (RelativeLayout)findViewById(R.id.anogallery);
         //整個畫布工具列
@@ -500,6 +515,7 @@ public class Main extends Activity{
 				//初始設定為path
 
 				choosebackground.setVisibility(View.GONE);
+//
 
 				if (choosepicture != 0) {
 					ViewGroup viewGroup = Relativelay;
@@ -573,6 +589,18 @@ public class Main extends Activity{
 			}
 		});
 		//endregion
+
+		textBtn.setOnClickListener(new OnClickListener()
+		{
+			@Override
+			public void onClick(View v) {
+
+				Intent it = new Intent();
+				it.setClass(Main.this, AddText.class);
+				startActivity(it);
+
+			}
+		});
 
 		//region 上推按鈕
 		upBtn.setOnClickListener(new OnClickListener()
@@ -1100,7 +1128,7 @@ public class Main extends Activity{
                 //跳轉至最終的選擇圖片頁面
             	
             	choosebackground.setVisibility(View.GONE);
-            	
+
                 Intent intent = new Intent(Main.this, PhotoWallActivity.class);
                 startActivity(intent);
             }

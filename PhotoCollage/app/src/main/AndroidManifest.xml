@@ -30,6 +30,9 @@
             android:name=".imagepicker.PhotoWallActivity"
             android:label="@string/select_image"/>
 
+        <activity android:name=".collage.AddText">
+
+        </activity>
 
     </application>
 

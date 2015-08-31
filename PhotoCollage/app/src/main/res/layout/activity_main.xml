@@ -262,8 +262,6 @@
 		    android:layout_height="36dp"
 		    android:layout_gravity="center"
 		    android:layout_weight="1"
-		    android:progressDrawable="@drawable/sb_bar"
-		    android:thumb="@drawable/sb_thumb"
 		    android:max="200"
 		    android:progress="15" />
 
@@ -284,18 +282,18 @@
 	             android:background="@color/md_green_600"
 	             android:baselineAligned="false" >
 
-		<SeekBar
-		    android:id="@+id/eraserSize"
-		    android:layout_width="match_parent"
-		    android:layout_height="36dp"
-		    android:layout_gravity="center"
-		    android:layout_weight="1"
-		    android:progressDrawable="@drawable/sb_bar"
-		    android:thumb="@drawable/sb_thumb"
-		    android:max="200"
-		    android:progress="0" />
 
-	     	<ImageView
+        <SeekBar
+            android:id="@+id/eraserSize"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:max="200"
+            android:progress="0" />
+
+
+        <ImageView
 	     	    android:id="@+id/erasersize"
 	     	    android:layout_width="70dp"
 	     	    android:layout_height="70dp"
@@ -631,7 +629,16 @@
                  android:paddingTop="13dp" />
 
              <Button
-                 android:id="@+id/save"
+             android:id="@+id/save"
+             android:layout_width="0dp"
+             android:layout_height="50dp"
+             android:background="@color/md_green_600"
+             android:drawableTop="@mipmap/ic_inbox_white_24dp"
+             android:paddingBottom="10dp"
+             android:layout_weight="1"
+             android:paddingTop="13dp" />
+             <Button
+                 android:id="@+id/text"
                  android:layout_width="0dp"
                  android:layout_height="50dp"
                  android:background="@color/md_green_600"

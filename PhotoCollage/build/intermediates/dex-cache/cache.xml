@@ -2,39 +2,39 @@
 <items version="2" >
 
     <item
-        jar="/Users/Saki/Documents/AndroidStudioWorkspace/PhotoCollage/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
-        <dex dex="/Users/Saki/Documents/AndroidStudioWorkspace/PhotoCollage/app/build/intermediates/pre-dexed/debug/classes-7063ba9988f245b5377d34049646cc1747605047.jar" />
-    </item>
-    <item
-        jar="/Users/Saki/Documents/AndroidStudioWorkspace/PhotoCollage/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="4fcf0b1879f8caf497c073e1432d398e9e2988c1">
-        <dex dex="/Users/Saki/Documents/AndroidStudioWorkspace/PhotoCollage/app/build/intermediates/pre-dexed/debug/classes-657aa0a568257eaded1aeab7f706cee79f64e45b.jar" />
-    </item>
-    <item
-        jar="/Users/Saki/Documents/AndroidStudioWorkspace/PhotoCollage/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/libs/internal_impl-23.0.0.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
-        <dex dex="/Users/Saki/Documents/AndroidStudioWorkspace/PhotoCollage/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.0-852d3e35de0ba447f7f2965e2434652171f819df.jar" />
-    </item>
-    <item
-        jar="/Applications/eclipse/android-sdk-macosx/extras/android/m2repository/com/android/support/support-annotations/23.0.0/support-annotations-23.0.0.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
-        <dex dex="/Users/Saki/Documents/AndroidStudioWorkspace/PhotoCollage/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.0-06b6d9910e6f1e0f37ac36979bc863a59f81ce95.jar" />
-    </item>
-    <item
-        jar="/Users/Saki/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.6.1/86b122e640af09b0723e1fa44083c354ba6d9089/glide-3.6.1.jar"
+        jar="C:\Users\Lighting\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.6.1\86b122e640af09b0723e1fa44083c354ba6d9089\glide-3.6.1.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="86b122e640af09b0723e1fa44083c354ba6d9089">
-        <dex dex="/Users/Saki/Documents/AndroidStudioWorkspace/PhotoCollage/app/build/intermediates/pre-dexed/debug/glide-3.6.1-4936c130cd8b15d637b35f67b19cdb6c98c94882.jar" />
+        <dex dex="F:\Desktop\Collage\Collage\PhotoCollage\app\build\intermediates\pre-dexed\debug\glide-3.6.1-d5dbbda79a97f21bfb55e2115be21036b927dad3.jar" />
+    </item>
+    <item
+        jar="F:\Desktop\Collage\Collage\PhotoCollage\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="4fcf0b1879f8caf497c073e1432d398e9e2988c1">
+        <dex dex="F:\Desktop\Collage\Collage\PhotoCollage\app\build\intermediates\pre-dexed\debug\classes-db81f92d5e8846e0d3403bc99d02210b3fd5ef20.jar" />
+    </item>
+    <item
+        jar="F:\Desktop\Collage\Collage\PhotoCollage\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\libs\internal_impl-23.0.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
+        <dex dex="F:\Desktop\Collage\Collage\PhotoCollage\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.0-4054294595aefc90b327ba8d9428585860e3a666.jar" />
+    </item>
+    <item
+        jar="F:\程式\JAVA\eclipse-java-luna-SR2-win32-x86_64\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.0\support-annotations-23.0.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        <dex dex="F:\Desktop\Collage\Collage\PhotoCollage\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.0-3ef773d4a5349921653ef80d77fe529dd97d9fdf.jar" />
+    </item>
+    <item
+        jar="F:\Desktop\Collage\Collage\PhotoCollage\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
+        <dex dex="F:\Desktop\Collage\Collage\PhotoCollage\app\build\intermediates\pre-dexed\debug\classes-9b65d44bd07c8ee4bf45ee0af12c7456a8b809f1.jar" />
     </item>
 
 </items>

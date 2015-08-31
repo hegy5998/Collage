@@ -131,10 +131,6 @@ public class MultiTouchListener extends Activity implements OnTouchListener {
                         }
 
                     }
-                    //touchTime = event.getDownTime()-event.getEventTime();
-                    //Log.d("Down",String.valueOf(event.getDownTime()));
-                    // Log.d("event",String.valueOf(event.getEventTime()));
-                   // Log.d("time", String.valueOf((event.getEventTime()-Down)));
                     isLongPressed(mPrevX, mPrevY, event.getX(), event.getY(), Down, event.getEventTime(), touchTime);
                     break;
 
