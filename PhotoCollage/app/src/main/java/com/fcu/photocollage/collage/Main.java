@@ -24,6 +24,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.PorterDuff;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Typeface;
@@ -35,6 +36,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -43,6 +45,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -74,6 +77,7 @@ public class Main extends Activity{
 	private int choosepictureZ = 0;
     private int choosePaintSize = 15;				//畫筆粗細
     private int addViewLeft = 50,addViewTop = 50;	//加入照片上下初始設定
+	private String textBundle;
     private File dirFile = null;					//照片要存的路徑
     private RelativeLayout Relativelay;				//相對佈局
     //所有工具列
@@ -129,11 +133,6 @@ public class Main extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-
-//		sound sound = new sound(this);
-//		com.fcu.photocollage.collage.sound.playSound(R.raw.backgroundmusic);
-//		com.fcu.photocollage.collage.sound.setMusicSt(true);
-		// sound.recyle();
 
 
 		//全螢幕模式
@@ -238,8 +237,6 @@ public class Main extends Activity{
         //新增畫筆
         paint = new Paint();
 		//endregion
-
-
 
 		//region 顯示畫筆粗細imageview點擊也能開啟調色盤
 		paintImgSize.setOnClickListener(new View.OnClickListener(){
@@ -522,27 +519,34 @@ public class Main extends Activity{
 					View currentView = viewGroup.getChildAt(choosepicture);
 					currentView.setDrawingCacheEnabled(true);
 					currentView.buildDrawingCache();
-					bitmapcopy = currentView.getDrawingCache();
-
-					//img = new ImageView(Context);
 
 
 					currentView.setBackgroundColor(getResources().getColor(R.color.alpha));
 					currentView.setAlpha(1f);
 
-					Matrix Matrix = new Matrix();
-					Matrix.postScale(currentView.getScaleX(), currentView.getScaleY(), currentView.getWidth() / 2, currentView.getHeight() / 2);
-					Matrix.postRotate(currentView.getRotation(), (currentView.getWidth() * currentView.getScaleX()) / 2, (currentView.getHeight() * currentView.getScaleY()) / 2);
 
-					//currentView.setDrawingCacheEnabled(true);
-					currentView.buildDrawingCache();
-					//currentView.buildDrawingCache(isChangingConfigurations());
-					Bitmap copy = currentView.getDrawingCache();
-					Bitmap copysave = Bitmap.createBitmap(copy, 0, 0, copy.getWidth(), copy.getHeight(), Matrix, false);
+
+					if(currentView.hasFocus()) {
+						bitmapcopy = currentView.getDrawingCache();
+						Log.d("1","1");
+
+					}
+					else
+					{
+						Matrix Matrix = new Matrix();
+						Matrix.postScale(currentView.getScaleX(), currentView.getScaleY(), currentView.getWidth() / 2, currentView.getHeight() / 2);
+						Matrix.postRotate(currentView.getRotation(), (currentView.getWidth() * currentView.getScaleX()) / 2, (currentView.getHeight() * currentView.getScaleY()) / 2);
+						Log.d("2", "2");
+						currentView.buildDrawingCache();
+						Bitmap copy = currentView.getDrawingCache();
+						bitmapcopy = Bitmap.createBitmap(copy, 0, 0, copy.getWidth(), copy.getHeight(), Matrix, false);
+
+					}
+
+
 
 					//取得亂數介於-200~200之間
 					int copyX, copyY;
-					Random ran = new Random();
 					copyX = (int) (Math.random() * 400 - 200);
 					copyY = (int) (Math.random() * 400 - 200);
 
@@ -562,17 +566,16 @@ public class Main extends Activity{
 					if (currentView.getY() + copyY < 0) {
 						setY = -(currentView.getY() + copyY);
 					}
-					//Relativelay.removeView(currentView);
 
-					img = new img(Context, copysave);
+					img = new img(Context, bitmapcopy);
 					//為這個imageview設定ID
 					img.setId(countpicture);
 					img.setZ(countpicture);
+
 					img.setX(setX);
 					img.setY(setY);
 
-					img.setImageBitmap(copysave);
-					//img.setBitmap(copysave);
+					img.setImageBitmap(bitmapcopy);
 
 					img.setOnTouchListener(new MultiTouchListener());
 					//imageview點擊事件
@@ -590,17 +593,59 @@ public class Main extends Activity{
 		});
 		//endregion
 
+		//region 加入文字按鈕
 		textBtn.setOnClickListener(new OnClickListener()
 		{
 			@Override
 			public void onClick(View v) {
 
-				Intent it = new Intent();
-				it.setClass(Main.this, AddText.class);
-				startActivity(it);
+				AlertDialog.Builder builder = new AlertDialog.Builder(Context);
+				builder.setIcon(R.mipmap.ic_format_size_white_24dp);
+				builder.setTitle("請輸入想要加入的文字");
+				//    通过LayoutInflater来加载一个xml的布局文件作为一个View对象
+				View view = LayoutInflater.from(Context).inflate(R.layout.textdialog, null);
+				//    设置我们自己定义的布局文件作为弹出框的Content
+				builder.setView(view);
+
+				final EditText text = (EditText)view.findViewById(R.id.text);
+
+				builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						textBundle = text.getText().toString().trim();
+						if("".equals(text.getText().toString().trim()))
+						{
+							makeTextAndShow(Context,"請輸入文字",android.widget.Toast.LENGTH_SHORT);
+						}
+						else {
+							Intent it = new Intent();
+							it.setClass(Main.this, AddText.class);
+
+							Bundle bundle = new Bundle();
+							bundle.putString("text", textBundle);//傳遞String
+							//將Bundle物件傳給intent
+							it.putExtras(bundle);
+							//startActivity(it);
+							startActivityForResult(it, 0);
+						}
+
+
+
+					}
+				});
+				builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+
+					}
+				});
+				builder.show();
+
+
 
 			}
 		});
+		//endregion
 
 		//region 上推按鈕
 		upBtn.setOnClickListener(new OnClickListener()
@@ -1008,8 +1053,6 @@ public class Main extends Activity{
 							//創建一個可以分發事件的imageview用來判斷是否有摸到透明的地方
 							img = new img(Context,drawOverBitmap);
 							img.setId(countpicture - 1);
-//							img.setX(leftX);
-//							img.setY(topY);
 							img.setZ(countpicture - 1);
 							img.setImageBitmap(drawOverBitmap);
 							Relativelay.addView(img);
@@ -1201,7 +1244,7 @@ public class Main extends Activity{
 							countpicture = 1;
 							//設定旗標如果為false不能刪除照片
 							choosepicture=0;
-							makeTextAndShow(Context,"清空",android.widget.Toast.LENGTH_SHORT);
+							makeTextAndShow(Context, "清空", android.widget.Toast.LENGTH_SHORT);
 						}
 						else
 							makeTextAndShow(Context,"沒有圖片",android.widget.Toast.LENGTH_SHORT);
@@ -1249,8 +1292,8 @@ public class Main extends Activity{
 						img = new img(Context,tempBitmap);
 
             			//為這個imageview設定ID
-            			img.setId(countpicture);
-            			img.setZ(countpicture);
+						img.setId(countpicture);
+						img.setZ(countpicture);
             			Log.d("ADD-PHOTO", Integer.toString(countpicture));
             			
             			//使用Glide方法把圖片顯示在imagevieww上
@@ -1915,7 +1958,53 @@ public class Main extends Activity{
 	}
 	//endregion
 
+	//region 切換頁面回傳值的地方
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 
+
+		super.onActivityResult(requestCode, resultCode, data);
+
+
+
+		if (requestCode == 0 && resultCode == RESULT_OK) {
+
+			Bundle bundle =  data.getExtras();
+
+			Bitmap textBitmap = Bitmap.createBitmap(backimage.getWidth(), backimage.getHeight(), Bitmap.Config.ARGB_8888);
+			Canvas textCanvas = new Canvas(textBitmap);
+
+
+			Paint textPaint = new Paint();
+			textPaint.setAntiAlias(true);
+			textPaint.setColor(bundle.getInt("color"));
+			textPaint.setTextSize(bundle.getInt("textSize") - 10);
+			textPaint.setFakeBoldText(bundle.getBoolean("FakeBold")); //true为粗体，false为非粗体
+			textPaint.setTextSkewX(bundle.getFloat("skewX")); //float类型参数，负数表示右斜，整数左斜
+			textPaint.setUnderlineText(bundle.getBoolean("underLine"));
+			Typeface type = Typeface.createFromAsset(getAssets(), bundle.getString("textFonts"));
+			textPaint.setTypeface(type);
+			//textPaint.setStyle(Paint.Style.FILL);
+			textPaint.setStrokeWidth(30);
+
+			int y = (int)(Math.random() * 1300 +200 );
+
+
+			textCanvas.drawText(bundle.getString("text"), 130, y, textPaint);
+			img = new img(Context,textBitmap);
+			img.setId(countpicture);
+			img.setZ(countpicture);
+
+			img.setImageBitmap(textBitmap);
+			Relativelay.addView(img);
+			img.setOnTouchListener(new MultiTouchListener());
+			img.setOnClickListener(imgOnClickListener);
+
+			countpicture++;
+
+
+		}}
+	//endregion
 
 }
