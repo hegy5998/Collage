@@ -2,18 +2,11 @@
 <items version="2" >
 
     <item
-        jar="F:\Desktop\Collage\Collage\PhotoCollage\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\libs\internal_impl-23.0.0.jar"
+        jar="F:\程式\JAVA\eclipse-java-luna-SR2-win32-x86_64\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.0\support-annotations-23.0.0.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
-        <dex dex="F:\Desktop\Collage\Collage\PhotoCollage\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.0-4054294595aefc90b327ba8d9428585860e3a666.jar" />
-    </item>
-    <item
-        jar="F:\Desktop\Collage\Collage\PhotoCollage\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="4fcf0b1879f8caf497c073e1432d398e9e2988c1">
-        <dex dex="F:\Desktop\Collage\Collage\PhotoCollage\app\build\intermediates\pre-dexed\debug\classes-db81f92d5e8846e0d3403bc99d02210b3fd5ef20.jar" />
+        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        <dex dex="F:\Desktop\Collage\Collage\PhotoCollage\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.0-3ef773d4a5349921653ef80d77fe529dd97d9fdf.jar" />
     </item>
     <item
         jar="F:\Desktop\Collage\Collage\PhotoCollage\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\classes.jar"
@@ -23,11 +16,11 @@
         <dex dex="F:\Desktop\Collage\Collage\PhotoCollage\app\build\intermediates\pre-dexed\debug\classes-9b65d44bd07c8ee4bf45ee0af12c7456a8b809f1.jar" />
     </item>
     <item
-        jar="F:\程式\JAVA\eclipse-java-luna-SR2-win32-x86_64\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.0\support-annotations-23.0.0.jar"
+        jar="C:\Users\Lighting\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.0\7ff0e000d1e27e356567f56c92af3b8ab912636f\picasso-2.5.0.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
-        <dex dex="F:\Desktop\Collage\Collage\PhotoCollage\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.0-3ef773d4a5349921653ef80d77fe529dd97d9fdf.jar" />
+        sha1="7ff0e000d1e27e356567f56c92af3b8ab912636f">
+        <dex dex="F:\Desktop\Collage\Collage\PhotoCollage\app\build\intermediates\pre-dexed\debug\picasso-2.5.0-d308384340958c5cedc82466205c67bd4dfb3901.jar" />
     </item>
     <item
         jar="C:\Users\Lighting\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.6.1\86b122e640af09b0723e1fa44083c354ba6d9089\glide-3.6.1.jar"
@@ -35,6 +28,20 @@
         revision="23.0.0"
         sha1="86b122e640af09b0723e1fa44083c354ba6d9089">
         <dex dex="F:\Desktop\Collage\Collage\PhotoCollage\app\build\intermediates\pre-dexed\debug\glide-3.6.1-d5dbbda79a97f21bfb55e2115be21036b927dad3.jar" />
+    </item>
+    <item
+        jar="F:\Desktop\Collage\Collage\PhotoCollage\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="4fcf0b1879f8caf497c073e1432d398e9e2988c1">
+        <dex dex="F:\Desktop\Collage\Collage\PhotoCollage\app\build\intermediates\pre-dexed\debug\classes-db81f92d5e8846e0d3403bc99d02210b3fd5ef20.jar" />
+    </item>
+    <item
+        jar="F:\Desktop\Collage\Collage\PhotoCollage\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\libs\internal_impl-23.0.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
+        <dex dex="F:\Desktop\Collage\Collage\PhotoCollage\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.0-4054294595aefc90b327ba8d9428585860e3a666.jar" />
     </item>
 
 </items>

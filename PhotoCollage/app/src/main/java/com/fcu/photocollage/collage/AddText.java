@@ -93,6 +93,8 @@ public class AddText extends Activity {
                 bundle.putString("textFonts", currentTextFonts);
                 bundle.putBoolean("FakeBold", cuurentFakeBold);
                 bundle.putBoolean("underLine", currentUnderLine);
+                bundle.putInt("width",textShowW);
+                bundle.putInt("height",textShowH);
                 intent.putExtras(bundle);
                 AddText.this.setResult(RESULT_OK, intent); //回傳RESULT_OK
                 AddText.this.finish(); //關閉Activity

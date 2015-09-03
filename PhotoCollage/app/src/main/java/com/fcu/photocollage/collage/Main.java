@@ -55,11 +55,11 @@ import android.widget.Toast;
 import android.content.ContextWrapper;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.ViewTarget;
 import com.fcu.photocollage.R;
 import com.fcu.photocollage.imagepicker.PhotoWallActivity;
 import com.fcu.photocollage.multitouch.MultiTouchListener;
-
-
+import com.squareup.picasso.Picasso;
 
 
 /**
@@ -446,8 +446,10 @@ public class Main extends Activity{
 										  boolean fromUser) {
 				// TODO 自動產生的方法 Stub
 				//畫筆大小設置，progress為當下seekbar數值
-				if (progress < 15)
+				if (progress < 15) {
 					progress = 15;
+
+				}
 				choosePaintSize = progress;
 				//創建一個Bitmap與顯示畫筆粗細ImageView一樣大小
 				Bitmap paintSizeBitmap = Bitmap.createBitmap(paintImgSize.getWidth(), paintImgSize.getHeight(), Bitmap.Config.ARGB_8888);
@@ -470,7 +472,7 @@ public class Main extends Activity{
 				//設定畫筆模式為填滿模式
 				seekBarShowPaintSize.setStyle(Paint.Style.FILL);
 				//設定畫筆寬度
-				seekBarShowPaintSize.setStrokeWidth(progress);
+				seekBarShowPaintSize.setStrokeWidth(choosePaintSize);
 				//用畫筆畫圓(Ｘ軸中心，Ｙ軸中心，畫筆資訊)
 				paintSizeCanvas.drawCircle(paintImgSize.getWidth() / 2, paintImgSize.getHeight() / 2, progress / 2, seekBarShowPaintSize);
 
@@ -526,22 +528,22 @@ public class Main extends Activity{
 
 
 
-					if(currentView.hasFocus()) {
-						bitmapcopy = currentView.getDrawingCache();
-						Log.d("1","1");
-
-					}
-					else
-					{
+//					if((Integer)currentView.getTag()==2) {
+//						bitmapcopy = currentView.getDrawingCache();
+//						Log.d("1","1");
+//
+//					}
+//					else
+//					{
 						Matrix Matrix = new Matrix();
 						Matrix.postScale(currentView.getScaleX(), currentView.getScaleY(), currentView.getWidth() / 2, currentView.getHeight() / 2);
 						Matrix.postRotate(currentView.getRotation(), (currentView.getWidth() * currentView.getScaleX()) / 2, (currentView.getHeight() * currentView.getScaleY()) / 2);
-						Log.d("2", "2");
+						//Log.d("2", "2");
 						currentView.buildDrawingCache();
 						Bitmap copy = currentView.getDrawingCache();
 						bitmapcopy = Bitmap.createBitmap(copy, 0, 0, copy.getWidth(), copy.getHeight(), Matrix, false);
 
-					}
+//					}
 
 
 
@@ -1035,16 +1037,16 @@ public class Main extends Activity{
 
 
 							/*Log.d("imgW",String.valueOf(saveBitmap.getWidth()));
-							Log.d("imgH",String.valueOf(saveBitmap.getHeight()));
-							Log.d("bottomy",String.valueOf(bottomY));
-							Log.d("rightX",String.valueOf(rightX));*/
+							Log.d("imgH",String.valueOf(saveBitmap.getHeight()));*/
+//							Log.d("bottomy",String.valueOf(topY));
+//							Log.d("rightX",String.valueOf(leftX));
 
 							//將saveBitmap裡面的內容存到另一個bitmap以免saveBitmap被覆蓋時出錯
 							Bitmap drawOverBitmap = Bitmap.createBitmap(saveBitmap
-									, 0
-									, 0
-									, saveBitmap.getWidth()
-									, saveBitmap.getHeight()
+									, leftX
+									, topY
+									, rightX
+									, bottomY
 									, null, false);
 
 							ViewGroup viewGroup = Relativelay;
@@ -1079,18 +1081,23 @@ public class Main extends Activity{
 							Relativelay.removeView(currentView);
 
 							//將saveBitmap裡面的內容存到另一個bitmap以免saveBitmap被覆蓋時出錯
-							Bitmap overBitmap = Bitmap.createBitmap(saveBitmap.getWidth(),saveBitmap.getHeight(), Bitmap.Config.ARGB_8888);
+							Bitmap overBitmap = Bitmap.createBitmap(saveBitmap.getWidth()/2,saveBitmap.getHeight()/2, Bitmap.Config.ARGB_8888);
 							Canvas overCanvas = new Canvas(overBitmap);
-							overCanvas.drawBitmap(saveBitmap, 0, 0, null);
+							float a=0.5f,b=0.5f;
+							Matrix ma = new Matrix();
+							ma.postScale(a, b);
+
+							overCanvas.drawBitmap(saveBitmap,ma, null);
 
 							//再把畫好的照片的imageview刪掉因為還要再創一個能分發事件的imageview
 							currentView = viewGroup.getChildAt(countpicture-2);
 							Relativelay.removeView(currentView);
 
-
 							img = new img(Context, overBitmap);
 							img.setId(countpicture-2);
 							img.setZ(choosepictureZ);
+							img.setX(backimage.getWidth() / 2 - backimage.getWidth()/4);
+							img.setY(backimage.getHeight()/2-backimage.getHeight()/4);
 							img.setImageBitmap(overBitmap);
 
 							Relativelay.addView(img);
@@ -1294,6 +1301,7 @@ public class Main extends Activity{
             			//為這個imageview設定ID
 						img.setId(countpicture);
 						img.setZ(countpicture);
+						//img.setTag(1);
             			Log.d("ADD-PHOTO", Integer.toString(countpicture));
             			
             			//使用Glide方法把圖片顯示在imagevieww上
@@ -1301,7 +1309,8 @@ public class Main extends Activity{
             			//圖片來源
             			.load(new File(path))
             			//imageview大小
-            			.override(tempBitmap.getWidth(),tempBitmap.getHeight())
+            			//.resize(tempBitmap.getWidth(),tempBitmap.getHeight())
+            			.override(tempBitmap.getWidth(), tempBitmap.getHeight())
             			.centerCrop()
             			//照片載入時所顯示圖片
             			.placeholder(R.drawable.passage_of_time_32)
@@ -1648,11 +1657,11 @@ public class Main extends Activity{
 				undoCutXY[undoCutXYIndex1][undoCutXYIndex2+3] = cutBigY;
 				undoCutXYIndex1++;
 				undoCutXYIndex2=0;
-				/*
-				Log.d("cutsmallX",String.valueOf(cutSmallX));
-				Log.d("cutsmallY",String.valueOf(cutSmallY));
-				Log.d("cutBigX",String.valueOf(cutBigX));
-				Log.d("cutBigY",String.valueOf(cutBigY));*/
+
+//				Log.d("cutsmallX",String.valueOf(cutSmallX));
+//				Log.d("cutsmallY",String.valueOf(cutSmallY));
+//				Log.d("cutBigX",String.valueOf(cutBigX));
+//				Log.d("cutBigY",String.valueOf(cutBigY));
 				break;
 			default:
 				break;
@@ -1972,8 +1981,11 @@ public class Main extends Activity{
 
 			Bundle bundle =  data.getExtras();
 
-			Bitmap textBitmap = Bitmap.createBitmap(backimage.getWidth(), backimage.getHeight(), Bitmap.Config.ARGB_8888);
+			Bitmap textBitmap = Bitmap.createBitmap(bundle.getInt("width"),200, Bitmap.Config.ARGB_8888);
 			Canvas textCanvas = new Canvas(textBitmap);
+
+			Log.d("aaa", String.valueOf((bundle.getInt("width"))));
+			Log.d("aaaaaaa", String.valueOf((bundle.getInt("height"))));
 
 
 			Paint textPaint = new Paint();
@@ -1988,13 +2000,17 @@ public class Main extends Activity{
 			//textPaint.setStyle(Paint.Style.FILL);
 			textPaint.setStrokeWidth(30);
 
+			int x = (int)(Math.random() * 300  );
 			int y = (int)(Math.random() * 1300 +200 );
 
 
-			textCanvas.drawText(bundle.getString("text"), 130, y, textPaint);
+			textCanvas.drawText(bundle.getString("text"), 130,170, textPaint);
 			img = new img(Context,textBitmap);
 			img.setId(countpicture);
 			img.setZ(countpicture);
+			img.setX(x);
+			img.setY(y);
+			//img.setTag(2);
 
 			img.setImageBitmap(textBitmap);
 			Relativelay.addView(img);
