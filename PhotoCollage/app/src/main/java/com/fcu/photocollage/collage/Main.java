@@ -35,6 +35,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
+import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -453,6 +454,8 @@ public class Main extends Activity{
 				choosePaintSize = progress;
 				//創建一個Bitmap與顯示畫筆粗細ImageView一樣大小
 				Bitmap paintSizeBitmap = Bitmap.createBitmap(paintImgSize.getWidth(), paintImgSize.getHeight(), Bitmap.Config.ARGB_8888);
+//				Log.d("imgwidth", String.valueOf(paintImgSize.getWidth()));
+//				Log.d("imgHeigh", String.valueOf(paintImgSize.getHeight()));
 				//把Bitmap加入Canvas中
 				Canvas paintSizeCanvas = new Canvas(paintSizeBitmap);
 				//新增畫筆
@@ -475,7 +478,8 @@ public class Main extends Activity{
 				seekBarShowPaintSize.setStrokeWidth(choosePaintSize);
 				//用畫筆畫圓(Ｘ軸中心，Ｙ軸中心，畫筆資訊)
 				paintSizeCanvas.drawCircle(paintImgSize.getWidth() / 2, paintImgSize.getHeight() / 2, progress / 2, seekBarShowPaintSize);
-
+				//顯示
+				paintImgSize.setImageBitmap(paintSizeBitmap);
 
 //				Paint seekBarShowPaintSizeCircile = new Paint();
 //				seekBarShowPaintSizeCircile.setAntiAlias(true);
@@ -485,8 +489,7 @@ public class Main extends Activity{
 //				paintSizeCanvas.drawCircle(paintImgSize.getWidth() / 2,  paintImgSize.getHeight() / 2, progress / 2+1,
 //						seekBarShowPaintSizeCircile);
 
-				//顯示
-				paintImgSize.setImageBitmap(paintSizeBitmap);
+
 
 			}
 
@@ -727,6 +730,27 @@ public class Main extends Activity{
 				paint.setAntiAlias(true);
 				setColor(currentColor);
 				setSize(choosePaintSize);
+
+				//創建一個Bitmap與顯示畫筆粗細ImageView一樣大小
+				Bitmap paintSizeBitmap = Bitmap.createBitmap(210, 210, Bitmap.Config.ARGB_8888);
+				//把Bitmap加入Canvas中
+				Canvas paintSizeCanvas = new Canvas(paintSizeBitmap);
+
+				//新增畫筆
+				Paint seekBarShowPaintSize = new Paint();
+				//畫筆抗齒
+				seekBarShowPaintSize.setAntiAlias(true);
+				//設定顏色為當前選的顏色
+				seekBarShowPaintSize.setColor(currentColor);
+				//設定畫筆模式為填滿模式
+				seekBarShowPaintSize.setStyle(Paint.Style.FILL);
+				//設定畫筆寬度
+				seekBarShowPaintSize.setStrokeWidth(choosePaintSize);
+				//用畫筆畫圓(Ｘ軸中心，Ｙ軸中心，畫筆資訊)
+				paintSizeCanvas.drawCircle(210 / 2, 210 / 2, choosePaintSize / 2, seekBarShowPaintSize);
+				//顯示
+				paintImgSize.setImageBitmap(paintSizeBitmap);
+
 				if(choosecolorlinr.getVisibility()==View.VISIBLE)
 					choosecolorlinr.setVisibility(View.VISIBLE);
 				else
@@ -1056,6 +1080,8 @@ public class Main extends Activity{
 							img = new img(Context,drawOverBitmap);
 							img.setId(countpicture - 1);
 							img.setZ(countpicture - 1);
+							img.setX(leftX);
+							img.setY(topY);
 							img.setImageBitmap(drawOverBitmap);
 							Relativelay.addView(img);
 							img.setOnTouchListener(null);
@@ -1981,18 +2007,15 @@ public class Main extends Activity{
 
 			Bundle bundle =  data.getExtras();
 
-			Bitmap textBitmap = Bitmap.createBitmap(bundle.getInt("width"),200, Bitmap.Config.ARGB_8888);
+			Bitmap textBitmap = Bitmap.createBitmap(bundle.getInt("textWidths")+300,200, Bitmap.Config.ARGB_8888);
 			Canvas textCanvas = new Canvas(textBitmap);
-
-			Log.d("aaa", String.valueOf((bundle.getInt("width"))));
-			Log.d("aaaaaaa", String.valueOf((bundle.getInt("height"))));
 
 
 			Paint textPaint = new Paint();
 			textPaint.setAntiAlias(true);
 			textPaint.setColor(bundle.getInt("color"));
 			textPaint.setTextSize(bundle.getInt("textSize") - 10);
-			textPaint.setFakeBoldText(bundle.getBoolean("FakeBold")); //true为粗体，false为非粗体
+			textPaint.setFakeBoldText(bundle.getBoolean("FakeBold")); //true為粗體，false为非粗体
 			textPaint.setTextSkewX(bundle.getFloat("skewX")); //float类型参数，负数表示右斜，整数左斜
 			textPaint.setUnderlineText(bundle.getBoolean("underLine"));
 			Typeface type = Typeface.createFromAsset(getAssets(), bundle.getString("textFonts"));
@@ -2005,7 +2028,9 @@ public class Main extends Activity{
 
 
 			textCanvas.drawText(bundle.getString("text"), 130,170, textPaint);
-			img = new img(Context,textBitmap);
+			//img = new img(Context,textBitmap);
+			//不讓字體有點擊透明穿越的能力所以繼承原有的imageview
+			img = new ImageView(Context);
 			img.setId(countpicture);
 			img.setZ(countpicture);
 			img.setX(x);

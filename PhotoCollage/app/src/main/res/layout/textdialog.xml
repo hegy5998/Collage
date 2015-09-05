@@ -14,7 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/space"
-        android:hint="請輸入文字"/>
+        android:hint="請輸入文字"
+        android:maxLength="30"/>
 
 
 </RelativeLayout>
