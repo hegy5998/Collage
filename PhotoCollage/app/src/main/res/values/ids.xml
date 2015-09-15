@@ -3,4 +3,6 @@
     <item type="id" name="tag_first"/>
     <item type="id" name="tag_second"/>
     <item type="id" name="glide_request" />
+    <item type="id" name="cacheBitmapKey"/>
+    <item type="id" name="cacheBitmapDirtyKey"/>
 </resources>

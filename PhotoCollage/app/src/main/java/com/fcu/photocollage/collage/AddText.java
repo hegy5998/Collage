@@ -12,6 +12,8 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.Typeface;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -54,6 +56,7 @@ public class AddText extends Activity {
     private Boolean cuurentFakeBold = false;                            //粗體
     private Bundle bundle;                                              //接收上一個activity所傳的值
     private int textWidths;
+    private MediaPlayer mPlayer;
     //endregion
 
 
@@ -395,8 +398,8 @@ public class AddText extends Activity {
         textPaint.setAntiAlias(true);
         textPaint.setColor(currentColor);
         textPaint.setTextSize(currentTextSize);
-        textPaint.setFakeBoldText(cuurentFakeBold); //true为粗体，false为非粗体
-        textPaint.setTextSkewX(currentSkewX); //float类型参数，负数表示右斜，整数左斜
+        textPaint.setFakeBoldText(cuurentFakeBold); //true為粗體，false為非粗體
+        textPaint.setTextSkewX(currentSkewX); //負數表示右斜，整数左斜
         textPaint.setUnderlineText(currentUnderLine);
         Typeface type = Typeface.createFromAsset(getAssets(), currentTextFonts);
         textPaint.setTypeface(type);
@@ -422,12 +425,12 @@ public class AddText extends Activity {
         currentTextSize=200;
         if (currentText.length() > 0) {
             Paint testPaint = new Paint();
-            //获得当前TextView的有效宽度
+            //獲得TextView的寬度
             int availableWidth = textShow.getWidth();
-            testPaint.setTextSize(currentTextSize);//这里传入的单位是px
+            testPaint.setTextSize(currentTextSize);
             Typeface type = Typeface.createFromAsset(getAssets(), currentTextFonts);
             testPaint.setTypeface(type);
-            testPaint.setTextSkewX(currentSkewX); //float类型参数，负数表示右斜，整数左斜
+            testPaint.setTextSkewX(currentSkewX); //負數表示右斜，整数左斜
             textWidths = (int)testPaint.measureText(currentText);
             textWidths = DipToPixels(Context,textWidths);
             while (textWidths > availableWidth) {
@@ -435,7 +438,7 @@ public class AddText extends Activity {
                 setTextSize(currentTextSize);
                 testPaint.setTextSize(currentTextSize);
                 testPaint.setTypeface(type);
-                testPaint.setTextSkewX(currentSkewX); //float类型参数，负数表示右斜，整数左斜
+                testPaint.setTextSkewX(currentSkewX); //負數表示右斜，整数左斜
                 textWidths = (int)testPaint.measureText(currentText);
                 textWidths = DipToPixels(Context,textWidths);
             }

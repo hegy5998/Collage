@@ -15,15 +15,28 @@ public class img extends ImageView {
 
     private Bitmap bitmap;
     private int countpicture;
+    private int ifText;
 
-    public img(Context context,Bitmap bitmap) {
+    img(Context context,Bitmap bitmap,int ifText) {
         super(context);
         this.bitmap = bitmap;
+        this.ifText = ifText;
     }
 
-    public void setBitmap(Bitmap bitmap) {
-        this.bitmap = bitmap;
+    @Override
+    public int hashCode() {
+        return ifText;
     }
+
+    public int getIfText(){
+        return ifText;
+    }
+    public void setIfText(int ifText){
+        this.ifText = ifText;
+    }
+
+
+
 
 
     @Override
@@ -37,7 +50,7 @@ public class img extends ImageView {
         int action = event.getAction();
         switch (action & event.getActionMasked()) {
             case MotionEvent.ACTION_DOWN:
-                if (bitmap.getPixel((int) event.getX(), ((int) event.getY())) == 0 && event.getX() > 0 && event.getY() > 0) {
+                if (bitmap.getPixel((int) event.getX(), ((int) event.getY())) == 0 && event.getX() > 0 && event.getY() > 0 && ifText== 0) {
                     //Log.i("test", "图1透明区域");
                     //Log.d("是否透明", "是");
                     return false;
@@ -54,3 +67,5 @@ public class img extends ImageView {
 
 
 }
+
+

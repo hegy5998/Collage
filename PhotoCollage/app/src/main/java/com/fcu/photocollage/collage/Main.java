@@ -24,6 +24,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.PaintFlagsDrawFilter;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.PorterDuffXfermode;
@@ -85,6 +86,7 @@ public class Main extends Activity{
     private LinearLayout choosecolorlinr,chooseshape,paintSizelinr,eraserSizelinr,drawtool,maintool,choosebackground;
     private ImageView img=null;						//imageview
     private ImageView backimage;					//初始背景
+	private ImageView Img=null;
     private ImageView paintImgSize,erasersize;		//調整畫筆同時顯示粗，橡皮擦大小
 
     private Button DeleteButton;					//刪除按鈕
@@ -105,7 +107,7 @@ public class Main extends Activity{
 	private Button downBtn;
 	private Button textBtn;
     private View lastView;							//上一個選擇的imageview
-    private Bitmap drawBitmap,saveBitmap=null,tempImage,bitmapcopy;		//畫布，暫存畫布，最終儲存畫布
+    private Bitmap drawBitmap=null,saveBitmap=null,tempImage,bitmapcopy;		//畫布，暫存畫布，最終儲存畫布
     private ProgressDialog progressDialog;			//儲存彈出等待視窗 
     private Handler mThreadHandler;					//save(的經紀人)，多執行緒
 	private Canvas canvasDraw,canvasSave;			//畫畫工具，畫暫存畫布，畫最終畫布
@@ -122,7 +124,7 @@ public class Main extends Activity{
 	private float[][] undoCutXY;
 	private int undoCutXYIndex1=1,undoCutXYIndex2=0;
 	private Boolean photo=false,draw=false;
-	private  Matrix drawMatrix;
+	private Matrix drawMatrix;
 	private MediaPlayer mPlayer;
 
 
@@ -137,7 +139,10 @@ public class Main extends Activity{
 
 
 		//全螢幕模式
-		getWindow().setFlags(WindowManager.LayoutParams. FLAG_FULLSCREEN , WindowManager.LayoutParams. FLAG_FULLSCREEN);
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+
+
 		//region 播放音樂(可以重覆播放)
 		try {
 			mPlayer = MediaPlayer.create(this, R.raw.backgroundmusic);
@@ -155,9 +160,6 @@ public class Main extends Activity{
 			e.printStackTrace();
 		}
 		//endregion
-
-
-
 
 
 		//region 佈局設定
@@ -331,12 +333,12 @@ public class Main extends Activity{
 
 
 
-							img = new ImageView(Context);
+							Img = new ImageView(Context);
 							//img = new img(Context,tempImage);
-							img.setId(countpicture);
-							img.setZ(countpicture + 11);
+							Img.setId(countpicture);
+							Img.setZ(countpicture + 11);
 							backimage.setZ(countpicture + 10);
-							Relativelay.addView(img);
+							Relativelay.addView(Img);
 
 							//將照片等比放大到跟螢幕大小一樣
 							float ScaleX=0,ScaleY=0;
@@ -357,9 +359,9 @@ public class Main extends Activity{
 
 							canvasSave.drawBitmap(tempImage, drawMatrix, null);
 
-							img.setImageBitmap(saveBitmap);
-							img.setOnTouchListener(null);
-							img.setOnTouchListener(DrawOnTouchListener);
+							Img.setImageBitmap(saveBitmap);
+							Img.setOnTouchListener(null);
+							Img.setOnTouchListener(DrawOnTouchListener);
 
 //							setCurAction(0,0);
 //							curAction.move(0,0);
@@ -406,6 +408,8 @@ public class Main extends Activity{
 
 						//如果一開始畫布為空的，創建新畫布
 						if (drawBitmap == null) {
+
+
 							drawBitmap = Bitmap.createBitmap(backimage.getWidth(), backimage.getHeight(), Bitmap.Config.ARGB_8888);
 							saveBitmap = Bitmap.createBitmap(backimage.getWidth(), backimage.getHeight(), Bitmap.Config.ARGB_8888);
 							canvasDraw = new Canvas(drawBitmap);
@@ -413,7 +417,7 @@ public class Main extends Activity{
 							canvasDraw.drawColor(Color.TRANSPARENT);
 							canvasSave.drawColor(Color.TRANSPARENT);
 							img = new ImageView(Context);
-							//img = new img(Context,saveBitmap);
+							//img = new img(Context,saveBitmap,0);
 							img.setId(countpicture);
 							img.setZ(countpicture);
 							img.setImageBitmap(saveBitmap);
@@ -421,6 +425,7 @@ public class Main extends Activity{
 							countpicture++;
 							img.setOnTouchListener(DrawOnTouchListener);
 							draw = true;
+							Log.d("aa","test");
 							makeTextAndShow(Context, "畫布模式", android.widget.Toast.LENGTH_SHORT);
 						}
 					}
@@ -490,7 +495,6 @@ public class Main extends Activity{
 //						seekBarShowPaintSizeCircile);
 
 
-
 			}
 
 			//當seeBar開始拉動時
@@ -521,7 +525,7 @@ public class Main extends Activity{
 
 				if (choosepicture != 0) {
 					ViewGroup viewGroup = Relativelay;
-					View currentView = viewGroup.getChildAt(choosepicture);
+					img currentView = (img) viewGroup.getChildAt(choosepicture);
 					currentView.setDrawingCacheEnabled(true);
 					currentView.buildDrawingCache();
 
@@ -531,24 +535,21 @@ public class Main extends Activity{
 
 
 
-//					if((Integer)currentView.getTag()==2) {
-//						bitmapcopy = currentView.getDrawingCache();
-//						Log.d("1","1");
-//
-//					}
-//					else
-//					{
-						Matrix Matrix = new Matrix();
-						Matrix.postScale(currentView.getScaleX(), currentView.getScaleY(), currentView.getWidth() / 2, currentView.getHeight() / 2);
-						Matrix.postRotate(currentView.getRotation(), (currentView.getWidth() * currentView.getScaleX()) / 2, (currentView.getHeight() * currentView.getScaleY()) / 2);
-						//Log.d("2", "2");
-						currentView.buildDrawingCache();
-						Bitmap copy = currentView.getDrawingCache();
+					Matrix Matrix = new Matrix();
+					Matrix.postScale(currentView.getScaleX(), currentView.getScaleY(), currentView.getWidth() / 2, currentView.getHeight() / 2);
+					Matrix.postRotate(currentView.getRotation(), (currentView.getWidth() * currentView.getScaleX()) / 2, (currentView.getHeight() * currentView.getScaleY()) / 2);
+					currentView.buildDrawingCache();
+					Bitmap copy = currentView.getDrawingCache();
+
+					if(currentView.getIfText()==0)
 						bitmapcopy = Bitmap.createBitmap(copy, 0, 0, copy.getWidth(), copy.getHeight(), Matrix, false);
-
-//					}
-
-
+					else {
+						bitmapcopy = Bitmap.createBitmap(copy.getWidth(), copy.getHeight(), Bitmap.Config.ARGB_8888);
+						Canvas copycanvas = new Canvas(bitmapcopy);
+						copycanvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG));
+						copycanvas.drawBitmap(copy,0,0, null);
+					}
+					//bitmapcopy = getMagicDrawingCache(currentView);
 
 					//取得亂數介於-200~200之間
 					int copyX, copyY;
@@ -572,13 +573,18 @@ public class Main extends Activity{
 						setY = -(currentView.getY() + copyY);
 					}
 
-					img = new img(Context, bitmapcopy);
+
+					if (currentView.getIfText()==1)
+						img = new img(Context, bitmapcopy, 1);
+					else
+						img = new img(Context, bitmapcopy, 0);
 					//為這個imageview設定ID
 					img.setId(countpicture);
 					img.setZ(countpicture);
 
 					img.setX(setX);
 					img.setY(setY);
+
 
 					img.setImageBitmap(bitmapcopy);
 
@@ -609,7 +615,7 @@ public class Main extends Activity{
 				builder.setTitle("請輸入想要加入的文字");
 				//    通过LayoutInflater来加载一个xml的布局文件作为一个View对象
 				View view = LayoutInflater.from(Context).inflate(R.layout.textdialog, null);
-				//    设置我们自己定义的布局文件作为弹出框的Content
+				//    設置我们自己定義的布局文件作為彈出框的Content
 				builder.setView(view);
 
 				final EditText text = (EditText)view.findViewById(R.id.text);
@@ -892,7 +898,8 @@ public class Main extends Activity{
 						cleancanvas.setXfermode(new PorterDuffXfermode(Mode.CLEAR));
 						canvasSave.drawPaint(cleancanvas);
 						cleancanvas.setXfermode(new PorterDuffXfermode(Mode.SRC));
-						canvasSave.drawBitmap(tempImage, drawMatrix, null);
+						if(photo==true)
+							canvasSave.drawBitmap(tempImage, drawMatrix, null);
 						//再次畫上編輯前的照片樣子
 						img.setImageBitmap(saveBitmap);
 						mActions.clear();
@@ -1077,7 +1084,7 @@ public class Main extends Activity{
 							View currentView = viewGroup.getChildAt(countpicture-1);
 							Relativelay.removeView(currentView);
 							//創建一個可以分發事件的imageview用來判斷是否有摸到透明的地方
-							img = new img(Context,drawOverBitmap);
+							img = new img(Context,drawOverBitmap,0);
 							img.setId(countpicture - 1);
 							img.setZ(countpicture - 1);
 							img.setX(leftX);
@@ -1113,17 +1120,18 @@ public class Main extends Activity{
 							Matrix ma = new Matrix();
 							ma.postScale(a, b);
 
-							overCanvas.drawBitmap(saveBitmap,ma, null);
+							overCanvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG));
+							overCanvas.drawBitmap(saveBitmap, ma, null);
 
 							//再把畫好的照片的imageview刪掉因為還要再創一個能分發事件的imageview
 							currentView = viewGroup.getChildAt(countpicture-2);
 							Relativelay.removeView(currentView);
 
-							img = new img(Context, overBitmap);
+							img = new img(Context, overBitmap,0);
 							img.setId(countpicture-2);
 							img.setZ(choosepictureZ);
 							img.setX(backimage.getWidth() / 2 - backimage.getWidth()/4);
-							img.setY(backimage.getHeight()/2-backimage.getHeight()/4);
+							img.setY(backimage.getHeight() / 2 - backimage.getHeight()/4);
 							img.setImageBitmap(overBitmap);
 
 							Relativelay.addView(img);
@@ -1164,12 +1172,18 @@ public class Main extends Activity{
         		   choosebackground.setVisibility(View.GONE);
         		   
         		   ViewGroup viewGroup = Relativelay;
+
+				if(lastView!=null)
+				{
+					lastView.setAlpha(1f);
+				}
+
        			if(viewGroup.getChildCount()!=1)
        			{
         		   for(int i=1 ; i<viewGroup.getChildCount() ; i++)
        	 		   {
        	 			   //靠標籤取得要儲存的imageview
-       	 			   img = (ImageView) viewGroup.getChildAt(i);
+       	 			   img = (img) viewGroup.getChildAt(i);
        	 			   //設定imageview背景為透明
        	 			   img.setBackgroundColor(getResources().getColor(R.color.alpha));
        	 		   }
@@ -1322,7 +1336,7 @@ public class Main extends Activity{
             			//tempBitmap = createBitmap(myBitmap);
             			//創建一個新的imageview
             			//img = new ImageView(Context);
-						img = new img(Context,tempBitmap);
+						img = new img(Context,tempBitmap,0);
 
             			//為這個imageview設定ID
 						img.setId(countpicture);
@@ -1336,7 +1350,7 @@ public class Main extends Activity{
             			.load(new File(path))
             			//imageview大小
             			//.resize(tempBitmap.getWidth(),tempBitmap.getHeight())
-            			.override(tempBitmap.getWidth(), tempBitmap.getHeight())
+								.override(tempBitmap.getWidth(), tempBitmap.getHeight())
             			.centerCrop()
             			//照片載入時所顯示圖片
             			.placeholder(R.drawable.passage_of_time_32)
@@ -2012,11 +2026,11 @@ public class Main extends Activity{
 
 
 			Paint textPaint = new Paint();
-			textPaint.setAntiAlias(true);
+			textPaint.setAntiAlias(true);//抗鋸齒
 			textPaint.setColor(bundle.getInt("color"));
 			textPaint.setTextSize(bundle.getInt("textSize") - 10);
-			textPaint.setFakeBoldText(bundle.getBoolean("FakeBold")); //true為粗體，false为非粗体
-			textPaint.setTextSkewX(bundle.getFloat("skewX")); //float类型参数，负数表示右斜，整数左斜
+			textPaint.setFakeBoldText(bundle.getBoolean("FakeBold")); //true為粗體，false為非粗體
+			textPaint.setTextSkewX(bundle.getFloat("skewX")); //負數表示右斜，整数左斜
 			textPaint.setUnderlineText(bundle.getBoolean("underLine"));
 			Typeface type = Typeface.createFromAsset(getAssets(), bundle.getString("textFonts"));
 			textPaint.setTypeface(type);
@@ -2028,9 +2042,9 @@ public class Main extends Activity{
 
 
 			textCanvas.drawText(bundle.getString("text"), 130,170, textPaint);
-			//img = new img(Context,textBitmap);
+			img = new img(Context,textBitmap,1);
 			//不讓字體有點擊透明穿越的能力所以繼承原有的imageview
-			img = new ImageView(Context);
+			//img = new ImageView(Context);
 			img.setId(countpicture);
 			img.setZ(countpicture);
 			img.setX(x);
@@ -2047,5 +2061,34 @@ public class Main extends Activity{
 
 		}}
 	//endregion
+//
+//	public static Bitmap getMagicDrawingCache(View view) {
+//	Bitmap.Config bitmap_quality = Bitmap.Config.ARGB_8888;
+//	Boolean quick_cache = false;
+//	int color_background = Color.BLACK;
+//	Bitmap bitmap = (Bitmap) view.getTag(R.id.cacheBitmapKey);
+//	Boolean dirty = (Boolean) view.getTag(R.id.cacheBitmapDirtyKey);
+//	if (view.getWidth() + view.getHeight() == 0) {
+//		view.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED), View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+//		view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
+//	}
+//	int viewWidth = (int) (view.getWidth()*view.getScaleX());
+//	int viewHeight = (int) (view.getHeight()*view.getScaleY());
+//	if (bitmap == null || bitmap.getWidth() != viewWidth || bitmap.getHeight() != viewHeight) {
+//		if (bitmap != null && !bitmap.isRecycled()) {
+//			bitmap.recycle();
+//		}
+//		bitmap = Bitmap.createBitmap(viewWidth, viewHeight, Bitmap.Config.ARGB_8888);
+//		view.setTag(R.id.cacheBitmapKey, bitmap);
+//		dirty = true;
+//	}
+//	if (dirty == true || !quick_cache) {
+//		bitmap.eraseColor(color_background);
+//		Canvas canvas = new Canvas(bitmap);
+//		view.draw(canvas);
+//		view.setTag(R.id.cacheBitmapDirtyKey, false);
+//	}
+//	return bitmap;
+//}
 
 }

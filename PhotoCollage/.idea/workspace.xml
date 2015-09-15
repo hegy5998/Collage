@@ -46,88 +46,139 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/collage/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6604414">
-              <caret line="2031" column="44" selection-start-line="2031" selection-start-column="44" selection-end-line="2031" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.7297297">
+              <caret line="1226" column="0" selection-start-line="1226" selection-start-column="0" selection-end-line="1226" selection-end-column="0" />
               <folding>
                 <element signature="docComment;class#Main#0" expanded="false" />
-                <element signature="e#4980#5001#0" expanded="false" />
-                <element signature="e#5163#5169#0" expanded="false" />
-                <element signature="e#5483#5496#0" expanded="false" />
-                <element signature="e#6364#6366#0" expanded="false" />
-                <element signature="e#8308#8341#0" expanded="false" />
-                <element signature="e#9810#9825#0" expanded="false" />
-                <element signature="e#12696#12723#0" expanded="false" />
-                <element signature="e#13219#13247#0" expanded="false" />
-                <element signature="e#14942#14960#0" expanded="false" />
-                <element signature="e#17246#17257#0" expanded="false" />
-                <element signature="e#19864#21245#0" expanded="true" />
-                <element signature="e#20397#21042#0" expanded="true" />
-                <element signature="e#21041#21042#0" expanded="true" />
-                <element signature="e#21244#21245#0" expanded="true" />
-                <element signature="e#21265#21278#0" expanded="false" />
-                <element signature="e#21306#21913#0" expanded="true" />
-                <element signature="e#21912#21913#0" expanded="true" />
-                <element signature="e#21933#21946#0" expanded="false" />
-                <element signature="e#21976#22564#0" expanded="true" />
-                <element signature="e#22563#22564#0" expanded="true" />
-                <element signature="e#22584#22599#0" expanded="false" />
-                <element signature="e#22641#22908#0" expanded="true" />
-                <element signature="e#22907#22908#0" expanded="true" />
-                <element signature="e#22928#22941#0" expanded="false" />
-                <element signature="e#22974#24473#0" expanded="true" />
-                <element signature="e#24472#24473#0" expanded="true" />
-                <element signature="e#24493#24508#0" expanded="false" />
-                <element signature="e#24545#25319#0" expanded="true" />
-                <element signature="e#25318#25319#0" expanded="true" />
-                <element signature="e#25339#25354#0" expanded="false" />
-                <element signature="e#25391#26030#0" expanded="true" />
-                <element signature="e#26029#26030#0" expanded="true" />
-                <element signature="e#26050#26062#0" expanded="false" />
-                <element signature="e#26095#26998#0" expanded="true" />
-                <element signature="e#26997#26998#0" expanded="true" />
-                <element signature="e#27018#27033#0" expanded="false" />
-                <element signature="e#27067#28167#0" expanded="true" />
-                <element signature="e#28166#28167#0" expanded="true" />
-                <element signature="e#28187#28201#0" expanded="false" />
-                <element signature="e#28233#28683#0" expanded="true" />
-                <element signature="e#28682#28683#0" expanded="true" />
-                <element signature="e#28703#28722#0" expanded="false" />
-                <element signature="e#30086#30099#0" expanded="false" />
-                <element signature="e#30136#35488#0" expanded="true" />
-                <element signature="e#35487#35488#0" expanded="true" />
-                <element signature="e#35508#35525#0" expanded="false" />
-                <element signature="e#35564#37091#0" expanded="true" />
-                <element signature="e#37090#37091#0" expanded="true" />
-                <element signature="e#37111#37124#0" expanded="false" />
-                <element signature="e#37165#37497#0" expanded="true" />
-                <element signature="e#37496#37497#0" expanded="true" />
-                <element signature="e#37517#37530#0" expanded="false" />
-                <element signature="e#37572#38753#0" expanded="true" />
-                <element signature="e#38752#38753#0" expanded="true" />
-                <element signature="e#38773#38786#0" expanded="false" />
-                <element signature="e#38831#40025#0" expanded="true" />
-                <element signature="e#40024#40025#0" expanded="true" />
-                <element signature="e#40050#40063#0" expanded="false" />
-                <element signature="e#43375#43390#0" expanded="false" />
-                <element signature="e#43638#43661#0" expanded="false" />
-                <element signature="e#44852#44867#0" expanded="false" />
-                <element signature="e#47343#47360#0" expanded="false" />
-                <element signature="e#47779#47794#0" expanded="false" />
-                <element signature="e#49450#49465#0" expanded="false" />
-                <element signature="e#51858#51873#0" expanded="false" />
+                <element signature="e#2139#2150#0" expanded="false" />
+                <element signature="e#5059#5080#0" expanded="false" />
+                <element signature="e#5242#5248#0" expanded="false" />
+                <element signature="e#5559#5572#0" expanded="false" />
+                <element signature="e#6440#6442#0" expanded="false" />
+                <element signature="e#8384#8417#0" expanded="false" />
+                <element signature="e#9886#9901#0" expanded="false" />
+                <element signature="e#12772#12799#0" expanded="false" />
+                <element signature="e#13295#13323#0" expanded="false" />
+                <element signature="e#15049#15067#0" expanded="false" />
+                <element signature="class#15117:17332" expanded="false" />
+                <element signature="method#onProgressChanged#0;class#15117:17332" expanded="false" />
+                <element signature="e#15277#15297#0" expanded="false" />
+                <element signature="e#15579#15644#0" expanded="false" />
+                <element signature="e#16628#16682#0" expanded="false" />
+                <element signature="method#onStartTrackingTouch#0;class#15117:17332" expanded="false" />
+                <element signature="method#onStopTrackingTouch#0;class#15117:17332" expanded="false" />
+                <element signature="e#17352#17363#0" expanded="false" />
+                <element signature="e#18748#18797#0" expanded="false" />
+                <element signature="e#20248#20263#0" expanded="false" />
+                <element signature="class#21514:21640" expanded="false" />
+                <element signature="method#onClick#0;class#21514:21640" expanded="false" />
+                <element signature="e#21694#21707#0" expanded="false" />
+                <element signature="e#22362#22375#0" expanded="false" />
+                <element signature="e#23013#23028#0" expanded="false" />
+                <element signature="e#23357#23370#0" expanded="false" />
+                <element signature="e#24922#24937#0" expanded="false" />
+                <element signature="e#25768#25783#0" expanded="false" />
+                <element signature="e#25904#25924#0" expanded="false" />
+                <element signature="e#26479#26491#0" expanded="false" />
+                <element signature="e#27447#27462#0" expanded="false" />
+                <element signature="e#28639#28653#0" expanded="false" />
+                <element signature="e#28760#28780#0" expanded="false" />
+                <element signature="e#29155#29174#0" expanded="false" />
+                <element signature="class#29222:30518" expanded="false" />
+                <element signature="method#onProgressChanged#0;class#29222:30518" expanded="false" />
+                <element signature="e#29364#29384#0" expanded="false" />
+                <element signature="method#onStartTrackingTouch#0;class#29222:30518" expanded="false" />
+                <element signature="method#onStopTrackingTouch#0;class#29222:30518" expanded="false" />
+                <element signature="e#30538#30551#0" expanded="false" />
+                <element signature="e#33199#33246#0" expanded="false" />
+                <element signature="e#34524#34568#0" expanded="false" />
+                <element signature="e#35962#35979#0" expanded="false" />
+                <element signature="e#37743#37756#0" expanded="false" />
+                <element signature="e#38149#38162#0" expanded="false" />
+                <element signature="e#39405#39418#0" expanded="false" />
+                <element signature="e#40682#40695#0" expanded="false" />
+                <element signature="method#onNewIntent#0;class#Main#0" expanded="false" />
+                <element signature="e#41062#41072#0" expanded="false" />
+                <element signature="e#41344#41375#0" expanded="false" />
+                <element signature="e#41917#41930#0" expanded="false" />
+                <element signature="e#43622#43648#0" expanded="false" />
+                <element signature="method#makeTextAndShow#0;class#Main#0" expanded="false" />
+                <element signature="e#44002#44017#0" expanded="false" />
+                <element signature="method#getCurrentTime#0;class#Main#0" expanded="false" />
+                <element signature="e#44394#44405#0" expanded="false" />
+                <element signature="e#44713#44749#0" expanded="false" />
+                <element signature="e#45180#45237#0" expanded="false" />
+                <element signature="e#45273#45298#0" expanded="false" />
+                <element signature="e#45479#45494#0" expanded="false" />
+                <element signature="e#46598#46626#0" expanded="false" />
+                <element signature="method#updateHandleMessage#0;class#Main#0" expanded="false" />
+                <element signature="e#47970#47987#0" expanded="false" />
+                <element signature="e#48406#48421#0" expanded="false" />
+                <element signature="method#ScalePicEx#0;class#Main#0" expanded="false" />
+                <element signature="method#computeSampleSize#0;class#Main#0" expanded="false" />
+                <element signature="method#computeInitialSampleSize#0;class#Main#0" expanded="false" />
+                <element signature="e#50077#50092#0" expanded="false" />
+                <element signature="e#50939#50978#0" expanded="false" />
+                <element signature="e#52204#52255#0" expanded="false" />
+                <element signature="e#52485#52500#0" expanded="false" />
+                <element signature="method#setCurAction#0;class#Main#0" expanded="false" />
                 <element signature="docComment;class#ActionType#0;class#Main#0" expanded="false" />
                 <element signature="class#ActionType#0;class#Main#0" expanded="false" />
+                <element signature="docComment;method#setColor#0;class#Main#0" expanded="false" />
                 <element signature="method#setColor#0;class#Main#0" expanded="false" />
-                <element signature="e#53176#53210#0" expanded="false" />
-                <element signature="e#56432#56466#0" expanded="false" />
+                <element signature="docComment;method#setSize#0;class#Main#0" expanded="false" />
+                <element signature="docComment;method#setType#0;class#Main#0" expanded="false" />
+                <element signature="e#53803#53837#0" expanded="false" />
+                <element signature="method#colorchoose#0;class#Main#0" expanded="false" />
+                <element signature="e#57059#57093#0" expanded="false" />
                 <element signature="method#shapechoose#0;class#Main#0" expanded="false" />
-                <element signature="e#57060#57078#0" expanded="false" />
+                <element signature="e#57687#57705#0" expanded="false" />
                 <element signature="method#backGroundChange#0;class#Main#0" expanded="false" />
-                <element signature="e#59160#59177#0" expanded="false" />
-                <element signature="e#59605#59619#0" expanded="false" />
+                <element signature="e#59787#59804#0" expanded="false" />
+                <element signature="e#60232#60246#0" expanded="false" />
                 <element signature="method#onResume#0;class#Main#0" expanded="false" />
                 <element signature="method#onPause#0;class#Main#0" expanded="false" />
                 <element signature="method#onDestroy#0;class#Main#0" expanded="false" />
+                <element signature="e#60628#60647#0" expanded="false" />
+                <element signature="method#onActivityResult#0;class#Main#0" expanded="false" />
+                <element signature="e#61839#61871#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ids.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/ids.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MultiTouchListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/multitouch/MultiTouchListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="51" column="39" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="img.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/collage/img.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="52" column="67" selection-start-line="52" selection-start-column="67" selection-end-line="52" selection-end-column="67" />
+              <folding>
+                <element signature="e#568#569#0" expanded="true" />
+                <element signature="e#597#598#0" expanded="true" />
+                <element signature="e#626#627#0" expanded="true" />
+                <element signature="e#655#656#0" expanded="true" />
+                <element signature="e#694#695#0" expanded="true" />
+                <element signature="e#730#731#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -137,75 +188,52 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/collage/AddText.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="212" column="40" selection-start-line="212" selection-start-column="40" selection-end-line="212" selection-end-column="40" />
+              <caret line="81" column="42" selection-start-line="81" selection-start-column="42" selection-end-line="81" selection-end-column="42" />
               <folding>
-                <element signature="e#2724#2737#0" expanded="false" />
-                <element signature="e#3444#3459#0" expanded="false" />
-                <element signature="e#3498#4443#0" expanded="true" />
-                <element signature="e#4442#4443#0" expanded="true" />
-                <element signature="e#4475#4487#0" expanded="false" />
-                <element signature="e#5025#5039#0" expanded="false" />
-                <element signature="e#5572#5597#0" expanded="false" />
-                <element signature="e#6216#6235#0" expanded="false" />
-                <element signature="e#8843#8864#0" expanded="false" />
-                <element signature="e#9317#9343#0" expanded="false" />
-                <element signature="e#9739#9752#0" expanded="false" />
-                <element signature="e#10352#10386#0" expanded="false" />
-                <element signature="e#12326#12360#0" expanded="false" />
-                <element signature="e#13469#13499#0" expanded="false" />
-                <element signature="e#14579#14600#0" expanded="false" />
-                <element signature="e#14894#14909#0" expanded="false" />
+                <element signature="docComment;class#AddText#0" expanded="false" />
+                <element signature="e#2826#2839#0" expanded="false" />
+                <element signature="e#3546#3561#0" expanded="false" />
+                <element signature="e#4577#4589#0" expanded="false" />
+                <element signature="e#5127#5141#0" expanded="false" />
+                <element signature="e#5674#5699#0" expanded="false" />
+                <element signature="e#6318#6337#0" expanded="false" />
+                <element signature="class#6389:7189" expanded="false" />
+                <element signature="method#onProgressChanged#0;class#6389:7189" expanded="false" />
+                <element signature="method#onStartTrackingTouch#0;class#6389:7189" expanded="false" />
+                <element signature="method#onStopTrackingTouch#0;class#6389:7189" expanded="false" />
+                <element signature="e#7221#7255#0" expanded="false" />
+                <element signature="class#8670:8853" expanded="false" />
+                <element signature="method#onClick#0;class#8670:8853" expanded="false" />
+                <element signature="e#8945#8966#0" expanded="false" />
+                <element signature="method#onWindowFocusChanged#0;class#AddText#0" expanded="false" />
+                <element signature="e#9419#9445#0" expanded="false" />
+                <element signature="method#makeTextAndShow#0;class#AddText#0" expanded="false" />
+                <element signature="e#9841#9854#0" expanded="false" />
+                <element signature="e#10454#10488#0" expanded="false" />
+                <element signature="method#colorchoose#0;class#AddText#0" expanded="false" />
+                <element signature="e#12428#12462#0" expanded="false" />
+                <element signature="method#chooseFonts#0;class#AddText#0" expanded="false" />
+                <element signature="e#13571#13601#0" expanded="false" />
+                <element signature="method#drawFonts#0;class#AddText#0" expanded="false" />
+                <element signature="e#14671#14692#0" expanded="false" />
+                <element signature="method#DipToPixels#0;class#AddText#0" expanded="false" />
+                <element signature="e#14986#15001#0" expanded="false" />
+                <element signature="method#countTextSize#0;class#AddText#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="text_add.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/text_add.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.0">
-              <caret line="58" column="53" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="textdialog.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/textdialog.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.333333">
-              <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BerdyButton.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/collage/BerdyButton.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
-              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="activity_main.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="578" column="45" selection-start-line="578" selection-start-column="45" selection-end-line="578" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
           <provider editor-type-id="android-designer">
             <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="586" column="45" selection-start-line="586" selection-start-column="45" selection-end-line="586" selection-end-column="45" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -215,8 +243,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="layoutResourceFile_vertical" />
-        <option value="Class" />
         <option value="valueResourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -1331,6 +1359,7 @@
     </option>
     <option name="modificationStamps">
       <map>
+        <entry key="$PROJECT_DIR$" value="4322921909000" />
         <entry key="F:\Desktop\Collage\Collage\PhotoCollage" value="4323080468363" />
       </map>
     </option>
@@ -1509,11 +1538,11 @@
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/intellij/annotations/12.0/annotations-12.0.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3.jar" />
-                            <option value="F:/程式/JAVA/eclipse-java-luna-SR2-win32-x86_64/sdk/extras/android/m2repository/com/android/support/appcompat-v7/23.0.0/appcompat-v7-23.0.0.aar" />
-                            <option value="F:/程式/JAVA/eclipse-java-luna-SR2-win32-x86_64/sdk/extras/android/m2repository/com/android/support/support-v4/23.0.0/support-v4-23.0.0.aar" />
+                            <option value="/Applications/eclipse/android-sdk-macosx/extras/android/m2repository/com/android/support/appcompat-v7/23.0.0/appcompat-v7-23.0.0.aar" />
+                            <option value="/Applications/eclipse/android-sdk-macosx/extras/android/m2repository/com/android/support/support-v4/23.0.0/support-v4-23.0.0.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.6.1/86b122e640af09b0723e1fa44083c354ba6d9089/glide-3.6.1.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.0/7ff0e000d1e27e356567f56c92af3b8ab912636f/picasso-2.5.0.jar" />
-                            <option value="F:/程式/JAVA/eclipse-java-luna-SR2-win32-x86_64/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.0/support-annotations-23.0.0.jar" />
+                            <option value="/Applications/eclipse/android-sdk-macosx/extras/android/m2repository/com/android/support/support-annotations/23.0.0/support-annotations-23.0.0.jar" />
                           </list>
                         </option>
                         <option name="path" value="$PROJECT_DIR$/app" />
@@ -1652,18 +1681,19 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/collage/img.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/multitouch/MultiTouchListener.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/attrs.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/collage/BerdyButton.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/text_add.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/ids.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/textdialog.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/collage/Main.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/collage/AddText.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/collage/Musicservice.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/collage/img.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/ids.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/collage/Main.java" />
       </list>
     </option>
   </component>
@@ -1671,10 +1701,9 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="y" value="23" />
+    <option name="width" value="1280" />
+    <option name="height" value="773" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -1699,6 +1728,19 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PhotoCollage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1734,6 +1776,10 @@
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -1748,22 +1794,59 @@
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
           </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="PhotoCollage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PhotoCollage" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="photocollage" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PhotoCollage" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="photocollage" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="collage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -1777,9 +1860,10 @@
     <property name="FullScreen" value="false" />
     <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../.." />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
     <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Android" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -1982,63 +2066,64 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="0" y="23" width="1280" height="773" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2026726" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14285715" sideWeight="0.51941746" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.311804" sideWeight="0.5021322" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35074627" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.311804" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997773" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.311804" sideWeight="0.5021322" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14285715" sideWeight="0.51941746" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.311804" sideWeight="0.5021322" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14285715" sideWeight="0.48058254" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20243531" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28158295" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997773" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14216478" sideWeight="0.48058254" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35074627" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997773" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2026726" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35074627" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.311804" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13646056" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13646056" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35074627" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997773" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2026726" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.311804" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -2054,64 +2139,133 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="54" />
+      <option name="time" value="57" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/collage/AddText.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/collage/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#2724#2737#0" expanded="false" />
-            <element signature="e#3444#3459#0" expanded="false" />
-            <element signature="e#3498#4443#0" expanded="true" />
-            <element signature="e#4442#4443#0" expanded="true" />
-            <element signature="e#4475#4487#0" expanded="false" />
-            <element signature="e#5025#5039#0" expanded="false" />
-            <element signature="e#5572#5597#0" expanded="false" />
-            <element signature="e#6216#6235#0" expanded="false" />
-            <element signature="e#8843#8864#0" expanded="false" />
-            <element signature="e#9317#9343#0" expanded="false" />
-            <element signature="e#9739#9752#0" expanded="false" />
-            <element signature="e#10352#10386#0" expanded="false" />
-            <element signature="e#12326#12360#0" expanded="false" />
-            <element signature="e#13469#13499#0" expanded="false" />
-            <element signature="e#14579#14600#0" expanded="false" />
-            <element signature="e#14894#14909#0" expanded="false" />
+            <element signature="docComment;class#Main#0" expanded="false" />
+            <element signature="e#2139#2150#0" expanded="false" />
+            <element signature="e#5059#5080#0" expanded="false" />
+            <element signature="e#5242#5248#0" expanded="false" />
+            <element signature="e#5559#5572#0" expanded="false" />
+            <element signature="e#6440#6442#0" expanded="false" />
+            <element signature="e#8384#8417#0" expanded="false" />
+            <element signature="e#9886#9901#0" expanded="false" />
+            <element signature="e#12772#12799#0" expanded="false" />
+            <element signature="e#13295#13323#0" expanded="false" />
+            <element signature="e#15049#15067#0" expanded="false" />
+            <element signature="class#15117:17332" expanded="false" />
+            <element signature="method#onProgressChanged#0;class#15117:17332" expanded="false" />
+            <element signature="e#15277#15297#0" expanded="false" />
+            <element signature="e#15579#15644#0" expanded="false" />
+            <element signature="e#16628#16682#0" expanded="false" />
+            <element signature="method#onStartTrackingTouch#0;class#15117:17332" expanded="false" />
+            <element signature="method#onStopTrackingTouch#0;class#15117:17332" expanded="false" />
+            <element signature="e#17352#17363#0" expanded="false" />
+            <element signature="e#18748#18797#0" expanded="false" />
+            <element signature="e#20248#20263#0" expanded="false" />
+            <element signature="class#21514:21640" expanded="false" />
+            <element signature="method#onClick#0;class#21514:21640" expanded="false" />
+            <element signature="e#21694#21707#0" expanded="false" />
+            <element signature="e#22362#22375#0" expanded="false" />
+            <element signature="e#23013#23028#0" expanded="false" />
+            <element signature="e#23357#23370#0" expanded="false" />
+            <element signature="e#24922#24937#0" expanded="false" />
+            <element signature="e#25768#25783#0" expanded="false" />
+            <element signature="e#25904#25924#0" expanded="false" />
+            <element signature="e#26479#26491#0" expanded="false" />
+            <element signature="e#27447#27462#0" expanded="false" />
+            <element signature="e#28639#28653#0" expanded="false" />
+            <element signature="e#28760#28780#0" expanded="false" />
+            <element signature="e#29155#29174#0" expanded="false" />
+            <element signature="class#29222:30518" expanded="false" />
+            <element signature="method#onProgressChanged#0;class#29222:30518" expanded="false" />
+            <element signature="e#29364#29384#0" expanded="false" />
+            <element signature="method#onStartTrackingTouch#0;class#29222:30518" expanded="false" />
+            <element signature="method#onStopTrackingTouch#0;class#29222:30518" expanded="false" />
+            <element signature="e#30538#30551#0" expanded="false" />
+            <element signature="e#33199#33246#0" expanded="false" />
+            <element signature="e#34524#34568#0" expanded="false" />
+            <element signature="e#35962#35979#0" expanded="false" />
+            <element signature="e#37743#37756#0" expanded="false" />
+            <element signature="e#38149#38162#0" expanded="false" />
+            <element signature="e#39405#39418#0" expanded="false" />
+            <element signature="e#40682#40695#0" expanded="false" />
+            <element signature="method#onNewIntent#0;class#Main#0" expanded="false" />
+            <element signature="e#41062#41072#0" expanded="false" />
+            <element signature="e#41344#41375#0" expanded="false" />
+            <element signature="e#41917#41930#0" expanded="false" />
+            <element signature="e#43622#43648#0" expanded="false" />
+            <element signature="method#makeTextAndShow#0;class#Main#0" expanded="false" />
+            <element signature="e#44002#44017#0" expanded="false" />
+            <element signature="method#getCurrentTime#0;class#Main#0" expanded="false" />
+            <element signature="e#44394#44405#0" expanded="false" />
+            <element signature="e#44713#44749#0" expanded="false" />
+            <element signature="e#45180#45237#0" expanded="false" />
+            <element signature="e#45273#45298#0" expanded="false" />
+            <element signature="e#45479#45494#0" expanded="false" />
+            <element signature="e#46598#46626#0" expanded="false" />
+            <element signature="method#updateHandleMessage#0;class#Main#0" expanded="false" />
+            <element signature="e#47970#47987#0" expanded="false" />
+            <element signature="e#48406#48421#0" expanded="false" />
+            <element signature="method#ScalePicEx#0;class#Main#0" expanded="false" />
+            <element signature="method#computeSampleSize#0;class#Main#0" expanded="false" />
+            <element signature="method#computeInitialSampleSize#0;class#Main#0" expanded="false" />
+            <element signature="e#50077#50092#0" expanded="false" />
+            <element signature="e#50939#50978#0" expanded="false" />
+            <element signature="e#52204#52255#0" expanded="false" />
+            <element signature="e#52485#52500#0" expanded="false" />
+            <element signature="method#setCurAction#0;class#Main#0" expanded="false" />
+            <element signature="docComment;class#ActionType#0;class#Main#0" expanded="false" />
+            <element signature="class#ActionType#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#setColor#0;class#Main#0" expanded="false" />
+            <element signature="method#setColor#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#setSize#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#setType#0;class#Main#0" expanded="false" />
+            <element signature="e#53803#53837#0" expanded="false" />
+            <element signature="method#colorchoose#0;class#Main#0" expanded="false" />
+            <element signature="e#57059#57093#0" expanded="false" />
+            <element signature="method#shapechoose#0;class#Main#0" expanded="false" />
+            <element signature="e#57687#57705#0" expanded="false" />
+            <element signature="method#backGroundChange#0;class#Main#0" expanded="false" />
+            <element signature="e#59787#59804#0" expanded="false" />
+            <element signature="e#60232#60246#0" expanded="false" />
+            <element signature="method#onResume#0;class#Main#0" expanded="false" />
+            <element signature="method#onPause#0;class#Main#0" expanded="false" />
+            <element signature="method#onDestroy#0;class#Main#0" expanded="false" />
+            <element signature="e#60628#60647#0" expanded="false" />
+            <element signature="method#onActivityResult#0;class#Main#0" expanded="false" />
+            <element signature="e#61839#61871#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/text_add.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="243" column="42" selection-start-line="243" selection-start-column="42" selection-end-line="243" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/collage/BerdyButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="578" column="45" selection-start-line="578" selection-start-column="45" selection-end-line="578" selection-end-column="45" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider editor-type-id="android-designer">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="578" column="45" selection-start-line="578" selection-start-column="45" selection-end-line="578" selection-end-column="45" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/collage/Main.java">
@@ -2120,134 +2274,112 @@
           <caret line="1766" column="33" selection-start-line="1766" selection-start-column="33" selection-end-line="1766" selection-end-column="33" />
           <folding>
             <element signature="docComment;class#Main#0" expanded="false" />
-            <element signature="e#4980#5001#0" expanded="false" />
-            <element signature="e#5163#5169#0" expanded="false" />
-            <element signature="e#5483#5496#0" expanded="false" />
-            <element signature="e#6364#6366#0" expanded="false" />
-            <element signature="e#8308#8341#0" expanded="false" />
-            <element signature="e#9810#9825#0" expanded="false" />
-            <element signature="e#12696#12723#0" expanded="false" />
-            <element signature="e#13219#13247#0" expanded="false" />
-            <element signature="e#14942#14960#0" expanded="false" />
-            <element signature="e#17246#17257#0" expanded="false" />
-            <element signature="e#19864#21245#0" expanded="true" />
-            <element signature="e#20397#21042#0" expanded="true" />
-            <element signature="e#21041#21042#0" expanded="true" />
-            <element signature="e#21244#21245#0" expanded="true" />
-            <element signature="e#21265#21278#0" expanded="false" />
-            <element signature="e#21306#21913#0" expanded="true" />
-            <element signature="e#21912#21913#0" expanded="true" />
-            <element signature="e#21933#21946#0" expanded="false" />
-            <element signature="e#21976#22564#0" expanded="true" />
-            <element signature="e#22563#22564#0" expanded="true" />
-            <element signature="e#22584#22599#0" expanded="false" />
-            <element signature="e#22641#22908#0" expanded="true" />
-            <element signature="e#22907#22908#0" expanded="true" />
-            <element signature="e#22928#22941#0" expanded="false" />
-            <element signature="e#22974#24473#0" expanded="true" />
-            <element signature="e#24472#24473#0" expanded="true" />
-            <element signature="e#24493#24508#0" expanded="false" />
-            <element signature="e#24545#25319#0" expanded="true" />
-            <element signature="e#25318#25319#0" expanded="true" />
-            <element signature="e#25339#25354#0" expanded="false" />
-            <element signature="e#25391#26030#0" expanded="true" />
-            <element signature="e#26029#26030#0" expanded="true" />
-            <element signature="e#26050#26062#0" expanded="false" />
-            <element signature="e#26095#26998#0" expanded="true" />
-            <element signature="e#26997#26998#0" expanded="true" />
-            <element signature="e#27018#27033#0" expanded="false" />
-            <element signature="e#27067#28167#0" expanded="true" />
-            <element signature="e#28166#28167#0" expanded="true" />
-            <element signature="e#28187#28201#0" expanded="false" />
-            <element signature="e#28233#28683#0" expanded="true" />
-            <element signature="e#28682#28683#0" expanded="true" />
-            <element signature="e#28703#28722#0" expanded="false" />
-            <element signature="e#30086#30099#0" expanded="false" />
-            <element signature="e#30136#35488#0" expanded="true" />
-            <element signature="e#35487#35488#0" expanded="true" />
-            <element signature="e#35508#35525#0" expanded="false" />
-            <element signature="e#35564#37091#0" expanded="true" />
-            <element signature="e#37090#37091#0" expanded="true" />
-            <element signature="e#37111#37124#0" expanded="false" />
-            <element signature="e#37165#37497#0" expanded="true" />
-            <element signature="e#37496#37497#0" expanded="true" />
-            <element signature="e#37517#37530#0" expanded="false" />
-            <element signature="e#37572#38753#0" expanded="true" />
-            <element signature="e#38752#38753#0" expanded="true" />
-            <element signature="e#38773#38786#0" expanded="false" />
-            <element signature="e#38831#40025#0" expanded="true" />
-            <element signature="e#40024#40025#0" expanded="true" />
-            <element signature="e#40050#40063#0" expanded="false" />
-            <element signature="e#43375#43390#0" expanded="false" />
-            <element signature="e#43638#43661#0" expanded="false" />
-            <element signature="e#44852#44867#0" expanded="false" />
-            <element signature="e#47343#47360#0" expanded="false" />
-            <element signature="e#47779#47794#0" expanded="false" />
-            <element signature="e#49450#49465#0" expanded="false" />
-            <element signature="e#51858#51873#0" expanded="false" />
+            <element signature="e#2139#2150#0" expanded="false" />
+            <element signature="e#5059#5080#0" expanded="false" />
+            <element signature="e#5242#5248#0" expanded="false" />
+            <element signature="e#5559#5572#0" expanded="false" />
+            <element signature="e#6440#6442#0" expanded="false" />
+            <element signature="e#8384#8417#0" expanded="false" />
+            <element signature="e#9886#9901#0" expanded="false" />
+            <element signature="e#12772#12799#0" expanded="false" />
+            <element signature="e#13295#13323#0" expanded="false" />
+            <element signature="e#15049#15067#0" expanded="false" />
+            <element signature="class#15117:17332" expanded="false" />
+            <element signature="method#onProgressChanged#0;class#15117:17332" expanded="false" />
+            <element signature="e#15277#15297#0" expanded="false" />
+            <element signature="e#15579#15644#0" expanded="false" />
+            <element signature="e#16628#16682#0" expanded="false" />
+            <element signature="method#onStartTrackingTouch#0;class#15117:17332" expanded="false" />
+            <element signature="method#onStopTrackingTouch#0;class#15117:17332" expanded="false" />
+            <element signature="e#17352#17363#0" expanded="false" />
+            <element signature="e#18748#18797#0" expanded="false" />
+            <element signature="e#20248#20263#0" expanded="false" />
+            <element signature="class#21514:21640" expanded="false" />
+            <element signature="method#onClick#0;class#21514:21640" expanded="false" />
+            <element signature="e#21694#21707#0" expanded="false" />
+            <element signature="e#22362#22375#0" expanded="false" />
+            <element signature="e#23013#23028#0" expanded="false" />
+            <element signature="e#23357#23370#0" expanded="false" />
+            <element signature="e#24922#24937#0" expanded="false" />
+            <element signature="e#25768#25783#0" expanded="false" />
+            <element signature="e#25904#25924#0" expanded="false" />
+            <element signature="e#26479#26491#0" expanded="false" />
+            <element signature="e#27447#27462#0" expanded="false" />
+            <element signature="e#28639#28653#0" expanded="false" />
+            <element signature="e#28760#28780#0" expanded="false" />
+            <element signature="e#29155#29174#0" expanded="false" />
+            <element signature="class#29222:30518" expanded="false" />
+            <element signature="method#onProgressChanged#0;class#29222:30518" expanded="false" />
+            <element signature="e#29364#29384#0" expanded="false" />
+            <element signature="method#onStartTrackingTouch#0;class#29222:30518" expanded="false" />
+            <element signature="method#onStopTrackingTouch#0;class#29222:30518" expanded="false" />
+            <element signature="e#30538#30551#0" expanded="false" />
+            <element signature="e#33199#33246#0" expanded="false" />
+            <element signature="e#34524#34568#0" expanded="false" />
+            <element signature="e#35962#35979#0" expanded="false" />
+            <element signature="e#37743#37756#0" expanded="false" />
+            <element signature="e#38149#38162#0" expanded="false" />
+            <element signature="e#39405#39418#0" expanded="false" />
+            <element signature="e#40682#40695#0" expanded="false" />
+            <element signature="method#onNewIntent#0;class#Main#0" expanded="false" />
+            <element signature="e#41062#41072#0" expanded="false" />
+            <element signature="e#41344#41375#0" expanded="false" />
+            <element signature="e#41917#41930#0" expanded="false" />
+            <element signature="e#43622#43648#0" expanded="false" />
+            <element signature="method#makeTextAndShow#0;class#Main#0" expanded="false" />
+            <element signature="e#44002#44017#0" expanded="false" />
+            <element signature="method#getCurrentTime#0;class#Main#0" expanded="false" />
+            <element signature="e#44394#44405#0" expanded="false" />
+            <element signature="e#44713#44749#0" expanded="false" />
+            <element signature="e#45180#45237#0" expanded="false" />
+            <element signature="e#45273#45298#0" expanded="false" />
+            <element signature="e#45479#45494#0" expanded="false" />
+            <element signature="e#46598#46626#0" expanded="false" />
+            <element signature="method#updateHandleMessage#0;class#Main#0" expanded="false" />
+            <element signature="e#47970#47987#0" expanded="false" />
+            <element signature="e#48406#48421#0" expanded="false" />
+            <element signature="method#ScalePicEx#0;class#Main#0" expanded="false" />
+            <element signature="method#computeSampleSize#0;class#Main#0" expanded="false" />
+            <element signature="method#computeInitialSampleSize#0;class#Main#0" expanded="false" />
+            <element signature="e#50077#50092#0" expanded="false" />
+            <element signature="e#50939#50978#0" expanded="false" />
+            <element signature="e#52204#52255#0" expanded="false" />
+            <element signature="e#52485#52500#0" expanded="false" />
+            <element signature="method#setCurAction#0;class#Main#0" expanded="false" />
             <element signature="docComment;class#ActionType#0;class#Main#0" expanded="false" />
             <element signature="class#ActionType#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#setColor#0;class#Main#0" expanded="false" />
             <element signature="method#setColor#0;class#Main#0" expanded="false" />
-            <element signature="e#53176#53210#0" expanded="false" />
-            <element signature="e#56432#56466#0" expanded="false" />
+            <element signature="docComment;method#setSize#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#setType#0;class#Main#0" expanded="false" />
+            <element signature="e#53803#53837#0" expanded="false" />
+            <element signature="method#colorchoose#0;class#Main#0" expanded="false" />
+            <element signature="e#57059#57093#0" expanded="false" />
             <element signature="method#shapechoose#0;class#Main#0" expanded="false" />
-            <element signature="e#57060#57078#0" expanded="false" />
+            <element signature="e#57687#57705#0" expanded="false" />
             <element signature="method#backGroundChange#0;class#Main#0" expanded="false" />
-            <element signature="e#59160#59177#0" expanded="false" />
-            <element signature="e#59605#59619#0" expanded="false" />
+            <element signature="e#59787#59804#0" expanded="false" />
+            <element signature="e#60232#60246#0" expanded="false" />
             <element signature="method#onResume#0;class#Main#0" expanded="false" />
             <element signature="method#onPause#0;class#Main#0" expanded="false" />
             <element signature="method#onDestroy#0;class#Main#0" expanded="false" />
+            <element signature="e#60628#60647#0" expanded="false" />
+            <element signature="method#onActivityResult#0;class#Main#0" expanded="false" />
+            <element signature="e#61839#61871#0" expanded="false" />
           </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/collage/AddText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#2724#2737#0" expanded="false" />
-            <element signature="e#3444#3459#0" expanded="false" />
-            <element signature="e#3498#4443#0" expanded="true" />
-            <element signature="e#4442#4443#0" expanded="true" />
-            <element signature="e#4475#4487#0" expanded="false" />
-            <element signature="e#5025#5039#0" expanded="false" />
-            <element signature="e#5572#5597#0" expanded="false" />
-            <element signature="e#6216#6235#0" expanded="false" />
-            <element signature="e#8843#8864#0" expanded="false" />
-            <element signature="e#9317#9343#0" expanded="false" />
-            <element signature="e#9739#9752#0" expanded="false" />
-            <element signature="e#10352#10386#0" expanded="false" />
-            <element signature="e#12326#12360#0" expanded="false" />
-            <element signature="e#13469#13499#0" expanded="false" />
-            <element signature="e#14579#14600#0" expanded="false" />
-            <element signature="e#14894#14909#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/text_add.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="35" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/collage/Main.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -2255,84 +2387,98 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#Main#0" expanded="false" />
-            <element signature="e#4980#5001#0" expanded="false" />
-            <element signature="e#5163#5169#0" expanded="false" />
-            <element signature="e#5483#5496#0" expanded="false" />
-            <element signature="e#6364#6366#0" expanded="false" />
-            <element signature="e#8308#8341#0" expanded="false" />
-            <element signature="e#9810#9825#0" expanded="false" />
-            <element signature="e#12696#12723#0" expanded="false" />
-            <element signature="e#13219#13247#0" expanded="false" />
-            <element signature="e#14942#14960#0" expanded="false" />
-            <element signature="e#17246#17257#0" expanded="false" />
-            <element signature="e#19864#21245#0" expanded="true" />
-            <element signature="e#20397#21042#0" expanded="true" />
-            <element signature="e#21041#21042#0" expanded="true" />
-            <element signature="e#21244#21245#0" expanded="true" />
-            <element signature="e#21265#21278#0" expanded="false" />
-            <element signature="e#21306#21913#0" expanded="true" />
-            <element signature="e#21912#21913#0" expanded="true" />
-            <element signature="e#21933#21946#0" expanded="false" />
-            <element signature="e#21976#22564#0" expanded="true" />
-            <element signature="e#22563#22564#0" expanded="true" />
-            <element signature="e#22584#22599#0" expanded="false" />
-            <element signature="e#22641#22908#0" expanded="true" />
-            <element signature="e#22907#22908#0" expanded="true" />
-            <element signature="e#22928#22941#0" expanded="false" />
-            <element signature="e#22974#24473#0" expanded="true" />
-            <element signature="e#24472#24473#0" expanded="true" />
-            <element signature="e#24493#24508#0" expanded="false" />
-            <element signature="e#24545#25319#0" expanded="true" />
-            <element signature="e#25318#25319#0" expanded="true" />
-            <element signature="e#25339#25354#0" expanded="false" />
-            <element signature="e#25391#26030#0" expanded="true" />
-            <element signature="e#26029#26030#0" expanded="true" />
-            <element signature="e#26050#26062#0" expanded="false" />
-            <element signature="e#26095#26998#0" expanded="true" />
-            <element signature="e#26997#26998#0" expanded="true" />
-            <element signature="e#27018#27033#0" expanded="false" />
-            <element signature="e#27067#28167#0" expanded="true" />
-            <element signature="e#28166#28167#0" expanded="true" />
-            <element signature="e#28187#28201#0" expanded="false" />
-            <element signature="e#28233#28683#0" expanded="true" />
-            <element signature="e#28682#28683#0" expanded="true" />
-            <element signature="e#28703#28722#0" expanded="false" />
-            <element signature="e#30086#30099#0" expanded="false" />
-            <element signature="e#30136#35488#0" expanded="true" />
-            <element signature="e#35487#35488#0" expanded="true" />
-            <element signature="e#35508#35525#0" expanded="false" />
-            <element signature="e#35564#37091#0" expanded="true" />
-            <element signature="e#37090#37091#0" expanded="true" />
-            <element signature="e#37111#37124#0" expanded="false" />
-            <element signature="e#37165#37497#0" expanded="true" />
-            <element signature="e#37496#37497#0" expanded="true" />
-            <element signature="e#37517#37530#0" expanded="false" />
-            <element signature="e#37572#38753#0" expanded="true" />
-            <element signature="e#38752#38753#0" expanded="true" />
-            <element signature="e#38773#38786#0" expanded="false" />
-            <element signature="e#38831#40025#0" expanded="true" />
-            <element signature="e#40024#40025#0" expanded="true" />
-            <element signature="e#40050#40063#0" expanded="false" />
-            <element signature="e#43375#43390#0" expanded="false" />
-            <element signature="e#43638#43661#0" expanded="false" />
-            <element signature="e#44852#44867#0" expanded="false" />
-            <element signature="e#47343#47360#0" expanded="false" />
-            <element signature="e#47779#47794#0" expanded="false" />
-            <element signature="e#49450#49465#0" expanded="false" />
-            <element signature="e#51858#51873#0" expanded="false" />
+            <element signature="e#2139#2150#0" expanded="false" />
+            <element signature="e#5059#5080#0" expanded="false" />
+            <element signature="e#5242#5248#0" expanded="false" />
+            <element signature="e#5559#5572#0" expanded="false" />
+            <element signature="e#6440#6442#0" expanded="false" />
+            <element signature="e#8384#8417#0" expanded="false" />
+            <element signature="e#9886#9901#0" expanded="false" />
+            <element signature="e#12772#12799#0" expanded="false" />
+            <element signature="e#13295#13323#0" expanded="false" />
+            <element signature="e#15049#15067#0" expanded="false" />
+            <element signature="class#15117:17332" expanded="false" />
+            <element signature="method#onProgressChanged#0;class#15117:17332" expanded="false" />
+            <element signature="e#15277#15297#0" expanded="false" />
+            <element signature="e#15579#15644#0" expanded="false" />
+            <element signature="e#16628#16682#0" expanded="false" />
+            <element signature="method#onStartTrackingTouch#0;class#15117:17332" expanded="false" />
+            <element signature="method#onStopTrackingTouch#0;class#15117:17332" expanded="false" />
+            <element signature="e#17352#17363#0" expanded="false" />
+            <element signature="e#18748#18797#0" expanded="false" />
+            <element signature="e#20248#20263#0" expanded="false" />
+            <element signature="class#21514:21640" expanded="false" />
+            <element signature="method#onClick#0;class#21514:21640" expanded="false" />
+            <element signature="e#21694#21707#0" expanded="false" />
+            <element signature="e#22362#22375#0" expanded="false" />
+            <element signature="e#23013#23028#0" expanded="false" />
+            <element signature="e#23357#23370#0" expanded="false" />
+            <element signature="e#24922#24937#0" expanded="false" />
+            <element signature="e#25768#25783#0" expanded="false" />
+            <element signature="e#25904#25924#0" expanded="false" />
+            <element signature="e#26479#26491#0" expanded="false" />
+            <element signature="e#27447#27462#0" expanded="false" />
+            <element signature="e#28639#28653#0" expanded="false" />
+            <element signature="e#28760#28780#0" expanded="false" />
+            <element signature="e#29155#29174#0" expanded="false" />
+            <element signature="class#29222:30518" expanded="false" />
+            <element signature="method#onProgressChanged#0;class#29222:30518" expanded="false" />
+            <element signature="e#29364#29384#0" expanded="false" />
+            <element signature="method#onStartTrackingTouch#0;class#29222:30518" expanded="false" />
+            <element signature="method#onStopTrackingTouch#0;class#29222:30518" expanded="false" />
+            <element signature="e#30538#30551#0" expanded="false" />
+            <element signature="e#33199#33246#0" expanded="false" />
+            <element signature="e#34524#34568#0" expanded="false" />
+            <element signature="e#35962#35979#0" expanded="false" />
+            <element signature="e#37743#37756#0" expanded="false" />
+            <element signature="e#38149#38162#0" expanded="false" />
+            <element signature="e#39405#39418#0" expanded="false" />
+            <element signature="e#40682#40695#0" expanded="false" />
+            <element signature="method#onNewIntent#0;class#Main#0" expanded="false" />
+            <element signature="e#41062#41072#0" expanded="false" />
+            <element signature="e#41344#41375#0" expanded="false" />
+            <element signature="e#41917#41930#0" expanded="false" />
+            <element signature="e#43622#43648#0" expanded="false" />
+            <element signature="method#makeTextAndShow#0;class#Main#0" expanded="false" />
+            <element signature="e#44002#44017#0" expanded="false" />
+            <element signature="method#getCurrentTime#0;class#Main#0" expanded="false" />
+            <element signature="e#44394#44405#0" expanded="false" />
+            <element signature="e#44713#44749#0" expanded="false" />
+            <element signature="e#45180#45237#0" expanded="false" />
+            <element signature="e#45273#45298#0" expanded="false" />
+            <element signature="e#45479#45494#0" expanded="false" />
+            <element signature="e#46598#46626#0" expanded="false" />
+            <element signature="method#updateHandleMessage#0;class#Main#0" expanded="false" />
+            <element signature="e#47970#47987#0" expanded="false" />
+            <element signature="e#48406#48421#0" expanded="false" />
+            <element signature="method#ScalePicEx#0;class#Main#0" expanded="false" />
+            <element signature="method#computeSampleSize#0;class#Main#0" expanded="false" />
+            <element signature="method#computeInitialSampleSize#0;class#Main#0" expanded="false" />
+            <element signature="e#50077#50092#0" expanded="false" />
+            <element signature="e#50939#50978#0" expanded="false" />
+            <element signature="e#52204#52255#0" expanded="false" />
+            <element signature="e#52485#52500#0" expanded="false" />
+            <element signature="method#setCurAction#0;class#Main#0" expanded="false" />
             <element signature="docComment;class#ActionType#0;class#Main#0" expanded="false" />
             <element signature="class#ActionType#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#setColor#0;class#Main#0" expanded="false" />
             <element signature="method#setColor#0;class#Main#0" expanded="false" />
-            <element signature="e#53176#53210#0" expanded="false" />
-            <element signature="e#56432#56466#0" expanded="false" />
+            <element signature="docComment;method#setSize#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#setType#0;class#Main#0" expanded="false" />
+            <element signature="e#53803#53837#0" expanded="false" />
+            <element signature="method#colorchoose#0;class#Main#0" expanded="false" />
+            <element signature="e#57059#57093#0" expanded="false" />
             <element signature="method#shapechoose#0;class#Main#0" expanded="false" />
-            <element signature="e#57060#57078#0" expanded="false" />
+            <element signature="e#57687#57705#0" expanded="false" />
             <element signature="method#backGroundChange#0;class#Main#0" expanded="false" />
-            <element signature="e#59160#59177#0" expanded="false" />
-            <element signature="e#59605#59619#0" expanded="false" />
+            <element signature="e#59787#59804#0" expanded="false" />
+            <element signature="e#60232#60246#0" expanded="false" />
             <element signature="method#onResume#0;class#Main#0" expanded="false" />
             <element signature="method#onPause#0;class#Main#0" expanded="false" />
             <element signature="method#onDestroy#0;class#Main#0" expanded="false" />
+            <element signature="e#60628#60647#0" expanded="false" />
+            <element signature="method#onActivityResult#0;class#Main#0" expanded="false" />
+            <element signature="e#61839#61871#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2345,14 +2491,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="592" column="43" selection-start-line="592" selection-start-column="43" selection-end-line="592" selection-end-column="43" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/collage/img.java">
@@ -2368,84 +2514,98 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#Main#0" expanded="false" />
-            <element signature="e#4980#5001#0" expanded="false" />
-            <element signature="e#5163#5169#0" expanded="false" />
-            <element signature="e#5483#5496#0" expanded="false" />
-            <element signature="e#6364#6366#0" expanded="false" />
-            <element signature="e#8308#8341#0" expanded="false" />
-            <element signature="e#9810#9825#0" expanded="false" />
-            <element signature="e#12696#12723#0" expanded="false" />
-            <element signature="e#13219#13247#0" expanded="false" />
-            <element signature="e#14942#14960#0" expanded="false" />
-            <element signature="e#17246#17257#0" expanded="false" />
-            <element signature="e#19864#21245#0" expanded="true" />
-            <element signature="e#20397#21042#0" expanded="true" />
-            <element signature="e#21041#21042#0" expanded="true" />
-            <element signature="e#21244#21245#0" expanded="true" />
-            <element signature="e#21265#21278#0" expanded="false" />
-            <element signature="e#21306#21913#0" expanded="true" />
-            <element signature="e#21912#21913#0" expanded="true" />
-            <element signature="e#21933#21946#0" expanded="false" />
-            <element signature="e#21976#22564#0" expanded="true" />
-            <element signature="e#22563#22564#0" expanded="true" />
-            <element signature="e#22584#22599#0" expanded="false" />
-            <element signature="e#22641#22908#0" expanded="true" />
-            <element signature="e#22907#22908#0" expanded="true" />
-            <element signature="e#22928#22941#0" expanded="false" />
-            <element signature="e#22974#24473#0" expanded="true" />
-            <element signature="e#24472#24473#0" expanded="true" />
-            <element signature="e#24493#24508#0" expanded="false" />
-            <element signature="e#24545#25319#0" expanded="true" />
-            <element signature="e#25318#25319#0" expanded="true" />
-            <element signature="e#25339#25354#0" expanded="false" />
-            <element signature="e#25391#26030#0" expanded="true" />
-            <element signature="e#26029#26030#0" expanded="true" />
-            <element signature="e#26050#26062#0" expanded="false" />
-            <element signature="e#26095#26998#0" expanded="true" />
-            <element signature="e#26997#26998#0" expanded="true" />
-            <element signature="e#27018#27033#0" expanded="false" />
-            <element signature="e#27067#28167#0" expanded="true" />
-            <element signature="e#28166#28167#0" expanded="true" />
-            <element signature="e#28187#28201#0" expanded="false" />
-            <element signature="e#28233#28683#0" expanded="true" />
-            <element signature="e#28682#28683#0" expanded="true" />
-            <element signature="e#28703#28722#0" expanded="false" />
-            <element signature="e#30086#30099#0" expanded="false" />
-            <element signature="e#30136#35488#0" expanded="true" />
-            <element signature="e#35487#35488#0" expanded="true" />
-            <element signature="e#35508#35525#0" expanded="false" />
-            <element signature="e#35564#37091#0" expanded="true" />
-            <element signature="e#37090#37091#0" expanded="true" />
-            <element signature="e#37111#37124#0" expanded="false" />
-            <element signature="e#37165#37497#0" expanded="true" />
-            <element signature="e#37496#37497#0" expanded="true" />
-            <element signature="e#37517#37530#0" expanded="false" />
-            <element signature="e#37572#38753#0" expanded="true" />
-            <element signature="e#38752#38753#0" expanded="true" />
-            <element signature="e#38773#38786#0" expanded="false" />
-            <element signature="e#38831#40025#0" expanded="true" />
-            <element signature="e#40024#40025#0" expanded="true" />
-            <element signature="e#40050#40063#0" expanded="false" />
-            <element signature="e#43375#43390#0" expanded="false" />
-            <element signature="e#43638#43661#0" expanded="false" />
-            <element signature="e#44852#44867#0" expanded="false" />
-            <element signature="e#47343#47360#0" expanded="false" />
-            <element signature="e#47779#47794#0" expanded="false" />
-            <element signature="e#49450#49465#0" expanded="false" />
-            <element signature="e#51858#51873#0" expanded="false" />
+            <element signature="e#2139#2150#0" expanded="false" />
+            <element signature="e#5059#5080#0" expanded="false" />
+            <element signature="e#5242#5248#0" expanded="false" />
+            <element signature="e#5559#5572#0" expanded="false" />
+            <element signature="e#6440#6442#0" expanded="false" />
+            <element signature="e#8384#8417#0" expanded="false" />
+            <element signature="e#9886#9901#0" expanded="false" />
+            <element signature="e#12772#12799#0" expanded="false" />
+            <element signature="e#13295#13323#0" expanded="false" />
+            <element signature="e#15049#15067#0" expanded="false" />
+            <element signature="class#15117:17332" expanded="false" />
+            <element signature="method#onProgressChanged#0;class#15117:17332" expanded="false" />
+            <element signature="e#15277#15297#0" expanded="false" />
+            <element signature="e#15579#15644#0" expanded="false" />
+            <element signature="e#16628#16682#0" expanded="false" />
+            <element signature="method#onStartTrackingTouch#0;class#15117:17332" expanded="false" />
+            <element signature="method#onStopTrackingTouch#0;class#15117:17332" expanded="false" />
+            <element signature="e#17352#17363#0" expanded="false" />
+            <element signature="e#18748#18797#0" expanded="false" />
+            <element signature="e#20248#20263#0" expanded="false" />
+            <element signature="class#21514:21640" expanded="false" />
+            <element signature="method#onClick#0;class#21514:21640" expanded="false" />
+            <element signature="e#21694#21707#0" expanded="false" />
+            <element signature="e#22362#22375#0" expanded="false" />
+            <element signature="e#23013#23028#0" expanded="false" />
+            <element signature="e#23357#23370#0" expanded="false" />
+            <element signature="e#24922#24937#0" expanded="false" />
+            <element signature="e#25768#25783#0" expanded="false" />
+            <element signature="e#25904#25924#0" expanded="false" />
+            <element signature="e#26479#26491#0" expanded="false" />
+            <element signature="e#27447#27462#0" expanded="false" />
+            <element signature="e#28639#28653#0" expanded="false" />
+            <element signature="e#28760#28780#0" expanded="false" />
+            <element signature="e#29155#29174#0" expanded="false" />
+            <element signature="class#29222:30518" expanded="false" />
+            <element signature="method#onProgressChanged#0;class#29222:30518" expanded="false" />
+            <element signature="e#29364#29384#0" expanded="false" />
+            <element signature="method#onStartTrackingTouch#0;class#29222:30518" expanded="false" />
+            <element signature="method#onStopTrackingTouch#0;class#29222:30518" expanded="false" />
+            <element signature="e#30538#30551#0" expanded="false" />
+            <element signature="e#33199#33246#0" expanded="false" />
+            <element signature="e#34524#34568#0" expanded="false" />
+            <element signature="e#35962#35979#0" expanded="false" />
+            <element signature="e#37743#37756#0" expanded="false" />
+            <element signature="e#38149#38162#0" expanded="false" />
+            <element signature="e#39405#39418#0" expanded="false" />
+            <element signature="e#40682#40695#0" expanded="false" />
+            <element signature="method#onNewIntent#0;class#Main#0" expanded="false" />
+            <element signature="e#41062#41072#0" expanded="false" />
+            <element signature="e#41344#41375#0" expanded="false" />
+            <element signature="e#41917#41930#0" expanded="false" />
+            <element signature="e#43622#43648#0" expanded="false" />
+            <element signature="method#makeTextAndShow#0;class#Main#0" expanded="false" />
+            <element signature="e#44002#44017#0" expanded="false" />
+            <element signature="method#getCurrentTime#0;class#Main#0" expanded="false" />
+            <element signature="e#44394#44405#0" expanded="false" />
+            <element signature="e#44713#44749#0" expanded="false" />
+            <element signature="e#45180#45237#0" expanded="false" />
+            <element signature="e#45273#45298#0" expanded="false" />
+            <element signature="e#45479#45494#0" expanded="false" />
+            <element signature="e#46598#46626#0" expanded="false" />
+            <element signature="method#updateHandleMessage#0;class#Main#0" expanded="false" />
+            <element signature="e#47970#47987#0" expanded="false" />
+            <element signature="e#48406#48421#0" expanded="false" />
+            <element signature="method#ScalePicEx#0;class#Main#0" expanded="false" />
+            <element signature="method#computeSampleSize#0;class#Main#0" expanded="false" />
+            <element signature="method#computeInitialSampleSize#0;class#Main#0" expanded="false" />
+            <element signature="e#50077#50092#0" expanded="false" />
+            <element signature="e#50939#50978#0" expanded="false" />
+            <element signature="e#52204#52255#0" expanded="false" />
+            <element signature="e#52485#52500#0" expanded="false" />
+            <element signature="method#setCurAction#0;class#Main#0" expanded="false" />
             <element signature="docComment;class#ActionType#0;class#Main#0" expanded="false" />
             <element signature="class#ActionType#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#setColor#0;class#Main#0" expanded="false" />
             <element signature="method#setColor#0;class#Main#0" expanded="false" />
-            <element signature="e#53176#53210#0" expanded="false" />
-            <element signature="e#56432#56466#0" expanded="false" />
+            <element signature="docComment;method#setSize#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#setType#0;class#Main#0" expanded="false" />
+            <element signature="e#53803#53837#0" expanded="false" />
+            <element signature="method#colorchoose#0;class#Main#0" expanded="false" />
+            <element signature="e#57059#57093#0" expanded="false" />
             <element signature="method#shapechoose#0;class#Main#0" expanded="false" />
-            <element signature="e#57060#57078#0" expanded="false" />
+            <element signature="e#57687#57705#0" expanded="false" />
             <element signature="method#backGroundChange#0;class#Main#0" expanded="false" />
-            <element signature="e#59160#59177#0" expanded="false" />
-            <element signature="e#59605#59619#0" expanded="false" />
+            <element signature="e#59787#59804#0" expanded="false" />
+            <element signature="e#60232#60246#0" expanded="false" />
             <element signature="method#onResume#0;class#Main#0" expanded="false" />
             <element signature="method#onPause#0;class#Main#0" expanded="false" />
             <element signature="method#onDestroy#0;class#Main#0" expanded="false" />
+            <element signature="e#60628#60647#0" expanded="false" />
+            <element signature="method#onActivityResult#0;class#Main#0" expanded="false" />
+            <element signature="e#61839#61871#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2458,28 +2618,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="592" column="43" selection-start-line="592" selection-start-column="43" selection-end-line="592" selection-end-column="43" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/collage/img.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/程式/JAVA/eclipse-java-luna-SR2-win32-x86_64/sdk/sources/android-23/android/graphics/Canvas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53914326">
-          <caret line="53" column="12" selection-start-line="53" selection-start-column="12" selection-end-line="53" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2487,13 +2639,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.11816839">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/程式/JAVA/eclipse-java-luna-SR2-win32-x86_64/sdk/sources/android-23/android/widget/TextView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24781342">
-          <caret line="8759" column="0" selection-start-line="8759" selection-start-column="0" selection-end-line="8759" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -2517,22 +2662,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/multitouch/MultiTouchListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="132" column="21" selection-start-line="132" selection-start-column="21" selection-end-line="132" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/main_gridview_item.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
@@ -2540,23 +2678,9 @@
         <state vertical-scroll-proportion="0.70247936">
           <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding>
-            <element signature="e#689#707#0" expanded="true" />
-            <element signature="e#1038#1060#0" expanded="true" />
+            <element signature="e#689#707#0" expanded="false" />
+            <element signature="e#1166#1188#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/程式/JAVA/eclipse-java-luna-SR2-win32-x86_64/sdk/sources/android-23/android/widget/ScrollView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="73" column="13" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/程式/JAVA/eclipse-java-luna-SR2-win32-x86_64/sdk/sources/android-23/android/widget/RelativeLayout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53650254">
-          <caret line="1339" column="11" selection-start-line="1339" selection-start-column="11" selection-end-line="1339" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -2568,134 +2692,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://F:/程式/JAVA/eclipse-java-luna-SR2-win32-x86_64/sdk/platforms/android-23/android.jar!/android/content/Intent.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/程式/JAVA/eclipse-java-luna-SR2-win32-x86_64/sdk/sources/android-23/android/util/Log.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="159" column="0" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/程式/JAVA/eclipse-java-luna-SR2-win32-x86_64/sdk/sources/android-23/android/os/Trace.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="207" column="0" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/程式/JAVA/eclipse-java-luna-SR2-win32-x86_64/sdk/sources/android-23/android/view/InputEventReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="196" column="0" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/程式/JAVA/eclipse-java-luna-SR2-win32-x86_64/sdk/sources/android-23/android/view/ViewRootImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6000" column="0" selection-start-line="6000" selection-start-column="0" selection-end-line="6000" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/程式/JAVA/eclipse-java-luna-SR2-win32-x86_64/sdk/sources/android-23/android/view/Choreographer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="778" column="0" selection-start-line="778" selection-start-column="0" selection-end-line="778" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/程式/JAVA/eclipse-java-luna-SR2-win32-x86_64/sdk/sources/android-23/android/os/Handler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/程式/JAVA/eclipse-java-luna-SR2-win32-x86_64/sdk/sources/android-23/android/os/Looper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="157" column="0" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/collage/BerdyButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/程式/JAVA/eclipse-java-luna-SR2-win32-x86_64/sdk/sources/android-23/android/view/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.50254667">
-          <caret line="11842" column="40" selection-start-line="11842" selection-start-column="40" selection-end-line="11842" selection-end-column="40" />
-          <folding>
-            <element signature="e#463959#463960#0" expanded="false" />
-            <element signature="e#464016#464017#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/attrs.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.237691">
-          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_format_size_white_24dp.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="578" column="45" selection-start-line="578" selection-start-column="45" selection-end-line="578" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://F:/程式/JAVA/eclipse-java-luna-SR2-win32-x86_64/sdk/sources/android-23/android/graphics/Typeface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7402377">
-          <caret line="193" column="44" selection-start-line="193" selection-start-column="44" selection-end-line="193" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/程式/JAVA/eclipse-java-luna-SR2-win32-x86_64/sdk/sources/android-23/android/graphics/Paint.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="1600" column="0" selection-start-line="1600" selection-start-column="0" selection-end-line="1600" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/程式/JAVA/eclipse-java-luna-SR2-win32-x86_64/sdk/sources/android-23/java/lang/Math.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="224" column="32" selection-start-line="224" selection-start-column="32" selection-end-line="224" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/ids.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <caret line="586" column="45" selection-start-line="586" selection-start-column="45" selection-end-line="586" selection-end-column="45" />
           <folding />
         </state>
       </provider>
@@ -2707,145 +2710,189 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/collage/img.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/collage/BerdyButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21298175">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/collage/Action.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/text_add.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.0">
-          <caret line="58" column="53" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/textdialog.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.333333">
-          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/collage/AddText.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="212" column="40" selection-start-line="212" selection-start-column="40" selection-end-line="212" selection-end-column="40" />
+          <caret line="81" column="42" selection-start-line="81" selection-start-column="42" selection-end-line="81" selection-end-column="42" />
           <folding>
-            <element signature="e#2724#2737#0" expanded="false" />
-            <element signature="e#3444#3459#0" expanded="false" />
-            <element signature="e#3498#4443#0" expanded="true" />
-            <element signature="e#4442#4443#0" expanded="true" />
-            <element signature="e#4475#4487#0" expanded="false" />
-            <element signature="e#5025#5039#0" expanded="false" />
-            <element signature="e#5572#5597#0" expanded="false" />
-            <element signature="e#6216#6235#0" expanded="false" />
-            <element signature="e#8843#8864#0" expanded="false" />
-            <element signature="e#9317#9343#0" expanded="false" />
-            <element signature="e#9739#9752#0" expanded="false" />
-            <element signature="e#10352#10386#0" expanded="false" />
-            <element signature="e#12326#12360#0" expanded="false" />
-            <element signature="e#13469#13499#0" expanded="false" />
-            <element signature="e#14579#14600#0" expanded="false" />
-            <element signature="e#14894#14909#0" expanded="false" />
+            <element signature="docComment;class#AddText#0" expanded="false" />
+            <element signature="e#2826#2839#0" expanded="false" />
+            <element signature="e#3546#3561#0" expanded="false" />
+            <element signature="e#4577#4589#0" expanded="false" />
+            <element signature="e#5127#5141#0" expanded="false" />
+            <element signature="e#5674#5699#0" expanded="false" />
+            <element signature="e#6318#6337#0" expanded="false" />
+            <element signature="class#6389:7189" expanded="false" />
+            <element signature="method#onProgressChanged#0;class#6389:7189" expanded="false" />
+            <element signature="method#onStartTrackingTouch#0;class#6389:7189" expanded="false" />
+            <element signature="method#onStopTrackingTouch#0;class#6389:7189" expanded="false" />
+            <element signature="e#7221#7255#0" expanded="false" />
+            <element signature="class#8670:8853" expanded="false" />
+            <element signature="method#onClick#0;class#8670:8853" expanded="false" />
+            <element signature="e#8945#8966#0" expanded="false" />
+            <element signature="method#onWindowFocusChanged#0;class#AddText#0" expanded="false" />
+            <element signature="e#9419#9445#0" expanded="false" />
+            <element signature="method#makeTextAndShow#0;class#AddText#0" expanded="false" />
+            <element signature="e#9841#9854#0" expanded="false" />
+            <element signature="e#10454#10488#0" expanded="false" />
+            <element signature="method#colorchoose#0;class#AddText#0" expanded="false" />
+            <element signature="e#12428#12462#0" expanded="false" />
+            <element signature="method#chooseFonts#0;class#AddText#0" expanded="false" />
+            <element signature="e#13571#13601#0" expanded="false" />
+            <element signature="method#drawFonts#0;class#AddText#0" expanded="false" />
+            <element signature="e#14671#14692#0" expanded="false" />
+            <element signature="method#DipToPixels#0;class#AddText#0" expanded="false" />
+            <element signature="e#14986#15001#0" expanded="false" />
+            <element signature="method#countTextSize#0;class#AddText#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/multitouch/MultiTouchListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="51" column="39" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/ids.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/collage/img.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="67" selection-start-line="52" selection-start-column="67" selection-end-line="52" selection-end-column="67" />
+          <folding>
+            <element signature="e#568#569#0" expanded="true" />
+            <element signature="e#597#598#0" expanded="true" />
+            <element signature="e#626#627#0" expanded="true" />
+            <element signature="e#655#656#0" expanded="true" />
+            <element signature="e#694#695#0" expanded="true" />
+            <element signature="e#730#731#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fcu/photocollage/collage/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6604414">
-          <caret line="2031" column="44" selection-start-line="2031" selection-start-column="44" selection-end-line="2031" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.7297297">
+          <caret line="1226" column="0" selection-start-line="1226" selection-start-column="0" selection-end-line="1226" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#Main#0" expanded="false" />
-            <element signature="e#4980#5001#0" expanded="false" />
-            <element signature="e#5163#5169#0" expanded="false" />
-            <element signature="e#5483#5496#0" expanded="false" />
-            <element signature="e#6364#6366#0" expanded="false" />
-            <element signature="e#8308#8341#0" expanded="false" />
-            <element signature="e#9810#9825#0" expanded="false" />
-            <element signature="e#12696#12723#0" expanded="false" />
-            <element signature="e#13219#13247#0" expanded="false" />
-            <element signature="e#14942#14960#0" expanded="false" />
-            <element signature="e#17246#17257#0" expanded="false" />
-            <element signature="e#19864#21245#0" expanded="true" />
-            <element signature="e#20397#21042#0" expanded="true" />
-            <element signature="e#21041#21042#0" expanded="true" />
-            <element signature="e#21244#21245#0" expanded="true" />
-            <element signature="e#21265#21278#0" expanded="false" />
-            <element signature="e#21306#21913#0" expanded="true" />
-            <element signature="e#21912#21913#0" expanded="true" />
-            <element signature="e#21933#21946#0" expanded="false" />
-            <element signature="e#21976#22564#0" expanded="true" />
-            <element signature="e#22563#22564#0" expanded="true" />
-            <element signature="e#22584#22599#0" expanded="false" />
-            <element signature="e#22641#22908#0" expanded="true" />
-            <element signature="e#22907#22908#0" expanded="true" />
-            <element signature="e#22928#22941#0" expanded="false" />
-            <element signature="e#22974#24473#0" expanded="true" />
-            <element signature="e#24472#24473#0" expanded="true" />
-            <element signature="e#24493#24508#0" expanded="false" />
-            <element signature="e#24545#25319#0" expanded="true" />
-            <element signature="e#25318#25319#0" expanded="true" />
-            <element signature="e#25339#25354#0" expanded="false" />
-            <element signature="e#25391#26030#0" expanded="true" />
-            <element signature="e#26029#26030#0" expanded="true" />
-            <element signature="e#26050#26062#0" expanded="false" />
-            <element signature="e#26095#26998#0" expanded="true" />
-            <element signature="e#26997#26998#0" expanded="true" />
-            <element signature="e#27018#27033#0" expanded="false" />
-            <element signature="e#27067#28167#0" expanded="true" />
-            <element signature="e#28166#28167#0" expanded="true" />
-            <element signature="e#28187#28201#0" expanded="false" />
-            <element signature="e#28233#28683#0" expanded="true" />
-            <element signature="e#28682#28683#0" expanded="true" />
-            <element signature="e#28703#28722#0" expanded="false" />
-            <element signature="e#30086#30099#0" expanded="false" />
-            <element signature="e#30136#35488#0" expanded="true" />
-            <element signature="e#35487#35488#0" expanded="true" />
-            <element signature="e#35508#35525#0" expanded="false" />
-            <element signature="e#35564#37091#0" expanded="true" />
-            <element signature="e#37090#37091#0" expanded="true" />
-            <element signature="e#37111#37124#0" expanded="false" />
-            <element signature="e#37165#37497#0" expanded="true" />
-            <element signature="e#37496#37497#0" expanded="true" />
-            <element signature="e#37517#37530#0" expanded="false" />
-            <element signature="e#37572#38753#0" expanded="true" />
-            <element signature="e#38752#38753#0" expanded="true" />
-            <element signature="e#38773#38786#0" expanded="false" />
-            <element signature="e#38831#40025#0" expanded="true" />
-            <element signature="e#40024#40025#0" expanded="true" />
-            <element signature="e#40050#40063#0" expanded="false" />
-            <element signature="e#43375#43390#0" expanded="false" />
-            <element signature="e#43638#43661#0" expanded="false" />
-            <element signature="e#44852#44867#0" expanded="false" />
-            <element signature="e#47343#47360#0" expanded="false" />
-            <element signature="e#47779#47794#0" expanded="false" />
-            <element signature="e#49450#49465#0" expanded="false" />
-            <element signature="e#51858#51873#0" expanded="false" />
+            <element signature="e#2139#2150#0" expanded="false" />
+            <element signature="e#5059#5080#0" expanded="false" />
+            <element signature="e#5242#5248#0" expanded="false" />
+            <element signature="e#5559#5572#0" expanded="false" />
+            <element signature="e#6440#6442#0" expanded="false" />
+            <element signature="e#8384#8417#0" expanded="false" />
+            <element signature="e#9886#9901#0" expanded="false" />
+            <element signature="e#12772#12799#0" expanded="false" />
+            <element signature="e#13295#13323#0" expanded="false" />
+            <element signature="e#15049#15067#0" expanded="false" />
+            <element signature="class#15117:17332" expanded="false" />
+            <element signature="method#onProgressChanged#0;class#15117:17332" expanded="false" />
+            <element signature="e#15277#15297#0" expanded="false" />
+            <element signature="e#15579#15644#0" expanded="false" />
+            <element signature="e#16628#16682#0" expanded="false" />
+            <element signature="method#onStartTrackingTouch#0;class#15117:17332" expanded="false" />
+            <element signature="method#onStopTrackingTouch#0;class#15117:17332" expanded="false" />
+            <element signature="e#17352#17363#0" expanded="false" />
+            <element signature="e#18748#18797#0" expanded="false" />
+            <element signature="e#20248#20263#0" expanded="false" />
+            <element signature="class#21514:21640" expanded="false" />
+            <element signature="method#onClick#0;class#21514:21640" expanded="false" />
+            <element signature="e#21694#21707#0" expanded="false" />
+            <element signature="e#22362#22375#0" expanded="false" />
+            <element signature="e#23013#23028#0" expanded="false" />
+            <element signature="e#23357#23370#0" expanded="false" />
+            <element signature="e#24922#24937#0" expanded="false" />
+            <element signature="e#25768#25783#0" expanded="false" />
+            <element signature="e#25904#25924#0" expanded="false" />
+            <element signature="e#26479#26491#0" expanded="false" />
+            <element signature="e#27447#27462#0" expanded="false" />
+            <element signature="e#28639#28653#0" expanded="false" />
+            <element signature="e#28760#28780#0" expanded="false" />
+            <element signature="e#29155#29174#0" expanded="false" />
+            <element signature="class#29222:30518" expanded="false" />
+            <element signature="method#onProgressChanged#0;class#29222:30518" expanded="false" />
+            <element signature="e#29364#29384#0" expanded="false" />
+            <element signature="method#onStartTrackingTouch#0;class#29222:30518" expanded="false" />
+            <element signature="method#onStopTrackingTouch#0;class#29222:30518" expanded="false" />
+            <element signature="e#30538#30551#0" expanded="false" />
+            <element signature="e#33199#33246#0" expanded="false" />
+            <element signature="e#34524#34568#0" expanded="false" />
+            <element signature="e#35962#35979#0" expanded="false" />
+            <element signature="e#37743#37756#0" expanded="false" />
+            <element signature="e#38149#38162#0" expanded="false" />
+            <element signature="e#39405#39418#0" expanded="false" />
+            <element signature="e#40682#40695#0" expanded="false" />
+            <element signature="method#onNewIntent#0;class#Main#0" expanded="false" />
+            <element signature="e#41062#41072#0" expanded="false" />
+            <element signature="e#41344#41375#0" expanded="false" />
+            <element signature="e#41917#41930#0" expanded="false" />
+            <element signature="e#43622#43648#0" expanded="false" />
+            <element signature="method#makeTextAndShow#0;class#Main#0" expanded="false" />
+            <element signature="e#44002#44017#0" expanded="false" />
+            <element signature="method#getCurrentTime#0;class#Main#0" expanded="false" />
+            <element signature="e#44394#44405#0" expanded="false" />
+            <element signature="e#44713#44749#0" expanded="false" />
+            <element signature="e#45180#45237#0" expanded="false" />
+            <element signature="e#45273#45298#0" expanded="false" />
+            <element signature="e#45479#45494#0" expanded="false" />
+            <element signature="e#46598#46626#0" expanded="false" />
+            <element signature="method#updateHandleMessage#0;class#Main#0" expanded="false" />
+            <element signature="e#47970#47987#0" expanded="false" />
+            <element signature="e#48406#48421#0" expanded="false" />
+            <element signature="method#ScalePicEx#0;class#Main#0" expanded="false" />
+            <element signature="method#computeSampleSize#0;class#Main#0" expanded="false" />
+            <element signature="method#computeInitialSampleSize#0;class#Main#0" expanded="false" />
+            <element signature="e#50077#50092#0" expanded="false" />
+            <element signature="e#50939#50978#0" expanded="false" />
+            <element signature="e#52204#52255#0" expanded="false" />
+            <element signature="e#52485#52500#0" expanded="false" />
+            <element signature="method#setCurAction#0;class#Main#0" expanded="false" />
             <element signature="docComment;class#ActionType#0;class#Main#0" expanded="false" />
             <element signature="class#ActionType#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#setColor#0;class#Main#0" expanded="false" />
             <element signature="method#setColor#0;class#Main#0" expanded="false" />
-            <element signature="e#53176#53210#0" expanded="false" />
-            <element signature="e#56432#56466#0" expanded="false" />
+            <element signature="docComment;method#setSize#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#setType#0;class#Main#0" expanded="false" />
+            <element signature="e#53803#53837#0" expanded="false" />
+            <element signature="method#colorchoose#0;class#Main#0" expanded="false" />
+            <element signature="e#57059#57093#0" expanded="false" />
             <element signature="method#shapechoose#0;class#Main#0" expanded="false" />
-            <element signature="e#57060#57078#0" expanded="false" />
+            <element signature="e#57687#57705#0" expanded="false" />
             <element signature="method#backGroundChange#0;class#Main#0" expanded="false" />
-            <element signature="e#59160#59177#0" expanded="false" />
-            <element signature="e#59605#59619#0" expanded="false" />
+            <element signature="e#59787#59804#0" expanded="false" />
+            <element signature="e#60232#60246#0" expanded="false" />
             <element signature="method#onResume#0;class#Main#0" expanded="false" />
             <element signature="method#onPause#0;class#Main#0" expanded="false" />
             <element signature="method#onDestroy#0;class#Main#0" expanded="false" />
+            <element signature="e#60628#60647#0" expanded="false" />
+            <element signature="method#onActivityResult#0;class#Main#0" expanded="false" />
+            <element signature="e#61839#61871#0" expanded="false" />
           </folding>
         </state>
       </provider>
