@@ -1,17 +1,5 @@
 package com.fcu.photocollage.collage;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -25,7 +13,6 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PaintFlagsDrawFilter;
-import android.graphics.PorterDuff;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Typeface;
@@ -36,7 +23,6 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
-import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -54,14 +40,21 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.Toast;
-import android.content.ContextWrapper;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.ViewTarget;
 import com.fcu.photocollage.R;
 import com.fcu.photocollage.imagepicker.PhotoWallActivity;
 import com.fcu.photocollage.multitouch.MultiTouchListener;
-import com.squareup.picasso.Picasso;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -103,6 +96,7 @@ public class Main extends Activity{
     private Button drawstart;						//開始畫布按鈕	
     private Button copy;							//複製按鈕
     private Button backgroundBtn;					//設置背景按鈕
+	private Button pictureSetBackground;
 	private Button upBtn;
 	private Button downBtn;
 	private Button textBtn;
@@ -182,6 +176,8 @@ public class Main extends Activity{
 		downBtn = (Button)findViewById(R.id.down);
         //換背景按鈕
         backgroundBtn = (Button)findViewById(R.id.backgroundBtn);
+		//當前照片設為背景
+		pictureSetBackground = (Button)findViewById(R.id.pictureSetBackground);
         //初始背景
         backimage = (ImageView)findViewById(R.id.imageView1);
         backimage.setId(0);
@@ -291,8 +287,7 @@ public class Main extends Activity{
 				builder.setPositiveButton("編輯照片", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
 						// User clicked OK button
-						if(choosepicture != 0) {
-
+						if (choosepicture != 0) {
 
 
 							//設定按鈕可否使用
@@ -331,8 +326,6 @@ public class Main extends Activity{
 							tempImage = currentView.getDrawingCache();
 
 
-
-
 							Img = new ImageView(Context);
 							//img = new img(Context,tempImage);
 							Img.setId(countpicture);
@@ -341,16 +334,16 @@ public class Main extends Activity{
 							Relativelay.addView(Img);
 
 							//將照片等比放大到跟螢幕大小一樣
-							float ScaleX=0,ScaleY=0;
-							for(float sX = 1 ; tempImage.getWidth()*sX <= backimage.getWidth(); sX+=0.1)
+							float ScaleX = 0, ScaleY = 0;
+							for (float sX = 1; tempImage.getWidth() * sX <= backimage.getWidth(); sX += 0.1)
 								ScaleX = sX;
-							for(float sY = 1 ; tempImage.getHeight()*sY <= backimage.getHeight(); sY+=0.1)
+							for (float sY = 1; tempImage.getHeight() * sY <= backimage.getHeight(); sY += 0.1)
 								ScaleY = sY;
-							if(ScaleX > ScaleY)
+							if (ScaleX > ScaleY)
 								ScaleX = ScaleY;
-							else if(ScaleX < ScaleY)
+							else if (ScaleX < ScaleY)
 								ScaleY = ScaleX;
-							else;
+							else ;
 
 							//將照片移到正中間
 							drawMatrix = new Matrix();
@@ -372,9 +365,7 @@ public class Main extends Activity{
 							photo = true;
 
 							makeTextAndShow(Context, "編輯模式", android.widget.Toast.LENGTH_SHORT);
-						}
-						else
-						{
+						} else {
 							makeTextAndShow(Context, "沒有選擇相片", android.widget.Toast.LENGTH_SHORT);
 
 						}
@@ -425,13 +416,12 @@ public class Main extends Activity{
 							countpicture++;
 							img.setOnTouchListener(DrawOnTouchListener);
 							draw = true;
-							Log.d("aa","test");
+							Log.d("aa", "test");
 							makeTextAndShow(Context, "畫布模式", android.widget.Toast.LENGTH_SHORT);
 						}
 					}
 				});
 				builder.create().show();
-
 
 
 				//紀錄步驟順序
@@ -513,6 +503,37 @@ public class Main extends Activity{
 
 		});
 		//endregion
+
+
+		pictureSetBackground.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (choosepicture != 0) {
+					ViewGroup viewGroup = Relativelay;
+					img currentView = (img) viewGroup.getChildAt(choosepicture);
+					//將目前選去要刪除的圖片的後面每一張圖片的ID都往前移一個
+					for (int i = choosepicture + 1; i < viewGroup.getChildCount(); i++) {
+						viewGroup.getChildAt(i).setId(i - 1);
+					}
+					//將目前選擇要刪除的照片比他大的Z都要減1
+					for(int z = 1 ; z < viewGroup.getChildCount();z++)
+					{
+						if((int)currentView.getZ() < (int)viewGroup.getChildAt(z).getZ())
+						{
+							viewGroup.getChildAt(z).setZ((int)viewGroup.getChildAt(z).getZ()-1);
+						}
+					}
+					currentView.buildDrawingCache();
+					backimage.setScaleType(ImageView.ScaleType.CENTER_CROP);
+					backimage.setImageDrawable(currentView.getDrawable());
+					viewGroup.removeView(currentView);
+					countpicture--;
+					choosepicture=0;
+				}
+				else
+					makeTextAndShow(Context, "沒有選擇圖片", android.widget.Toast.LENGTH_SHORT);
+			}
+		});
 
 		//region 複製
 		copy.setOnClickListener(new OnClickListener() {

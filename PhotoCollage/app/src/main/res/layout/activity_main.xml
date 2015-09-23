@@ -32,8 +32,8 @@
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
             android:clickable="false"
-            android:background="@drawable/background"
-            android:scaleType="matrix" />
+            android:src="@drawable/background"
+            android:scaleType="centerCrop" />
 
 </RelativeLayout>
 
@@ -540,7 +540,11 @@
          </LinearLayout>
      </HorizontalScrollView>
 
-
+     <HorizontalScrollView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:scrollbars="none"
+         tools:ignore="UselessParent" >
 
          <LinearLayout
              android:id="@+id/maintool"
@@ -551,7 +555,17 @@
 
              <Button
                  android:id="@+id/main_select_image"
-                 android:layout_width="0dp"
+                 android:layout_width="50dp"
+                 android:layout_height="50dp"
+                 android:background="@color/md_green_600"
+                 android:drawableTop="@mipmap/ic_photo_white_24dp"
+                 android:layout_weight="1"
+                 android:paddingBottom="10dp"
+                 android:paddingTop="13dp" />
+
+             <Button
+                 android:id="@+id/pictureSetBackground"
+                 android:layout_width="50dp"
                  android:layout_height="50dp"
                  android:background="@color/md_green_600"
                  android:drawableTop="@mipmap/ic_photo_white_24dp"
@@ -561,7 +575,7 @@
 
              <Button
                  android:id="@+id/drawstart"
-                 android:layout_width="0dp"
+                 android:layout_width="50dp"
                  android:layout_height="50dp"
                  android:background="@color/md_green_600"
                  android:drawableTop="@mipmap/ic_brush_white_24dp"
@@ -570,7 +584,7 @@
                  android:paddingTop="13dp" />
              <Button
                  android:id="@+id/text"
-                 android:layout_width="0dp"
+                 android:layout_width="50dp"
                  android:layout_height="50dp"
                  android:background="@color/md_green_600"
                  android:drawableTop="@mipmap/ic_translate_white_24dp"
@@ -580,7 +594,7 @@
 
              <Button
                  android:id="@+id/copy"
-                 android:layout_width="0dp"
+                 android:layout_width="50dp"
                  android:layout_height="50dp"
                  android:background="@color/md_green_600"
                  android:drawableTop="@mipmap/ic_photo_library_white_24dp"
@@ -589,7 +603,7 @@
                  android:paddingTop="13dp" />
              <Button
                  android:id="@+id/up"
-                 android:layout_width="0dp"
+                 android:layout_width="50dp"
                  android:layout_height="50dp"
                  android:background="@color/md_green_600"
                  android:drawableTop="@mipmap/ic_flip_to_front_white_24dp"
@@ -598,7 +612,7 @@
                  android:paddingTop="13dp" />
              <Button
                  android:id="@+id/down"
-                 android:layout_width="0dp"
+                 android:layout_width="50dp"
                  android:layout_height="50dp"
                  android:background="@color/md_green_600"
                  android:drawableTop="@mipmap/ic_flip_to_back_white_24dp"
@@ -608,7 +622,7 @@
 
              <Button
                  android:id="@+id/backgroundBtn"
-                 android:layout_width="0dp"
+                 android:layout_width="50dp"
                  android:layout_height="50dp"
                  android:background="@color/md_green_600"
                  android:drawableTop="@mipmap/ic_gradient_white_24dp"
@@ -620,7 +634,7 @@
 
              <Button
                  android:id="@+id/delete"
-                 android:layout_width="0dp"
+                 android:layout_width="50dp"
                  android:layout_height="50dp"
                  android:background="@color/md_green_600"
                  android:drawableTop="@mipmap/ic_delete_white_24dp"
@@ -630,7 +644,7 @@
 
              <Button
                  android:id="@+id/deleteAll"
-                 android:layout_width="0dp"
+                 android:layout_width="50dp"
                  android:layout_height="50dp"
                  android:background="@color/md_green_600"
                  android:drawableTop="@mipmap/ic_clear_white_24dp"
@@ -640,7 +654,7 @@
 
              <Button
              android:id="@+id/save"
-             android:layout_width="0dp"
+             android:layout_width="50dp"
              android:layout_height="50dp"
              android:background="@color/md_green_600"
              android:drawableTop="@mipmap/ic_inbox_white_24dp"
@@ -649,7 +663,7 @@
              android:paddingTop="13dp" />
 
          </LinearLayout>
-
+     </HorizontalScrollView>
 
 
  </LinearLayout>
