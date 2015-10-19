@@ -96,7 +96,7 @@ public class Main extends Activity{
     private Button drawstart;						//開始畫布按鈕	
     private Button copy;							//複製按鈕
     private Button backgroundBtn;					//設置背景按鈕
-	private Button pictureSetBackground;
+	//private Button pictureSetBackground;
 	private Button upBtn;
 	private Button downBtn;
 	private Button textBtn;
@@ -177,7 +177,7 @@ public class Main extends Activity{
         //換背景按鈕
         backgroundBtn = (Button)findViewById(R.id.backgroundBtn);
 		//當前照片設為背景
-		pictureSetBackground = (Button)findViewById(R.id.pictureSetBackground);
+		//pictureSetBackground = (Button)findViewById(R.id.pictureSetBackground);
         //初始背景
         backimage = (ImageView)findViewById(R.id.imageView1);
         backimage.setId(0);
@@ -185,8 +185,6 @@ public class Main extends Activity{
         paintImgSize = (ImageView)findViewById(R.id.paintsize);
         //橡皮擦大小顯示
         erasersize = (ImageView)findViewById(R.id.erasersize);
-		//
-
         //相對佈局
         Relativelay = (RelativeLayout)findViewById(R.id.anogallery);
         //整個畫布工具列
@@ -505,35 +503,35 @@ public class Main extends Activity{
 		//endregion
 
 
-		pictureSetBackground.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				if (choosepicture != 0) {
-					ViewGroup viewGroup = Relativelay;
-					img currentView = (img) viewGroup.getChildAt(choosepicture);
-					//將目前選去要刪除的圖片的後面每一張圖片的ID都往前移一個
-					for (int i = choosepicture + 1; i < viewGroup.getChildCount(); i++) {
-						viewGroup.getChildAt(i).setId(i - 1);
-					}
-					//將目前選擇要刪除的照片比他大的Z都要減1
-					for(int z = 1 ; z < viewGroup.getChildCount();z++)
-					{
-						if((int)currentView.getZ() < (int)viewGroup.getChildAt(z).getZ())
-						{
-							viewGroup.getChildAt(z).setZ((int)viewGroup.getChildAt(z).getZ()-1);
-						}
-					}
-					currentView.buildDrawingCache();
-					backimage.setScaleType(ImageView.ScaleType.CENTER_CROP);
-					backimage.setImageDrawable(currentView.getDrawable());
-					viewGroup.removeView(currentView);
-					countpicture--;
-					choosepicture=0;
-				}
-				else
-					makeTextAndShow(Context, "沒有選擇圖片", android.widget.Toast.LENGTH_SHORT);
-			}
-		});
+//		pictureSetBackground.setOnClickListener(new OnClickListener() {
+//			@Override
+//			public void onClick(View v) {
+//				if (choosepicture != 0) {
+//					ViewGroup viewGroup = Relativelay;
+//					img currentView = (img) viewGroup.getChildAt(choosepicture);
+//					//將目前選去要刪除的圖片的後面每一張圖片的ID都往前移一個
+//					for (int i = choosepicture + 1; i < viewGroup.getChildCount(); i++) {
+//						viewGroup.getChildAt(i).setId(i - 1);
+//					}
+//					//將目前選擇要刪除的照片比他大的Z都要減1
+//					for(int z = 1 ; z < viewGroup.getChildCount();z++)
+//					{
+//						if((int)currentView.getZ() < (int)viewGroup.getChildAt(z).getZ())
+//						{
+//							viewGroup.getChildAt(z).setZ((int)viewGroup.getChildAt(z).getZ()-1);
+//						}
+//					}
+//					currentView.buildDrawingCache();
+//					backimage.setScaleType(ImageView.ScaleType.CENTER_CROP);
+//					backimage.setImageDrawable(currentView.getDrawable());
+//					viewGroup.removeView(currentView);
+//					countpicture--;
+//					choosepicture=0;
+//				}
+//				else
+//					makeTextAndShow(Context, "沒有選擇圖片", android.widget.Toast.LENGTH_SHORT);
+//			}
+//		});
 
 		//region 複製
 		copy.setOnClickListener(new OnClickListener() {
@@ -634,7 +632,7 @@ public class Main extends Activity{
 				AlertDialog.Builder builder = new AlertDialog.Builder(Context);
 				builder.setIcon(R.mipmap.ic_format_size_white_24dp);
 				builder.setTitle("請輸入想要加入的文字");
-				//    通过LayoutInflater来加载一个xml的布局文件作为一个View对象
+				//    通過LayoutInflater來載入一個xml作為一個View對象
 				View view = LayoutInflater.from(Context).inflate(R.layout.textdialog, null);
 				//    設置我们自己定義的布局文件作為彈出框的Content
 				builder.setView(view);
@@ -1924,55 +1922,98 @@ public class Main extends Activity{
 	public void backGroundChange(View view) {
 		switch (view.getId()) {
 		case R.id.background:
-			backimage.setBackground(getResources().getDrawable(R.drawable.background));
+			//backimage.setBackground(getResources().getDrawable(R.drawable.background));
+			backimage.setImageDrawable(getResources().getDrawable(R.drawable.background));
 			break;
 		case R.id.background1:
-			backimage.setBackground(getResources().getDrawable(R.drawable.background1));
+			//backimage.setBackground(getResources().getDrawable(R.drawable.background1));
+			backimage.setImageDrawable(getResources().getDrawable(R.drawable.background1));
 			break;
 		case R.id.background2:
-			backimage.setBackground(getResources().getDrawable(R.drawable.background2));
+			//backimage.setBackground(getResources().getDrawable(R.drawable.background2));
+			backimage.setImageDrawable(getResources().getDrawable(R.drawable.background2));
 			break;
 		case R.id.background3:
-			backimage.setBackground(getResources().getDrawable(R.drawable.background3));
+			//backimage.setBackground(getResources().getDrawable(R.drawable.background3));
+			backimage.setImageDrawable(getResources().getDrawable(R.drawable.background3));
 			break;
 		case R.id.background4:
-			backimage.setBackground(getResources().getDrawable(R.drawable.background4));
+			//backimage.setBackground(getResources().getDrawable(R.drawable.background4));
+			backimage.setImageDrawable(getResources().getDrawable(R.drawable.background4));
 			break;
 		case R.id.background5:
-			backimage.setBackground(getResources().getDrawable(R.drawable.background5));
+			//backimage.setBackground(getResources().getDrawable(R.drawable.background5));
+			backimage.setImageDrawable(getResources().getDrawable(R.drawable.background5));
 			break;
 		case R.id.background6:
-			backimage.setBackground(getResources().getDrawable(R.drawable.background6));
+			//backimage.setBackground(getResources().getDrawable(R.drawable.background6));
+			backimage.setImageDrawable(getResources().getDrawable(R.drawable.background6));
 			break;
 		case R.id.background7:
-			backimage.setBackground(getResources().getDrawable(R.drawable.background7));
+			//backimage.setBackground(getResources().getDrawable(R.drawable.background7));
+			backimage.setImageDrawable(getResources().getDrawable(R.drawable.background7));
 			break;
 		case R.id.background8:
-			backimage.setBackground(getResources().getDrawable(R.drawable.background8));
+			//backimage.setBackground(getResources().getDrawable(R.drawable.background8));
+			backimage.setImageDrawable(getResources().getDrawable(R.drawable.background8));
 			break;
 		case R.id.background9:
-			backimage.setBackground(getResources().getDrawable(R.drawable.background9));
+			//backimage.setBackground(getResources().getDrawable(R.drawable.background9));
+			backimage.setImageDrawable(getResources().getDrawable(R.drawable.background9));
 			break;
 		case R.id.background10:
-			backimage.setBackground(getResources().getDrawable(R.drawable.background10));
+			//backimage.setBackground(getResources().getDrawable(R.drawable.background10));
+			backimage.setImageDrawable(getResources().getDrawable(R.drawable.background10));
 			break;
 		case R.id.background11:
-			backimage.setBackground(getResources().getDrawable(R.drawable.background11));
+			//backimage.setBackground(getResources().getDrawable(R.drawable.background11));
+			backimage.setImageDrawable(getResources().getDrawable(R.drawable.background11));
 			break;
 		case R.id.background12:
-			backimage.setBackground(getResources().getDrawable(R.drawable.background12));
+			//backimage.setBackground(getResources().getDrawable(R.drawable.background12));
+			backimage.setImageDrawable(getResources().getDrawable(R.drawable.background12));
 			break;
 		case R.id.background13:
-			backimage.setBackground(getResources().getDrawable(R.drawable.background13));
+			//backimage.setBackground(getResources().getDrawable(R.drawable.background13));
+			backimage.setImageDrawable(getResources().getDrawable(R.drawable.background13));
 			break;
 		case R.id.background14:
-			backimage.setBackground(getResources().getDrawable(R.drawable.background14));
+			//backimage.setBackground(getResources().getDrawable(R.drawable.background14));
+			backimage.setImageDrawable(getResources().getDrawable(R.drawable.background14));
 			break;
 		case R.id.background15:
-			backimage.setBackground(getResources().getDrawable(R.drawable.background15));
+			//backimage.setBackground(getResources().getDrawable(R.drawable.background15));
+			backimage.setImageDrawable(getResources().getDrawable(R.drawable.background15));
 			break;
 		case R.id.background16:
-			backimage.setBackground(getResources().getDrawable(R.drawable.background16));
+			//backimage.setBackground(getResources().getDrawable(R.drawable.background16));
+			backimage.setImageDrawable(getResources().getDrawable(R.drawable.background16));
+			break;
+		case R.id.background17:
+			if (choosepicture != 0) {
+				ViewGroup viewGroup = Relativelay;
+				img currentView = (img) viewGroup.getChildAt(choosepicture);
+				//將目前選去要刪除的圖片的後面每一張圖片的ID都往前移一個
+				for (int i = choosepicture + 1; i < viewGroup.getChildCount(); i++) {
+					viewGroup.getChildAt(i).setId(i - 1);
+				}
+				//將目前選擇要刪除的照片比他大的Z都要減1
+				for(int z = 1 ; z < viewGroup.getChildCount();z++)
+				{
+					if((int)currentView.getZ() < (int)viewGroup.getChildAt(z).getZ())
+					{
+						viewGroup.getChildAt(z).setZ((int)viewGroup.getChildAt(z).getZ()-1);
+					}
+				}
+				currentView.buildDrawingCache();
+				backimage.setScaleType(ImageView.ScaleType.CENTER_CROP);
+				backimage.setImageDrawable(currentView.getDrawable());
+				viewGroup.removeView(currentView);
+				countpicture--;
+				choosepicture=0;
+			}
+			else
+				makeTextAndShow(Context, "沒有選擇圖片", android.widget.Toast.LENGTH_SHORT);
 			break;
 		default:
 			break;
